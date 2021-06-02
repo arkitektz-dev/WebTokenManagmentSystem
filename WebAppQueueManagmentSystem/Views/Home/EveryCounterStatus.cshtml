@@ -1,0 +1,247 @@
+﻿
+<style>
+    .dashboard-wrapper {
+        position: relative;
+        left: 0;
+        margin-left: 79px;
+        min-height: 870px !important;
+    }
+</style> 
+
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <h1 class="text-center">Active Counter</h1>
+        <h1 class="text-center">
+            @DateTime.Now.Date.ToString("d/MM/yyyy") <span id="MyClockDisplay" class="clock" onload="showTime()"></span>
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-3">
+ 
+      
+         <h1 class="mt-4">
+             Counter 1
+         </h1>
+         <ul class="nav ticket-sidebar">
+
+
+             <li>
+                 <div class="card">
+
+                     <div class="card-body">
+                         <h3 class="card-title">Ticket 1</h3>
+                         <p class="card-text">Ticket Issue Time: 25:69</p>
+                         <button class="btn btn-success text-white btn-block">Serving</button>
+                     </div>
+                 </div>
+             </li>
+
+             @for (int i = 2; i <= 11; i++)
+             {
+                 <li>
+                     <div class="card">
+
+                         <div class="card-body">
+                             <h3 class="card-title">Ticket @i</h3>
+                             <p class="card-text">Ticket Issue Time: 25:69</p>
+                             <button class="btn btn-primary text-white btn-block">Get Info</button>
+                         </div>
+                     </div>
+                 </li>
+             }
+
+
+         </ul>
+
+    </div>
+    <div class="col-md-3">
+        <h1 class="mt-4">
+            Counter 2
+        </h1>
+        <ul class="nav ticket-sidebar">
+
+            <li>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h3 class="card-title">Ticket 1</h3>
+                        <p class="card-text">Ticket Issue Time: 25:69</p>
+                        <button class="btn btn-success text-white btn-block">Serving</button>
+                    </div>
+                </div>
+            </li>
+
+            @for (int i = 2; i <= 11; i++)
+            {
+                <li>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h3 class="card-title">Ticket @i</h3>
+                            <p class="card-text">Ticket Issue Time: 25:69</p>
+                            <button class="btn btn-primary text-white btn-block">Get Info</button>
+                        </div>
+                    </div>
+                </li>
+            }
+
+
+        </ul>
+
+    </div>
+
+    <div class="col-md-3">
+        <h1 class="mt-4">
+            Counter 3
+        </h1>
+        <ul class="nav ticket-sidebar">
+
+            <li>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h3 class="card-title">Ticket 1</h3>
+                        <p class="card-text">Ticket Issue Time: 25:69</p>
+                        <button class="btn btn-success text-white btn-block">Get Info</button>
+                    </div>
+                </div>
+            </li>
+
+            @for (int i = 2; i <= 11; i++)
+            {
+                <li>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h3 class="card-title">Ticket @i</h3>
+                            <p class="card-text">Ticket Issue Time: 25:69</p>
+                            <button class="btn btn-primary text-white btn-block">Get Info</button>
+                        </div>
+                    </div>
+                </li>
+            }
+
+
+        </ul>
+
+    </div>
+
+    <div class="col-md-3">
+        <h1 class="mt-4">
+            Counter 4
+        </h1>
+        <ul class="nav ticket-sidebar">
+
+            <li>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h3 class="card-title">Ticket 1</h3>
+                        <p class="card-text">Ticket Issue Time: 25:69</p>
+                        <button class="btn btn-success text-white btn-block">Serving</button>
+                    </div>
+                </div>
+            </li>
+
+            @for (int i = 2; i <= 11; i++)
+            {
+                <li>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h3 class="card-title">Ticket @i</h3>
+                            <p class="card-text">Ticket Issue Time: 25:69</p>
+                            <button class="btn btn-primary text-white btn-block">Get Info</button>
+                        </div>
+                    </div>
+                </li>
+            }
+
+
+        </ul>
+
+    </div>
+
+
+</div>
+
+
+ 
+
+<script>
+    const timer = document.getElementById('txt');
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+    var stoptime = true;
+
+    function timerCycle() {
+
+        sec = parseInt(sec);
+        min = parseInt(min);
+        hr = parseInt(hr);
+
+        sec = sec + 1;
+
+        if (sec == 60) {
+            min = min + 1;
+            sec = 0;
+        }
+        if (min == 60) {
+            hr = hr + 1;
+            min = 0;
+            sec = 0;
+        }
+
+        if (sec < 10 || sec == 0) {
+            sec = '0' + sec;
+        }
+        if (min < 10 || min == 0) {
+            min = '0' + min;
+        }
+        if (hr < 10 || hr == 0) {
+            hr = '0' + hr;
+        }
+
+        timer.innerHTML = hr + ':' + min + ':' + sec;
+
+        setTimeout("timerCycle()", 1000);
+
+    }
+
+    function showTime() {
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        var session = "AM";
+
+        if (h == 0) {
+            h = 12;
+        }
+
+        if (h > 12) {
+            h = h - 12;
+            session = "PM";
+        }
+
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+
+        setTimeout(showTime, 1000);
+
+    }
+
+    showTime();
+
+    timerCycle();
+</script>

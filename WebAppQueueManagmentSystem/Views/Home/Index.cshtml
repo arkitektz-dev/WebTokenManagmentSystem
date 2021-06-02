@@ -1,0 +1,104 @@
+﻿@{ 
+    TempData["Is-Dashboard-Active"] = "active";
+}
+
+<div class="row mt-2">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h3 class="mb-2">Queue Dashboard </h3>
+            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Finance Dashboard Template</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline-block">
+                    <h5 class="text-muted">Active Counters</h5>
+                    <h2 class="mb-0">5</h2>
+                </div>
+                <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+                    <i class="fa fa-briefcase fa-fw fa-sm text-secondary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline-block">
+                    <h5 class="text-muted">Ticket Issued</h5>
+                    <h2 class="mb-0"> 24</h2>
+                </div>
+                <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
+                    <i class="fa fa-ticket-alt fa-fw fa-sm text-primary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline-block">
+                    <h5 class="text-muted">Issue Resolved</h5>
+                    <h2 class="mb-0">14</h2>
+                </div>
+                <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+                    <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline-block">
+                    <h5 class="text-muted">Waiting</h5>
+                    <h2 class="mb-0"> 10</h2>
+                </div>
+                <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+                    <i class="fa fa-user fa-fw fa-sm text-brand"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">
+                THIS MONTH (TOKEN)
+            </h5>
+            <div class="card-body">
+                <canvas id="chartjs_balance_bar"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">EBIT (Earnings Before Interest & Tax)</h5>
+            <div class="card-body">
+                <div id="ebit_morris"></div>
+                <div class="text-center">
+                    <span class="legend-item mr-3">
+                        <span class="fa-xs text-secondary mr-1 legend-tile"><i class="fa fa-fw fa-square-full"></i></span>
+                        <span class="legend-text">EBIT (Earnings Before Interest & Tax)</span>
+                    </span>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,163 @@
+﻿
+<aside class="page-aside">
+    <div class="aside-content">
+        <div class="aside-header">
+            <button class="navbar-toggle" data-target=".aside-nav" data-toggle="collapse" type="button">
+                <span class="icon"><i class="fas fa-caret-down"></i></span>
+            </button>
+       
+        </div>
+      
+        <div class="aside-nav collapse">
+            <ul class="nav ticket-sidebar">
+
+                @for (int i = 0; i <= 11; i++)
+                {
+                    <li>
+                        <div class="card">
+                            
+                            <div class="card-body">
+                                <h3 class="card-title">Ticket @i</h3>
+                                <p class="card-text">Ticket Issue Time: 25:69</p>
+                                <button class="btn btn-primary text-white btn-block">Pick this</button>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+
+            </ul>
+        </div>
+    </div>
+</aside>
+
+
+
+<div class="main-content container-fluid p-0">
+    <div class="email-inbox-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="email-search">
+                    <div class="input-group input-search">
+                        <button class="btn  btn-secondary">Pick Next Ticket</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-right">
+                <div class="email-title">
+                    <span class="icon"><i class="fas fa-inbox"></i></span>
+                    Counter 1
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+ 
+
+    <div class="row">
+        <div class="col-md-11 mx-5">
+            <h1 class="text-center">Ticket No : 1</h1>
+            <h2 class="text-center">Serving Time : <span id="txt"></span> </h2>
+            <div class="card">
+                <h5 class="card-header">Ticket Form</h5>
+
+                <div class="card-body border-top">
+
+                    <form>
+                        <input type="hidden" name="Ticket_No" value="1" />
+
+                        <div class="form-group">
+                            <label for="input-select">Status:</label>
+                            <select class="form-control col-md-4" id="input-select">
+                                <option>-----Select----------</option>
+                                <option>Complete</option>
+                                <option>Pending</option>
+                                <option>Irrelevant</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-select">Type of service:</label>
+                            <select class="form-control col-md-4" id="input-select">
+                                <option>-----Select----------</option>
+                                <option>Bank Deposit</option>
+                                <option>Cash Withdrawl</option>
+                                
+                            </select>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label for="input-select">Comment</label>
+                            <textarea class="form-control" name="Ticket_Comment" rows="3"></textarea>
+                        </div>
+
+
+                        <div class="form-inline" style="width:22%; margin:0 auto;">
+                            <button class="btn btn-secondary">Next</button>
+                            <button class="btn btn-secondary ml-5">Close</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const timer = document.getElementById('txt');
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+    var stoptime = true;
+
+    function timerCycle() {
+      
+            sec = parseInt(sec);
+            min = parseInt(min);
+            hr = parseInt(hr);
+
+            sec = sec + 1;
+
+            if (sec == 60) {
+                min = min + 1;
+                sec = 0;
+            }
+            if (min == 60) {
+                hr = hr + 1;
+                min = 0;
+                sec = 0;
+            }
+
+            if (sec < 10 || sec == 0) {
+                sec = '0' + sec;
+            }
+            if (min < 10 || min == 0) {
+                min = '0' + min;
+            }
+            if (hr < 10 || hr == 0) {
+                hr = '0' + hr;
+            }
+
+            timer.innerHTML = hr + ':' + min + ':' + sec;
+
+            setTimeout("timerCycle()", 1000);
+        
+    }
+
+    timerCycle();
+</script>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.4.2.min.js"></script>
+<script src="~/signalr/hubs"></script>
+<script src="~/Scripts/CounterDashboard/CounterCtrl.js"></script>
