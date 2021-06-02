@@ -1,6 +1,6 @@
 # Web Token Managment System
 
-Powerd by
+
 [![N|Solid](http://arkitektz.com/images/logo.png)](http://arkitektz.com/images/logo.png)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
