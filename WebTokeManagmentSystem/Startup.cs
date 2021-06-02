@@ -42,6 +42,7 @@ namespace WebTokeManagmentSystem
             services.AddScoped<ITokenHelper, TokenHelper>();
             services.AddScoped<ITokenBLL, TokenBLL>();
             services.AddScoped<ICounterHelper, CounterHelper>();
+            services.AddScoped<ICounterBLL, CounterBLL>();
 
 
 

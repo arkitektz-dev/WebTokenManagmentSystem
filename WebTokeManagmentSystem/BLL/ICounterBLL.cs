@@ -1,7 +1,10 @@
-﻿namespace WebTokenManagmentSystem.BLL
+﻿using WebTokenManagmentSystem.Authentication.Params;
+using WebTokenManagmentSystem.Dtos.Counter;
+
+namespace WebTokenManagmentSystem.BLL
 {
     public interface ICounterBLL
     {
-        void Hello();
+        CounterDetailDto GetCounterDetailByUserId(CounterDetailBody model);
     }
 }
