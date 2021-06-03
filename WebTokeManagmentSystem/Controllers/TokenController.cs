@@ -16,7 +16,7 @@ using WebTokenManagmentSystem.BLL;
 
 namespace WebTokeManagmentSystem.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TokenController : ControllerBase
@@ -229,6 +229,28 @@ namespace WebTokeManagmentSystem.Controllers
                 return NotFound();
             }
         }
+
+        /// <summary>
+        /// Add Counter
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("Counter-Submit-Ticket")]
+        public IActionResult Counter_Submit_Ticket([FromBody] CompleteTicketBody model)
+        {
+            var message = tokenBLL.CompleteTicket(model);
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
 
     }
 }

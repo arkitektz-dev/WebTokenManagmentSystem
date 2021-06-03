@@ -15,5 +15,6 @@ namespace WebTokenManagmentSystem.BLL
         CounterServiceRelationDto AssignCounterServiceRelation(CounterRelationBody model);
         CounterDto AddCounter(CounterBody model);
         CounterTokenDto AssignTicketToCounter(CounterTokenBody model);
+        CompleteTicketDto CompleteTicket(CompleteTicketBody model);
     }
 }

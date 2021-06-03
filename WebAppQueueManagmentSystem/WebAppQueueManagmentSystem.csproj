@@ -245,9 +245,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiHelpers\Request\CounterDetailRequestBody.cs" />
+    <Compile Include="ApiHelpers\Request\CounterRequestTokenBody.cs" />
     <Compile Include="ApiHelpers\Request\GenerateTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\ListTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\LoginRequestBody.cs" />
+    <Compile Include="ApiHelpers\Response\CounterDetailBody.cs" />
+    <Compile Include="ApiHelpers\Response\CounterListBody.cs" />
+    <Compile Include="ApiHelpers\Response\CounterTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\GenerateTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\LoginUserBody.cs" />
     <Compile Include="ApiHelpers\Utility\ApiUtility.cs" />
@@ -257,6 +262,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="BLL\Counter\CounterRepository.cs" />
+    <Compile Include="BLL\Counter\ICounterRepository.cs" />
     <Compile Include="BLL\Token\ITokenRepository.cs" />
     <Compile Include="BLL\Token\TokenRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -270,6 +277,7 @@
     <Compile Include="Models\Auth.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -776,7 +784,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BLL\Counter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

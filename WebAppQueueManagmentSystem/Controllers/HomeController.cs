@@ -7,8 +7,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebAppQueueManagmentSystem.BLL.Counter;
 using WebAppQueueManagmentSystem.BLL.Token;
 using WebAppQueueManagmentSystem.Hubs;
+using WebAppQueueManagmentSystem.Models;
 
 namespace WebAppQueueManagmentSystem.Controllers
 {
@@ -16,9 +18,12 @@ namespace WebAppQueueManagmentSystem.Controllers
     {
         string TokenNumber;
         readonly ITokenRepository token;
-        public HomeController(ITokenRepository _token)
+        readonly ICounterRepository counter;
+
+        public HomeController(ITokenRepository _token, ICounterRepository _counter)
         {
             this.token = _token;
+            this.counter = _counter;
         }
 
         public ActionResult Index()
@@ -27,9 +32,36 @@ namespace WebAppQueueManagmentSystem.Controllers
             return View();
         }
 
-        public ActionResult CounterDashboard()
-        { 
+
+        //Counter Dashboard
+        public ActionResult CounterDashboard(string UserId)
+        {
+            var CounterDetail = counter.CounterDetail(UserId);
+
+            //Fill Dropdown
+            ViewBag.CounterStatus = CounterDetail.CounterStatus;
+            ViewBag.TypeOfService = CounterDetail.CounterService;
+
+            //Counter Number
+            TempData["CounterNumber"] = CounterDetail.CounterNumber;
+
+            //List Queue Ticket
+            ViewBag.ListToken = token.ListToken(1, 3);
+
             return View();
+        }
+
+        public JsonResult AssignCounterToTicket(string TokenNumber, string UserId, int StatusId)
+        {
+            var message = counter.AssignTokenToCounter(TokenNumber, UserId, StatusId);
+
+            if (message != null){
+                return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            else { 
+                return Json(new { message = "Error" }, JsonRequestBehavior.AllowGet);
+            }
+
         }
 
         public ActionResult CurrentTicketNumber() {
@@ -65,12 +97,19 @@ namespace WebAppQueueManagmentSystem.Controllers
         [HttpPost]
         public JsonResult GetNewTicket(string CustomerType)
         {
-            var message = token.GenerateTicket(CustomerType);
-            TokenNumber = message.token.ToString();
-            print();
-            BroadcastTicketNumber(TokenNumber);
+            var row = token.GenerateTicket(CustomerType);
 
-            return Json(new { message}, JsonRequestBehavior.AllowGet);
+            var TokenDetail = new Token()
+            {
+                token = row.token,
+                date = row.date,
+                time = row.time
+            };
+            TokenNumber = TokenDetail.token;
+            print();
+            BroadcastTicketNumber(TokenDetail);
+
+            return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
         }
 
         private void print()
@@ -88,8 +127,8 @@ namespace WebAppQueueManagmentSystem.Controllers
             }
         }
 
-        public void BroadcastTicketNumber(string TicketNumber) {
-            TicketHub.TicketBroadCast(TicketNumber);
+        public void BroadcastTicketNumber(Token TokenDetail) {
+            TicketHub.TicketBroadCast(TokenDetail);
         }
 
         void pd_PrintPage(object sender, PrintPageEventArgs e)

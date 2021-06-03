@@ -6992,8 +6992,8 @@ Media Query
 
 /*Ticket Sidebar*/
 .ticket-sidebar {
-    height: 900px;
-    overflow: hidden
+    height: 600px;
+    overflow-y: scroll;
 }
 
     .ticket-sidebar:hover {

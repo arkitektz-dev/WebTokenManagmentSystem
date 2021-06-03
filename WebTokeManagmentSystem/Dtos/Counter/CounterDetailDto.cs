@@ -14,6 +14,8 @@ namespace WebTokenManagmentSystem.Dtos.Counter
 
         public List<ServiceOption> CounterService { get; set; }
 
+        public int CounterID { get; set; }
+
 
     }
 }

@@ -58,7 +58,8 @@ namespace WebTokenManagmentSystem.BLL
             {
                 CounterNumber = (int)counter_number.Number,
                 CounterService = List_service,
-                CounterStatus = context.Statuses.ToList()
+                CounterStatus = context.Statuses.ToList(),
+                CounterID = counter_number.Id
             };
 
             return return_message;

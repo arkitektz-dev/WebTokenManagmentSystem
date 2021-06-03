@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace WebTokenManagmentSystem.Dtos.Token
+namespace WebAppQueueManagmentSystem.ApiHelpers.Request
 {
-    public class CounterTokenDto
-    {
+    public class CounterRequestTokenBody
+    { 
         public int? CounterId { get; set; }
+
         public string TokenNumber { get; set; }
+
         public int StatusId { get; set; }
+
     }
 }

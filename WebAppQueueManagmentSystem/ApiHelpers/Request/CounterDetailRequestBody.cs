@@ -5,9 +5,8 @@ using System.Web;
 
 namespace WebAppQueueManagmentSystem.ApiHelpers.Request
 {
-    public class ListTokenRequestBody
+    public class CounterDetailRequestBody
     {
-       public int? token_status { get; set; } 
-       public int? customer_Type { get; set; }
+        public string userId { get; set; }
     }
 }

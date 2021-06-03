@@ -15,6 +15,7 @@ namespace WebTokenManagmentSystem.Models
         }
 
         public int Id { get; set; }
+        public int? ServiceOptionId { get; set; }
         public int? TokenNumber { get; set; }
         public byte? Status { get; set; }
         public bool? IsCustomer { get; set; }
@@ -22,6 +23,7 @@ namespace WebTokenManagmentSystem.Models
         public string CustomTokenNumber { get; set; }
         public DateTime? CreatedDate { get; set; }
 
+        public virtual ServiceOption ServiceOption { get; set; }
         public virtual ICollection<CounterTokenRelation> CounterTokenRelations { get; set; }
         public virtual ICollection<TokenStatusHistory> TokenStatusHistories { get; set; }
         public virtual ICollection<UserToken> UserTokens { get; set; }

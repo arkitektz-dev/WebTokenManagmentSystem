@@ -88,7 +88,7 @@ namespace WebAppQueueManagmentSystem.Controllers
             
                     if (RoleForUser.Contains("Cashier"))
                     {
-                        return RedirectToAction("CashierDashboard", "Home");
+                        return RedirectToAction("CounterDashboard", "Home" , new { UserId = user.Id });
                     }
 
                     

@@ -54,15 +54,13 @@ namespace WebTokenManagmentSystem.Helper
 
         public bool VerifyTokenStatus(byte status)
         {
-
-            if (status == (byte?)GlobalEnums.Status.Pending || status == (byte?)GlobalEnums.Status.Complete)
-            {
+            var checkStatus = _context.Statuses.Where(x => x.Id == status).Count() > 0;
+            if (checkStatus)
                 return true;
-            }
             else
-            {
                 return false;
-            }
+            
+
 
 
         }

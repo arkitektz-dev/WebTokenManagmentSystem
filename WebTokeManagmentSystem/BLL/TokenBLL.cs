@@ -148,6 +148,10 @@ namespace WebTokenManagmentSystem.BLL
                     customer_prefix = "N";
                     break;
 
+                case (3):
+                    customer_type_id = (int?)GlobalEnums.CustomerType.All_Customer;
+                    break;
+
                 default:
                     //Error : Invalid Customer Type
                     return null;
@@ -170,18 +174,19 @@ namespace WebTokenManagmentSystem.BLL
             //     });
 
             var Token_list = context.Tokens
+                 
                  .WhereIf(token_status_code != (int?)GlobalEnums.Status.All, x => x.Status == token_status_code
-                 && x.CreatedDate.Value.Date == DateTime.Now.Date
-                 && x.IsCustomer == (customer_type_id == (int?)GlobalEnums.CustomerType.Customer ? true : false))
-
+                 && x.CreatedDate.Value.Date == DateTime.Now.Date)
                  .WhereIf(token_status_code == (int?)GlobalEnums.Status.All, 
-                 x => x.CreatedDate.Value.Date == DateTime.Now.Date
-                 && x.IsCustomer == (customer_type_id == (int?)GlobalEnums.CustomerType.Customer ? true : false))
+                 x => x.CreatedDate.Value.Date == DateTime.Now.Date)
+                 .WhereIf(customer_type_id != 3, x => x.IsCustomer == (customer_type_id == (int?)GlobalEnums.CustomerType.Customer ? true : false))
+                 
                  .Select(row => new
                  {
-                     token = customer_prefix + row.TokenNumber.Value.ToString("D5"),
-                     date = row.CreatedDate.Value.ToString(@"dd/MM/yyyy"),
-                     time = row.CreatedDate.Value.ToString(@"hh:m tt")
+                     token = row.TokenNumber.Value.ToString("D5"),
+                     date =  row.CreatedDate.Value.ToString(@"dd/MM/yyyy"),
+                     time =  row.CreatedDate.Value.ToString(@"hh:m tt"),
+                     isCustomer = row.IsCustomer
                  });
 
 
@@ -192,9 +197,11 @@ namespace WebTokenManagmentSystem.BLL
             {
                 ListTokenDto row = new ListTokenDto();
 
-                row.Token = item.token;
+                row.Token = (item.isCustomer == true ? "C" : "N") + item.token;
                 row.Date = item.date;
                 row.Time = item.time;
+                row.isCustomer = item.isCustomer;
+                
 
                 master.Add(row);
             }
@@ -424,12 +431,15 @@ namespace WebTokenManagmentSystem.BLL
 
         public CounterTokenDto AssignTicketToCounter(CounterTokenBody model)
         {
-            var count_counter = context.Counters.Where(x => x.Id == model.CounterId).Count() > 0;
-            if (!count_counter)
+             
+
+            var count_TokenNumber = context.Counters.Where(x => x.Id == model.CounterId).Count() > 0;
+            if (!count_TokenNumber)
                 //Error : Counter not found
                 return null;
 
-            var count_token = context.Tokens.Where(x => x.Id == model.TokenId).Count() > 0;
+            var count_token = context.Tokens.Where(x => x.CustomTokenNumber == model.TokenNumber 
+            && x.CreatedDate.Value.Date == DateTime.Now.Date).Count() > 0;
             if (!count_token)
                 //Error : Counter token not found 
                 return null;
@@ -441,18 +451,45 @@ namespace WebTokenManagmentSystem.BLL
                 return null;
 
 
+            var TokenID = context.Tokens.Where(x => x.CustomTokenNumber == model.TokenNumber
+            && x.CreatedDate.Value.Date == DateTime.Now.Date).Select(c => c.Id).FirstOrDefault();
+
+
+            //Change Status from token
+            var ChangeTokenStatus = context.Tokens
+                .Where(x => x.Id == TokenID)
+                .FirstOrDefault();
+
+            ChangeTokenStatus.Status = (byte?)model.StatusId;
+            context.SaveChanges();
+
+            TokenStatusHistory rowHistory = new TokenStatusHistory()
+            {
+                Status = (byte?)GlobalEnums.Status.Serving,
+                TokenId = TokenID
+            };
+
+            context.TokenStatusHistories.Add(rowHistory);
+            context.SaveChanges();
+
+
             CounterTokenRelation row = new CounterTokenRelation()
             {
                 CounterId = model.CounterId,
-                TokenId = model.TokenId,
+                TokenId = TokenID,
                 StatusId = model.StatusId
             };
+
+            context.CounterTokenRelations.Add(row);
+            context.SaveChanges();
+
+
 
             var return_message = new CounterTokenDto()
             {
                 CounterId = model.CounterId,
                 StatusId = model.StatusId,
-                TokenId = model.TokenId
+                TokenNumber = model.TokenNumber
             };
 
             return return_message;
@@ -460,7 +497,57 @@ namespace WebTokenManagmentSystem.BLL
 
         }
 
-       
+
+        public CompleteTicketDto CompleteTicket(CompleteTicketBody model)
+        {
+            var count_Number = context.Tokens
+                .Where(x => x.CustomTokenNumber == model.TokenNumber &&
+                x.CreatedDate.Value.Date == DateTime.Now.Date).Count() > 0;
+
+            if (!count_Number)
+                //Error : Token number not found
+                return null;
+
+
+            var count_status = context.Statuses.Where(x => x.Id == model.StatusId).Count() > 0;
+            if (!count_status)
+                //Error : Status not found
+                return null;
+
+
+
+            //Change token status from token table 
+            var row_token = context.Tokens
+           .Where(x => x.CustomTokenNumber ==  model.TokenNumber
+                  && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
+
+            row_token.Status = (byte?)GlobalEnums.Status.Complete;
+            context.SaveChanges();
+
+            //Add New history in token status
+            TokenStatusHistory row = new TokenStatusHistory() 
+            { 
+               Status = (byte?)GlobalEnums.Status.Complete,
+               TokenId = row_token.Id
+            };
+
+            context.TokenStatusHistories.Add(row);
+            context.SaveChanges();
+
+            //Update Token status from CTR
+            var count_ctr = context.CounterTokenRelations
+                .Where(x => x.TokenId == row_token.Id).FirstOrDefault();
+
+            count_ctr.StatusId = (int?)GlobalEnums.Status.Complete;
+            context.SaveChanges();
+
+            var return_message = new CompleteTicketDto()
+            {
+               TicketNumber = row_token.CustomTokenNumber
+            };
+
+            return return_message;
+        }
 
 
     }

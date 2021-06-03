@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace WebTokenManagmentSystem.Authentication.Params
 {
-    public class CounterTokenBody
+    public class CompleteTicketBody
     {
         [Required]
-        public int? CounterId { get; set; }
-      
-        [Required]
         public string TokenNumber { get; set; }
-       
-        [Required]
-        public int StatusId { get; set; }
 
-         
+        [Required]
+        public byte? StatusId { get; set; }
+
+        [Required]
+        public int? ServiceOptionId { get; set; }
+
+
 
     }
 }

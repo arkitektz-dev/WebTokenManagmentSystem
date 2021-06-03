@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -80,11 +81,42 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         }
 
 
+        public IList<CounterListBody> ListToken(int token_status, int customer_Type)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            var client = new RestClient($"{apiEndPoint}api/Token/List-Token?token_status={token_status}&customer_Type={customer_Type}");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            var body = @"";
+            request.AddHeader("Authorization", $"Bearer {GenerateToken().BearerToken}");
+            request.AddParameter("text/plain", body, ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
 
 
-         
+            JArray TokenList = JArray.Parse(response.Content);
 
-       
+            IList<CounterListBody> row = TokenList.Select(p => new CounterListBody
+            {
+                Token = (string)p["token"],
+                Date = (string)p["date"],
+                Time = (string)p["time"],
+                isCustomer = (bool)p["isCustomer"]
+            }).ToList();
+
+
+            var return_message = row;
+
+            return return_message;
+
+        }
+
+
+
+
+
+
+
 
     }
 }

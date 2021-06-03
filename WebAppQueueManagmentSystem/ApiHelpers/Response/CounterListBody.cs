@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace WebTokenManagmentSystem.Dtos.Token
+namespace WebAppQueueManagmentSystem.ApiHelpers.Response
 {
-    public class ListTokenDto
+    public class CounterListBody
     {
         public string Token { get; set; }
         public string Date { get; set; }

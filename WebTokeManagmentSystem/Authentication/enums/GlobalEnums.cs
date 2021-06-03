@@ -14,7 +14,7 @@ namespace WebTokenManagmentSystem.Authentication.enums
 
         public enum CustomerType
         { 
-           Customer = 1, Non_Customer = 2
+           Customer = 1, Non_Customer = 2, All_Customer = 3
         }
     }
 

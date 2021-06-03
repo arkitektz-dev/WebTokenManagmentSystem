@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace WebTokenManagmentSystem.Authentication.Params
+namespace WebAppQueueManagmentSystem.ApiHelpers.Response
 {
     public class CounterTokenBody
     {
-        [Required]
         public int? CounterId { get; set; }
-      
-        [Required]
         public string TokenNumber { get; set; }
-       
-        [Required]
         public int StatusId { get; set; }
-
-         
-
     }
 }

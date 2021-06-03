@@ -292,6 +292,13 @@ namespace WebTokenManagmentSystem.Models
                     .HasColumnName("Custom_Token_Number");
 
                 entity.Property(e => e.IsCustomer).HasColumnName("isCustomer");
+
+                entity.Property(e => e.ServiceOptionId).HasColumnName("ServiceOptionID");
+
+                entity.HasOne(d => d.ServiceOption)
+                    .WithMany(p => p.Tokens)
+                    .HasForeignKey(d => d.ServiceOptionId)
+                    .HasConstraintName("FK_Token_ServiceOption");
             });
 
             modelBuilder.Entity<TokenStatusHistory>(entity =>
