@@ -32,6 +32,19 @@ namespace WebAppQueueManagmentSystem.Controllers
             return View();
         }
 
+        public PartialViewResult ListCountTicket()
+        {
+
+            var list = token.ListCounterToken().ToList();
+
+
+
+            return PartialView(list);
+        }
+
+       
+
+
 
         //Counter Dashboard
         public ActionResult CounterDashboard(string UserId)
@@ -43,7 +56,7 @@ namespace WebAppQueueManagmentSystem.Controllers
             ViewBag.TypeOfService = CounterDetail.CounterService;
 
             //Counter Number
-            TempData["CounterNumber"] = CounterDetail.CounterNumber;
+            TempData["CounterNumber"] = CounterDetail.CounterID;
 
             //List Queue Ticket
             ViewBag.ListToken = token.ListToken(1, 3);
@@ -56,12 +69,39 @@ namespace WebAppQueueManagmentSystem.Controllers
             var message = counter.AssignTokenToCounter(TokenNumber, UserId, StatusId);
 
             if (message != null){
+                BroadcastNewAssignTicket(TokenNumber);
+                BroadcastRemoveTicket(TokenNumber);
                 return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
+           
             }
             else { 
                 return Json(new { message = "Error" }, JsonRequestBehavior.AllowGet);
             }
 
+        }
+
+        private void BroadcastRemoveTicket(string tokenNumber)
+        {
+            TicketHub.RemoveTicket(tokenNumber);
+        }
+
+        private void BroadcastNewAssignTicket(string TokenNumber)
+        {
+            TicketHub.NewAssignTicket(TokenNumber);
+        }
+
+        public JsonResult SubmittedTicket(string TokenNumber, string Comment, int ServiceOptionId, byte StatusId)
+        {
+            var message = token.Submitted_Token( TokenNumber,  Comment,  ServiceOptionId,  StatusId);
+
+            if (message != null)
+            {
+                return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { message = "Error" }, JsonRequestBehavior.AllowGet);
+            }
         }
 
         public ActionResult CurrentTicketNumber() {

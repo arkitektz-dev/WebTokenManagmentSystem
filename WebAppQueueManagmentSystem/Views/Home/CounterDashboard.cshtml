@@ -130,9 +130,20 @@
     var hr = 0;
     var min = 0;
     var sec = 0;
-    var stoptime = true;
+    var stoptime = false;
 
     function timerCycle() {
+
+        console.log(stoptime);
+
+        if (stoptime == true) {
+            hr = 0;
+            min = 0;
+            sec = 0;
+            return;
+        }
+          
+
       
             sec = parseInt(sec);
             min = parseInt(min);

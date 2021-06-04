@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     ViewBag.SideBarDisable = "true";
 }
 
@@ -17,9 +17,9 @@
     <div class="col-md-12" style="margin-top:12pc;">
         <h1 class="text-center">Get Your Ticket</h1>
         <h1 class="text-center">Please select one of the options below?</h1>
-        
+
         <div style="width: 20%; margin: 0 auto; margin-right: 44%;">
-             
+
             <div class="row">
 
                 <div class="form-group" style="width: 20%; margin: 0 auto;">
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="form-group" style="width: 20%; margin: 0 auto;">
-                    <button type="button" class="btn btn-primary"  id="btnNonCustomer">Non-Customer</button>
+                    <button type="button" class="btn btn-primary" id="btnNonCustomer">Non-Customer</button>
                 </div>
 
 
@@ -37,5 +37,8 @@
     </div>
 </div>
 
+
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.4.2.min.js"></script>
+<script src="~/signalr/hubs"></script>
 <script src="~/Scripts/Ticket/TicketCtrl.js"></script>

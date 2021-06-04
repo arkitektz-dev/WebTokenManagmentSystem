@@ -1,10 +1,27 @@
 ﻿let con = $.connection.ticketHub;
 let currentToken = "";
 
+
 con.client.getNewTicket = function (TokenDetail) {
     console.log(TokenDetail)
 
     AddNewTicket(TokenDetail);
+}
+
+con.client.getRemovedTicketNumber = function (TicketNumber) {
+    console.log("YOur ticket number");
+    console.log(TicketNumber);
+    RemoveTicketFromList(TicketNumber);
+
+
+}
+
+
+let RemoveTicketFromList = (TicketNumber) => {
+    var ticketNumber = document.getElementById(`TicketNumber${TicketNumber}`);
+    if (ticketNumber != null) {
+        ticketNumber.remove();
+    }
 }
 
 
@@ -26,6 +43,7 @@ let IdleWarning = (Switch) => {
 
 }
 
+ 
 let SelectTicket = (TokenNumber) => {
 
     if (currentToken != "") {
@@ -48,11 +66,54 @@ let SelectTicket = (TokenNumber) => {
 
             if (result == "Success") {
 
+                console.log(TokenNumber);
                 IdleWarning("Off");
+                stoptime = false;
                 timerCycle();
                 document.getElementById('txtTicketNo').innerText = "Ticket Number " +  TokenNumber;
-                document.getElementById(`TicketNumber${TokenNumber}`).remove();
+                 
                 currentToken = TokenNumber;
+                console.log(currentToken);
+
+            } else {
+                console.log("Error")
+
+            }
+
+        },
+        error: function () {
+            alert("Error occured!!")
+        }
+    });
+}
+
+
+let btnCloseThisTicket = () => {
+
+    var TokenStatusId = document.getElementById("StatusId").value;
+    var ServiceStatusId = document.getElementById("ServiceId").value;
+    var CounterComment = document.getElementById("txtComment").value;
+
+    //get User Id 
+    const params = new URLSearchParams(window.location.search)
+    var userID = params.get('UserId')
+    console.log(userID);
+
+    console.log(currentToken,TokenStatusId, ServiceStatusId, CounterComment, userID);
+
+    $.ajax({
+        type: "GET",
+        url: "/Home/SubmittedTicket",
+        data: { TokenNumber: currentToken, Comment: CounterComment, ServiceOptionId: ServiceStatusId, StatusId: TokenStatusId },
+        success: function (data) {
+            console.log(data.message);
+            var result = data.message;
+
+            if (result == "Success") {
+
+                stoptime = true;
+                IdleWarning("On"); 
+                currentToken = "";
 
             } else {
                 console.log("Error")
@@ -65,19 +126,8 @@ let SelectTicket = (TokenNumber) => {
         }
     });
 
- 
 
 
-}
-
-
-let btnCloseThisTicket = () => {
-
-    var TokenStatusId = document.getElementById("StatusId").value;
-    var ServiceStatusId = document.getElementById("ServiceId").value;
-    var CounterComment = document.getElementById("txtComment").value;
-
-    console.log(TokenStatusId, ServiceStatusId, CounterComment);
 }
 
 
@@ -93,7 +143,7 @@ let AddNewTicket = (TokenDetail) => {
     console.log(TokenDetail);
 
     var card = `
-      <li class="TicketNumber${TokenDetail.token}">
+      <li id="TicketNumber${TokenDetail.token}">
          <div class="card">
               <div class="card-body">
                     <h3 class="card-title">Ticket ${TokenDetail.token}</h3>

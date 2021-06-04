@@ -245,11 +245,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiHelpers\Request\SubmittedTicketRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterDetailRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterRequestTokenBody.cs" />
     <Compile Include="ApiHelpers\Request\GenerateTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\ListTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\LoginRequestBody.cs" />
+    <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
+    <Compile Include="ApiHelpers\Response\SubmittedTicketBody.cs" />
     <Compile Include="ApiHelpers\Response\CounterDetailBody.cs" />
     <Compile Include="ApiHelpers\Response\CounterListBody.cs" />
     <Compile Include="ApiHelpers\Response\CounterTokenBody.cs" />
@@ -724,6 +727,7 @@
     <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CounterDashboard\CounterCtrl.js" />
+    <Content Include="Scripts\CurrentTicketNumber\CurrentTicketCtrl.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -781,6 +785,7 @@
     <Content Include="Views\Home\GetNewTicket.cshtml" />
     <Content Include="Views\Home\UpdateFeedBack.cshtml" />
     <Content Include="Views\Home\GenerateTicket.cshtml" />
+    <Content Include="Views\Home\ListCountTicket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

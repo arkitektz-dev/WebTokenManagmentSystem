@@ -283,6 +283,8 @@ namespace WebTokenManagmentSystem.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.CompleteDate).HasColumnType("datetime");
+
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");

@@ -238,7 +238,7 @@ namespace WebTokeManagmentSystem.Controllers
         [Route("Counter-Submit-Ticket")]
         public IActionResult Counter_Submit_Ticket([FromBody] CompleteTicketBody model)
         {
-            var message = tokenBLL.CompleteTicket(model);
+            var message = tokenBLL.SubmittedTicket(model);
 
             if (message != null)
             {
@@ -249,6 +249,48 @@ namespace WebTokeManagmentSystem.Controllers
                 return NotFound();
             }
         }
+
+
+        /// <summary>
+        /// List Assign Token to counter
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("List-Counter-Token")]
+        public IActionResult List_Counter_Token()
+        {
+            var message = tokenBLL.ListCounterToken();
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        ///// <summary>
+        ///// Check if ticket is assigned to the counter already
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpPost]
+        //[Route("Counter-Ticket-Checker")]
+        //public IActionResult Counter_Ticket_Checker([FromBody] CompleteTicketBody model)
+        //{
+        //    var message = tokenBLL.SubmittedTicket(model);
+
+        //    if (message != null)
+        //    {
+        //        return Ok(message);
+        //    }
+        //    else
+        //    {
+        //        return NotFound();
+        //    }
+        //}
+
 
 
 

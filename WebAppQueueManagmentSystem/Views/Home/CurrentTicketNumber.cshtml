@@ -14,23 +14,7 @@
 
         <div class="aside-nav collapse">
             <h1 class="text-center">Next in Queue</h1>
-            <ul class="nav ticket-sidebar">
-
-
-
-
-                @for (int i = 0; i <= 11; i++)
-                {
-                    <li style="margin-top: -29px;">
-                        <div class="card mb-0">
-                            <div class="card-body">
-                                <h1 class="card-title bg-primary p-4"> @value@i</h1>
-                            </div>
-                        </div>
-                    </li>
-                }
-
-
+            <ul class="nav ticket-sidebar" id="listSidebar">
             </ul>
         </div>
     </div>
@@ -61,49 +45,13 @@
                             <th style="text-align:center;">Ticket Number</th>
                         </tr>
                     </thead>
-                    <tbody>
-
-                        @{ 
-                            string value1 = "Ticket";
-                            int counterN = 0;
-                        }
-
-                        @for (int i = 1; i <= 11; i++)
-                        {
-
-                            {
-                                counterN = i + 5;
-                            }
-
-                            <tr>
-                                <td>
-                                    <div class="card ml-3">
-
-                                        <div class="card-body">
-                                            <h3 class="card-title text-center">Counter @counterN</h3>
-
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="card ml-3">
-
-                                        <div class="card-body">
-                                            <h3 class="card-title text-center">@value1</h3>
-                                            <p class="card-text text-center">Ticket Issue Time: 25:69</p>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-
-
+                    <tbody id="listCurrentTicketNumber">
                     </tbody>
                 </table>
             </div>
         </div>
 
- 
+
     </div>
 
 
@@ -111,76 +59,8 @@
 
 
 
-<script>
-    const timer = document.getElementById('txt');
-    var hr = 0;
-    var min = 0;
-    var sec = 0;
-    var stoptime = true;
-
-    function timerCycle() {
-
-        sec = parseInt(sec);
-        min = parseInt(min);
-        hr = parseInt(hr);
-
-        sec = sec + 1;
-
-        if (sec == 60) {
-            min = min + 1;
-            sec = 0;
-        }
-        if (min == 60) {
-            hr = hr + 1;
-            min = 0;
-            sec = 0;
-        }
-
-        if (sec < 10 || sec == 0) {
-            sec = '0' + sec;
-        }
-        if (min < 10 || min == 0) {
-            min = '0' + min;
-        }
-        if (hr < 10 || hr == 0) {
-            hr = '0' + hr;
-        }
-
-        timer.innerHTML = hr + ':' + min + ':' + sec;
-
-        setTimeout("timerCycle()", 1000);
-
-    }
-
-    function showTime() {
-        var date = new Date();
-        var h = date.getHours(); // 0 - 23
-        var m = date.getMinutes(); // 0 - 59
-        var s = date.getSeconds(); // 0 - 59
-        var session = "AM";
-
-        if (h == 0) {
-            h = 12;
-        }
-
-        if (h > 12) {
-            h = h - 12;
-            session = "PM";
-        }
-
-        h = (h < 10) ? "0" + h : h;
-        m = (m < 10) ? "0" + m : m;
-        s = (s < 10) ? "0" + s : s;
-
-        var time = h + ":" + m + ":" + s + " " + session;
-        document.getElementById("MyClockDisplay").innerText = time;
-        document.getElementById("MyClockDisplay").textContent = time;
-
-        setTimeout(showTime, 1000);
-
-    }
-
-    showTime();
-
-    timerCycle();
-</script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.4.2.min.js"></script>
+<script src="~/signalr/hubs"></script>
+<script src="~/Scripts/Ticket/TicketCtrl.js"></script>
+@*<script src="~/Scripts/CurrentTicketNumber/CurrentTicketCtrl.js"></script>*@

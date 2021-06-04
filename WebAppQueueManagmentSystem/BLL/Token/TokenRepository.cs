@@ -111,9 +111,69 @@ namespace WebAppQueueManagmentSystem.BLL.Token
 
         }
 
+        public SubmittedTicketBody Submitted_Token(string TokenNumber,string Comment,int ServiceOptionId,byte StatusId)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            var RequestBody = new SubmittedTicketRequestBody()
+            {
+               TokenNumber = TokenNumber,
+               Comment = Comment,
+               ServiceOptionId = ServiceOptionId,
+               StatusId = StatusId
+            };
+
+            var client = new RestClient($"{apiEndPoint}api/Token/Counter-Submit-Ticket");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Authorization", $"Bearer {GenerateToken().BearerToken}");
+            request.AddHeader("Content-Type", "application/json");
+            var body = JsonConvert.SerializeObject(RequestBody);
+            request.AddParameter("application/json", body, ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
 
 
+            SubmittedTicketBody row = JsonConvert.DeserializeObject<SubmittedTicketBody>(response.Content);
 
+            var return_message = new SubmittedTicketBody()
+            {
+                TokenNumber = TokenNumber,
+                Comment = Comment,
+                ServiceOptionId = ServiceOptionId,
+                StatusId = StatusId
+            };
+
+
+            return return_message;
+        }
+
+        public IList<ListCounterTokenBody> ListCounterToken()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            var client = new RestClient($"{apiEndPoint}api/Token/List-Counter-Token");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            var body = @"";
+            request.AddHeader("Authorization", $"Bearer {GenerateToken().BearerToken}");
+            request.AddParameter("text/plain", body, ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+
+
+            JArray TokenList = JArray.Parse(response.Content);
+
+            IList<ListCounterTokenBody> row = TokenList.Select(p => new ListCounterTokenBody
+            {
+                CounterName = (string)p["counterName"],
+                TicketNumber = (string)p["ticketNumber"]
+            }).ToList();
+
+
+            var return_message = row;
+
+            return return_message;
+
+        }
 
 
 

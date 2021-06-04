@@ -22,6 +22,7 @@ namespace WebTokenManagmentSystem.Models
         public string Comment { get; set; }
         public string CustomTokenNumber { get; set; }
         public DateTime? CreatedDate { get; set; }
+        public DateTime? CompleteDate { get; set; }
 
         public virtual ServiceOption ServiceOption { get; set; }
         public virtual ICollection<CounterTokenRelation> CounterTokenRelations { get; set; }

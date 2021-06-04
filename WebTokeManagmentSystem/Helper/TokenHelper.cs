@@ -158,13 +158,7 @@ namespace WebTokenManagmentSystem.Helper
 
          
            
-            var speech = new System.Speech.Synthesis.SpeechSynthesizer();
-
-            speech.SelectVoice("Microsoft Zira Desktop");
-            speech.Rate = -1;
-            speech.SpeakAsync($"Ticket number {objRow.TokenNumber} please proceed to counter number 1");
- 
-
+        
             return objRow;
 
 

@@ -15,6 +15,17 @@ namespace WebAppQueueManagmentSystem.Hubs
             context.Clients.All.getNewTicket(TokenDetail);
         }
 
-        
+        public static void NewAssignTicket(string TicketNumber)
+        {
+            IHubContext context = GlobalHost.ConnectionManager.GetHubContext<TicketHub>();
+            context.Clients.All.getNewTicketNumber(TicketNumber);
+        }
+
+        public static void RemoveTicket(string TicketNumber)
+        {
+            IHubContext context = GlobalHost.ConnectionManager.GetHubContext<TicketHub>();
+            context.Clients.All.getRemovedTicketNumber(TicketNumber);
+        }
+
     }
 }

@@ -1,25 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace WebTokenManagmentSystem.Authentication.Params
+namespace WebAppQueueManagmentSystem.ApiHelpers.Request
 {
-    public class CompleteTicketBody
+    public class SubmittedTicketRequestBody
     {
-        [Required]
         public string TokenNumber { get; set; }
 
-        [Required]
         public byte? StatusId { get; set; }
 
-        [Required]
         public int? ServiceOptionId { get; set; }
 
-        [Required]
         public string Comment { get; set; }
-
 
     }
 }

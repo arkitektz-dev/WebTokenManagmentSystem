@@ -116,6 +116,7 @@ namespace WebTokenManagmentSystem.BLL
             int? customer_type_id = 0;
             string customer_prefix = "";
 
+
             switch (param_token_status)
             {
                 case 1:
@@ -176,9 +177,9 @@ namespace WebTokenManagmentSystem.BLL
             var Token_list = context.Tokens
                  
                  .WhereIf(token_status_code != (int?)GlobalEnums.Status.All, x => x.Status == token_status_code
-                 && x.CreatedDate.Value.Date == DateTime.Now.Date)
+                        && x.CreatedDate.Value.Date == DateTime.Now.Date)
                  .WhereIf(token_status_code == (int?)GlobalEnums.Status.All, 
-                 x => x.CreatedDate.Value.Date == DateTime.Now.Date)
+                        x => x.CreatedDate.Value.Date == DateTime.Now.Date)
                  .WhereIf(customer_type_id != 3, x => x.IsCustomer == (customer_type_id == (int?)GlobalEnums.CustomerType.Customer ? true : false))
                  
                  .Select(row => new
@@ -483,6 +484,12 @@ namespace WebTokenManagmentSystem.BLL
             context.CounterTokenRelations.Add(row);
             context.SaveChanges();
 
+            var speech = new System.Speech.Synthesis.SpeechSynthesizer();
+
+            speech.SelectVoice("Microsoft Zira Desktop");
+            speech.Rate = -1;
+            speech.SpeakAsync($"Ticket number {model.TokenNumber} please proceed to counter number {model.CounterId}");
+
 
 
             var return_message = new CounterTokenDto()
@@ -498,7 +505,7 @@ namespace WebTokenManagmentSystem.BLL
         }
 
 
-        public CompleteTicketDto CompleteTicket(CompleteTicketBody model)
+        public CompleteTicketDto SubmittedTicket(CompleteTicketBody model)
         {
             var count_Number = context.Tokens
                 .Where(x => x.CustomTokenNumber == model.TokenNumber &&
@@ -521,13 +528,19 @@ namespace WebTokenManagmentSystem.BLL
            .Where(x => x.CustomTokenNumber ==  model.TokenNumber
                   && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
 
-            row_token.Status = (byte?)GlobalEnums.Status.Complete;
+            row_token.Status = (byte?)model.StatusId;
+            row_token.ServiceOptionId = model.ServiceOptionId;
+            row_token.Comment = model.Comment;
+            if (model.StatusId == (int)GlobalEnums.Status.Complete)
+            {
+                row_token.CompleteDate = DateTime.Now;
+            }
             context.SaveChanges();
 
             //Add New history in token status
             TokenStatusHistory row = new TokenStatusHistory() 
             { 
-               Status = (byte?)GlobalEnums.Status.Complete,
+               Status = (byte?)model.StatusId,
                TokenId = row_token.Id
             };
 
@@ -538,17 +551,35 @@ namespace WebTokenManagmentSystem.BLL
             var count_ctr = context.CounterTokenRelations
                 .Where(x => x.TokenId == row_token.Id).FirstOrDefault();
 
-            count_ctr.StatusId = (int?)GlobalEnums.Status.Complete;
+            count_ctr.StatusId = (int?)model.StatusId;
             context.SaveChanges();
 
             var return_message = new CompleteTicketDto()
             {
+
                TicketNumber = row_token.CustomTokenNumber
             };
 
             return return_message;
         }
 
+        public List<TokenCounterDto> ListCounterToken()
+        {
 
+            var list = context.CounterTokenRelations.Where(x => x.StatusId == (byte?)GlobalEnums.Status.Serving).ToList();
+
+            List<TokenCounterDto> Master = new List<TokenCounterDto>();
+
+            foreach (var item in list) {
+                TokenCounterDto row = new TokenCounterDto();
+                row.CounterName = context.Counters.Where(x => x.Id == item.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
+                row.TicketNumber = context.Tokens.Where(x => x.Id  ==  item.TokenId).Select(x => x.TokenNumber).FirstOrDefault().ToString();
+
+                Master.Add(row);
+
+            }
+
+            return Master;
+        }
     }
 }

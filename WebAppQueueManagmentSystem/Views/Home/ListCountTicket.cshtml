@@ -1,0 +1,32 @@
+﻿@model List<WebAppQueueManagmentSystem.ApiHelpers.Response.ListCounterTokenBody>
+
+
+
+@foreach (var item in Model)
+{
+
+    <tr>
+        <td>
+            <div class="card ml-3">
+
+                <div class="card-body">
+                    <h3 class="card-title text-center">Counter @item.CounterName</h3>
+
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="card ml-3">
+
+                <div class="card-body">
+                    <h3 class="card-title text-center">@item.TicketNumber</h3>
+                    <p class="card-text text-center">Ticket Issue Time: 25:69</p>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+}
+
+
+
