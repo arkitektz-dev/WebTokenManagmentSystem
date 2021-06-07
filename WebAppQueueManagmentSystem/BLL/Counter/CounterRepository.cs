@@ -7,7 +7,9 @@ using System.Linq;
 using System.Web;
 using WebAppQueueManagmentSystem.ApiHelpers.Request;
 using WebAppQueueManagmentSystem.ApiHelpers.Response;
+using WebAppQueueManagmentSystem.ApiHelpers.Utility;
 using WebAppQueueManagmentSystem.BLL.Token;
+
 
 namespace WebAppQueueManagmentSystem.BLL.Counter
 {
@@ -15,9 +17,11 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
     {
 
         readonly ITokenRepository token;
-        public CounterRepository(ITokenRepository _token)
+        readonly IApiUtility helper;
+        public CounterRepository(ITokenRepository _token, IApiUtility _helper)
         {
             this.token = _token;
+            this.helper = _helper;
         }
 
 
@@ -30,15 +34,8 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
                 userId = UserID
             };
 
-            var client = new RestClient($"{apiEndPoint}api/Counter/Get_Counter_Detail_By_UserId");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", $"Bearer {token.GenerateToken().BearerToken}");
-            request.AddHeader("Content-Type", "application/json");
-            var body = JsonConvert.SerializeObject(RequestBody);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-            Console.WriteLine(response.Content);
+     
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Counter/Get_Counter_Detail_By_UserId");
 
             CounterDetailBody CounterDetailResponseBody = JsonConvert.DeserializeObject<CounterDetailBody>(response.Content);
 
@@ -72,15 +69,9 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
                 StatusId = StatusId
             };
 
-            var client = new RestClient($"{apiEndPoint}api/Token/Assign-Ticket-To-Counter");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", $"Bearer {token.GenerateToken().BearerToken}");
-            request.AddHeader("Content-Type", "application/json");
-            var body = JsonConvert.SerializeObject(RequestBody);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-            Console.WriteLine(response.Content);
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Assign-Ticket-To-Counter");
+
+             
 
             CounterTokenBody CounterTokenResponseBody = JsonConvert.DeserializeObject<CounterTokenBody>(response.Content);
 

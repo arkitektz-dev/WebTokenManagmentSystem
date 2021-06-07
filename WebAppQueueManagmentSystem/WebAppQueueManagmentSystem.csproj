@@ -245,12 +245,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiHelpers\ApiEnum\ApiEnum.cs" />
+    <Compile Include="ApiHelpers\Request\CounterStatusRequest.cs" />
     <Compile Include="ApiHelpers\Request\SubmittedTicketRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterDetailRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterRequestTokenBody.cs" />
     <Compile Include="ApiHelpers\Request\GenerateTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\ListTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\LoginRequestBody.cs" />
+    <Compile Include="ApiHelpers\Response\CounterStatusBody.cs" />
     <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\SubmittedTicketBody.cs" />
     <Compile Include="ApiHelpers\Response\CounterDetailBody.cs" />
@@ -258,7 +261,9 @@
     <Compile Include="ApiHelpers\Response\CounterTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\GenerateTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\LoginUserBody.cs" />
+    <Compile Include="ApiHelpers\Response\TokenStatusBody.cs" />
     <Compile Include="ApiHelpers\Utility\ApiUtility.cs" />
+    <Compile Include="ApiHelpers\Utility\IApiUtility.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />

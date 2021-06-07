@@ -13,6 +13,7 @@ using WebTokenManagmentSystem.Dtos.Token;
 using System.Text.RegularExpressions;
 using WebTokenManagmentSystem.Helper;
 using WebTokenManagmentSystem.BLL;
+using WebTokenManagmentSystem.Params;
 
 namespace WebTokeManagmentSystem.Controllers
 {
@@ -271,26 +272,29 @@ namespace WebTokeManagmentSystem.Controllers
             }
         }
 
-        ///// <summary>
-        ///// Check if ticket is assigned to the counter already
-        ///// </summary>
-        ///// <returns></returns>
-        //[HttpPost]
-        //[Route("Counter-Ticket-Checker")]
-        //public IActionResult Counter_Ticket_Checker([FromBody] CompleteTicketBody model)
-        //{
-        //    var message = tokenBLL.SubmittedTicket(model);
 
-        //    if (message != null)
-        //    {
-        //        return Ok(message);
-        //    }
-        //    else
-        //    {
-        //        return NotFound();
-        //    }
-        //}
+        /// <summary>
+        /// List Assign Token to counter
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("Get-Token-Status")]
+        public IActionResult Get_Token_Status([FromBody] TokenStatusBody model)
+        {
+            var message = tokenBLL.GetTokenStatus(model);
 
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
+         
 
 
 

@@ -1,5 +1,8 @@
-﻿let con = $.connection.ticketHub;
+﻿ 
+
+let con = $.connection.ticketHub;
 let currentToken = "";
+ 
 
 
 con.client.getNewTicket = function (TokenDetail) {
@@ -43,11 +46,50 @@ let IdleWarning = (Switch) => {
 
 }
 
+let GetTokenStatus = () => {
+
+    if ($("#TicketWorkSpaceArea").is(":visible")) {
+        let txtTicketNumber = document.getElementById("txtTicketNo").innerText.replace(/Ticket Number /i, '');
+
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetTicketStatus",
+            data: { TokenNumber: txtTicketNumber },
+            success: function (data) {
+
+                var TokenNumberStatus = data.message.TokenStatus;
+                if (TokenNumberStatus == 4) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+
+            },
+            error: function () {
+                console.log("Error occured!!")
+            }
+        });
+
+    } else {
+        console.log("Not visible")
+    }
+
+
+   
+
+}
+
  
 let SelectTicket = (TokenNumber) => {
 
-    if (currentToken != "") {
-        alert("Please fill the open ticket")
+    console.log(TokenNumber);
+    console.log(currentToken);
+
+    var isOpen = GetTokenStatus();
+    console.log("The screen is " + isOpen);
+    if (isOpen == true) {
+        alert("Please close this ticket");
         return;
     }
 
@@ -69,10 +111,13 @@ let SelectTicket = (TokenNumber) => {
                 console.log(TokenNumber);
                 IdleWarning("Off");
                 stoptime = false;
-                timerCycle();
+                if (isRun == false) {
+                    timerCycle();
+                }
                 document.getElementById('txtTicketNo').innerText = "Ticket Number " +  TokenNumber;
                  
                 currentToken = TokenNumber;
+         
                 console.log(currentToken);
 
             } else {
@@ -85,12 +130,13 @@ let SelectTicket = (TokenNumber) => {
             alert("Error occured!!")
         }
     });
+
 }
 
 
 let btnCloseThisTicket = () => {
 
-    var TokenStatusId = document.getElementById("StatusId").value;
+    //var TokenStatusId = document.getElementById("StatusId").value;
     var ServiceStatusId = document.getElementById("ServiceId").value;
     var CounterComment = document.getElementById("txtComment").value;
 
@@ -99,12 +145,12 @@ let btnCloseThisTicket = () => {
     var userID = params.get('UserId')
     console.log(userID);
 
-    console.log(currentToken,TokenStatusId, ServiceStatusId, CounterComment, userID);
+    //console.log(currentToken,TokenStatusId, ServiceStatusId, CounterComment, userID);
 
     $.ajax({
         type: "GET",
         url: "/Home/SubmittedTicket",
-        data: { TokenNumber: currentToken, Comment: CounterComment, ServiceOptionId: ServiceStatusId, StatusId: TokenStatusId },
+        data: { TokenNumber: currentToken, Comment: CounterComment, ServiceOptionId: ServiceStatusId, StatusId: 2 },
         success: function (data) {
             console.log(data.message);
             var result = data.message;
@@ -117,7 +163,6 @@ let btnCloseThisTicket = () => {
 
             } else {
                 console.log("Error")
-
             }
 
         },
@@ -133,6 +178,27 @@ let btnCloseThisTicket = () => {
 
 let btnGetNextTicket = () => {
 
+    var list = document.getElementById("listSidebar").getElementsByTagName("li")[0].id;
+    console.log(list);
+    let TicketNumberCount = "";
+
+    if (list != undefined && list != "" && list != null) {
+      
+        ClearTime();
+        btnCloseThisTicket();
+        TicketNumberCount = list.replace(/TicketNumber/i, '');
+        currentToken = TicketNumberCount.toString();
+        console.log(currentToken);
+        SelectTicket(TicketNumberCount);
+        
+        
+    } else {
+        console.log("Rfdfdfdfd");
+        btnCloseThisTicket();
+    }
+
+ 
+ 
 
 
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebAppQueueManagmentSystem.ApiHelpers.Utility;
 using WebAppQueueManagmentSystem.BLL.Counter;
 using WebAppQueueManagmentSystem.BLL.Token;
 using WebAppQueueManagmentSystem.Hubs;
@@ -19,11 +20,13 @@ namespace WebAppQueueManagmentSystem.Controllers
         string TokenNumber;
         readonly ITokenRepository token;
         readonly ICounterRepository counter;
-
-        public HomeController(ITokenRepository _token, ICounterRepository _counter)
+        readonly IApiUtility helper;
+        
+        public HomeController(ITokenRepository _token, ICounterRepository _counter, IApiUtility _helper)
         {
             this.token = _token;
             this.counter = _counter;
+            this.helper = _helper;
         }
 
         public ActionResult Index()
@@ -34,15 +37,18 @@ namespace WebAppQueueManagmentSystem.Controllers
 
         public PartialViewResult ListCountTicket()
         {
-
             var list = token.ListCounterToken().ToList();
-
-
-
             return PartialView(list);
         }
 
-       
+
+
+        public JsonResult GetTicketStatus(string TokenNumber) {
+
+            var message = token.GetTokenStatus(TokenNumber);
+          
+            return Json(new { message },JsonRequestBehavior.AllowGet);
+        }
 
 
 

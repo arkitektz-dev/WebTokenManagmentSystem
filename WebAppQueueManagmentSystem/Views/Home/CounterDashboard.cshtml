@@ -77,11 +77,11 @@
                     <div>
                         <input type="hidden" name="Ticket_No" value="1" />
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <label for="input-select">Status:</label>
                             @Html.DropDownList("StatusId", new SelectList(ViewBag.CounterStatus, "Id", "Name"), new { @class = "form-control col-md-4" })
 
-                        </div>
+                        </div>*@
 
                         <div class="form-group">
                             <label for="input-select">Type of service:</label>
@@ -131,20 +131,19 @@
     var min = 0;
     var sec = 0;
     var stoptime = false;
+    var isRun = false;
 
     function timerCycle() {
 
+        isRun = true;
         console.log(stoptime);
 
         if (stoptime == true) {
+            console.log("Value Cleared");
             hr = 0;
             min = 0;
             sec = 0;
-            return;
-        }
-          
-
-      
+        } else {
             sec = parseInt(sec);
             min = parseInt(min);
             hr = parseInt(hr);
@@ -173,10 +172,22 @@
 
             timer.innerHTML = hr + ':' + min + ':' + sec;
 
-            setTimeout("timerCycle()", 1000);
+           
+        }
+          
+
+        setTimeout("timerCycle()", 1000);
+          
         
     }
- 
+
+    function ClearTime() {
+        console.log("Value Cleared");
+        hr = 0;
+        min = 0;
+        sec = 0;
+    }
+
 </script>
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>

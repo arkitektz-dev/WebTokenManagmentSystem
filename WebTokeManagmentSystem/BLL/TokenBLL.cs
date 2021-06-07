@@ -9,6 +9,7 @@ using WebTokenManagmentSystem.Dtos.Token;
 using WebTokenManagmentSystem.Helper;
 using WebTokenManagmentSystem.Models;
 using WebTokenManagmentSystem.LINQExtension;
+using WebTokenManagmentSystem.Params;
 
 namespace WebTokenManagmentSystem.BLL
 {
@@ -571,9 +572,13 @@ namespace WebTokenManagmentSystem.BLL
             List<TokenCounterDto> Master = new List<TokenCounterDto>();
 
             foreach (var item in list) {
+
+           
+               
+
                 TokenCounterDto row = new TokenCounterDto();
                 row.CounterName = context.Counters.Where(x => x.Id == item.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
-                row.TicketNumber = context.Tokens.Where(x => x.Id  ==  item.TokenId).Select(x => x.TokenNumber).FirstOrDefault().ToString();
+                row.TicketNumber = context.Tokens.Where(x => x.Id  ==  item.TokenId).Select(x => x.CustomTokenNumber).FirstOrDefault().ToString();
 
                 Master.Add(row);
 
@@ -581,5 +586,27 @@ namespace WebTokenManagmentSystem.BLL
 
             return Master;
         }
+
+        public TokenStatusDto GetTokenStatus(TokenStatusBody model)
+        {
+
+            var tokenStatus = context
+                .Tokens
+                .Where(x => x.CustomTokenNumber == model.TokenNumber &&
+                 x.CreatedDate.Value.Date == DateTime.Now.Date)
+                .FirstOrDefault();
+
+            if (tokenStatus == null)
+                return null;
+
+            var return_message = new TokenStatusDto()
+            {
+                TokenStatus = (int)tokenStatus.Status
+            };
+
+
+            return return_message;
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebTokenManagmentSystem.Authentication.Params;
 using WebTokenManagmentSystem.Dtos.Token;
+using WebTokenManagmentSystem.Params;
 
 namespace WebTokenManagmentSystem.BLL
 {
@@ -17,5 +18,6 @@ namespace WebTokenManagmentSystem.BLL
         CounterTokenDto AssignTicketToCounter(CounterTokenBody model); 
         CompleteTicketDto SubmittedTicket(CompleteTicketBody model);
         List<TokenCounterDto> ListCounterToken();
+        TokenStatusDto GetTokenStatus(TokenStatusBody model);
     }
 }

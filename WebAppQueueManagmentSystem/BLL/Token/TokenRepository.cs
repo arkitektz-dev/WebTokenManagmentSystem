@@ -8,12 +8,22 @@ using System.Linq;
 using System.Web;
 using WebAppQueueManagmentSystem.ApiHelpers.Request;
 using WebAppQueueManagmentSystem.ApiHelpers.Response;
-using WebAppQueueManagmentSystem.Models; 
+using WebAppQueueManagmentSystem.ApiHelpers.Utility;
+using WebAppQueueManagmentSystem.Models;
+ 
 
 namespace WebAppQueueManagmentSystem.BLL.Token
 {
     public class TokenRepository : ITokenRepository
     {
+        readonly IApiUtility helper;
+        public TokenRepository(IApiUtility _helper)
+        {
+            this.helper = _helper;
+        }
+
+
+
         public Auth GenerateToken()
         {
             var email = ConfigurationManager.AppSettings["email"];
@@ -56,15 +66,8 @@ namespace WebAppQueueManagmentSystem.BLL.Token
                 CustomerType = CustomerType
             };
 
-            var client = new RestClient($"{apiEndPoint}api/Token/Generate-Customer-Token");  
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", $"Bearer {GenerateToken().BearerToken}");
-            request.AddHeader("Content-Type", "application/json");
-            var body = JsonConvert.SerializeObject(RequestBody);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
 
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Generate-Customer-Token");
 
             GenerateTokenBody row = JsonConvert.DeserializeObject<GenerateTokenBody>(response.Content);
 
@@ -85,14 +88,7 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         {
             var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
 
-            var client = new RestClient($"{apiEndPoint}api/Token/List-Token?token_status={token_status}&customer_Type={customer_Type}");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            var body = @"";
-            request.AddHeader("Authorization", $"Bearer {GenerateToken().BearerToken}");
-            request.AddParameter("text/plain", body, ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-
+            IRestResponse response = helper.RunGetRequest($"api/Token/List-Token?token_status={token_status}&customer_Type={customer_Type}");
 
             JArray TokenList = JArray.Parse(response.Content);
 
@@ -123,16 +119,7 @@ namespace WebAppQueueManagmentSystem.BLL.Token
                StatusId = StatusId
             };
 
-            var client = new RestClient($"{apiEndPoint}api/Token/Counter-Submit-Ticket");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", $"Bearer {GenerateToken().BearerToken}");
-            request.AddHeader("Content-Type", "application/json");
-            var body = JsonConvert.SerializeObject(RequestBody);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-
-
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Counter-Submit-Ticket");
             SubmittedTicketBody row = JsonConvert.DeserializeObject<SubmittedTicketBody>(response.Content);
 
             var return_message = new SubmittedTicketBody()
@@ -142,8 +129,6 @@ namespace WebAppQueueManagmentSystem.BLL.Token
                 ServiceOptionId = ServiceOptionId,
                 StatusId = StatusId
             };
-
-
             return return_message;
         }
 
@@ -151,15 +136,7 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         {
             var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
 
-            var client = new RestClient($"{apiEndPoint}api/Token/List-Counter-Token");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            var body = @"";
-            request.AddHeader("Authorization", $"Bearer {GenerateToken().BearerToken}");
-            request.AddParameter("text/plain", body, ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-
-
+            IRestResponse response = helper.RunGetRequest("api/Token/List-Counter-Token");
             JArray TokenList = JArray.Parse(response.Content);
 
             IList<ListCounterTokenBody> row = TokenList.Select(p => new ListCounterTokenBody
@@ -168,14 +145,30 @@ namespace WebAppQueueManagmentSystem.BLL.Token
                 TicketNumber = (string)p["ticketNumber"]
             }).ToList();
 
-
             var return_message = row;
-
             return return_message;
-
         }
 
+        public TokenStatusBody GetTokenStatus(string TokenNumber)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
 
+            var RequestBody = new CounterStatusBody()
+            {
+                TokenNumber = TokenNumber
+            };
+
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Get-Token-Status");
+            TokenStatusBody row = JsonConvert.DeserializeObject<TokenStatusBody>(response.Content);
+
+            var return_message = new TokenStatusBody()
+            {
+                TokenStatus = row.TokenStatus
+            };
+             
+            return return_message;
+        }
+ 
 
 
     }

@@ -8,7 +8,8 @@ namespace WebAppQueueManagmentSystem.BLL.Token
     public interface ITokenRepository
     {
         GenerateTokenBody GenerateTicket(string CustomerType);
-        Auth GenerateToken();
+        Auth GenerateToken(); 
+        TokenStatusBody GetTokenStatus(string TokenNumber);
         IList<ListCounterTokenBody> ListCounterToken();
         IList<CounterListBody> ListToken(int token_status, int customer_Type);
         SubmittedTicketBody Submitted_Token(string TokenNumber, string Comment, int ServiceOptionId, byte StatusId);
