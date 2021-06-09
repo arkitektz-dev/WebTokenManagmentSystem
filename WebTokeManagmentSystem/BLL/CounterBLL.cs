@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebTokenManagmentSystem.Authentication.enums;
 using WebTokenManagmentSystem.Authentication.Params;
 using WebTokenManagmentSystem.Dtos.Counter;
 using WebTokenManagmentSystem.Models;
@@ -65,6 +66,35 @@ namespace WebTokenManagmentSystem.BLL
             return return_message;
         }
 
+        public List<Counter> ListCounter()
+        {
+            return context.Counters.ToList();
+        }
 
+        public List<CounterTokenBody> ViewCounterActivity(int? CounterId)
+        {
+            var listToken = context.CounterTokenRelations.Where(x => x.CounterId == CounterId).ToList();
+
+            List<CounterTokenBody> List = new List<CounterTokenBody>();
+            foreach (var item in listToken) {
+                CounterTokenBody row = new CounterTokenBody();
+                var rowItem = context.Tokens.Where(x => x.Id == item.TokenId).FirstOrDefault();
+                row.TokenNumber = rowItem.CustomTokenNumber;
+                row.StatusId = (int)item.StatusId;
+                if (rowItem.CompleteDate != null) { 
+                    row.CompletedDate = (DateTime)rowItem.CompleteDate;
+                    row.ServingTime = (DateTime)context.TokenStatusHistories.Where(x => x.Status == (byte)GlobalEnums.Status.Serving
+                    && x.TokenId == item.TokenId).Select(x => x.CreatedDate).FirstOrDefault();
+                }
+                row.CreatedDate = (DateTime)rowItem.CreatedDate;
+                if (row.StatusId != (int)GlobalEnums.Status.Serving) { 
+                    row.ServiceType = context.ServiceOptions.Where(x => x.Id == rowItem.ServiceOptionId).Select(x => x.Name).FirstOrDefault().ToString();
+                }
+
+                List.Add(row);
+            }
+
+            return List;
+        }
     }
 }

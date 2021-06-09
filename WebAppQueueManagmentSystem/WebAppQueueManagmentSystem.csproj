@@ -253,6 +253,7 @@
     <Compile Include="ApiHelpers\Request\GenerateTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\ListTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\LoginRequestBody.cs" />
+    <Compile Include="ApiHelpers\Response\Counter.cs" />
     <Compile Include="ApiHelpers\Response\CounterStatusBody.cs" />
     <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\SubmittedTicketBody.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="BLL\Token\ITokenRepository.cs" />
     <Compile Include="BLL\Token\TokenRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CounterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -791,6 +793,8 @@
     <Content Include="Views\Home\UpdateFeedBack.cshtml" />
     <Content Include="Views\Home\GenerateTicket.cshtml" />
     <Content Include="Views\Home\ListCountTicket.cshtml" />
+    <Content Include="Views\Counter\ListCounter.cshtml" />
+    <Content Include="Views\Counter\TicketCounter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

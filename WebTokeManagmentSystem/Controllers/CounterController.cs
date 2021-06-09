@@ -54,6 +54,53 @@ namespace WebTokenManagmentSystem.Controllers
 
         }
 
+        /// <summary>
+        /// Every Counter Status
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        [Route("List-Counter")]
+        public IActionResult List_Counter()
+        {
+            var message = counterBLL.ListCounter();
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+
+        /// <summary>
+        /// View Counter Activity List
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        [Route("View-Counter-Activity")]
+        public IActionResult View_Counter_Activity(int? CounterId)
+        {
+            var message = counterBLL.ViewCounterActivity(CounterId);
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+
+
+      
+
 
     }
 }

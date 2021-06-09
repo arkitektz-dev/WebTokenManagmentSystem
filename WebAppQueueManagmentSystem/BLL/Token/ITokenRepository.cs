@@ -13,5 +13,6 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         IList<ListCounterTokenBody> ListCounterToken();
         IList<CounterListBody> ListToken(int token_status, int customer_Type);
         SubmittedTicketBody Submitted_Token(string TokenNumber, string Comment, int ServiceOptionId, byte StatusId);
+        IList<CounterTokenBody> ViewCounterActivity(int counterId);
     }
 }

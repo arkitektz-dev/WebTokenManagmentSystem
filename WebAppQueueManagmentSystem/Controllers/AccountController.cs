@@ -91,7 +91,13 @@ namespace WebAppQueueManagmentSystem.Controllers
                         return RedirectToAction("CounterDashboard", "Home" , new { UserId = user.Id });
                     }
 
-                    
+                    if (RoleForUser.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
+
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

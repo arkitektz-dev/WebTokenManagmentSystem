@@ -185,12 +185,13 @@ namespace WebAppQueueManagmentSystem.Controllers
             var solidBrush = new SolidBrush(Color.Black);
             var fontFamily = new FontFamily("Times New Roman");
             var font = new Font(fontFamily,  15,  FontStyle.Regular, GraphicsUnit.Pixel);
+            string currentDate = $"{DateTime.Now.Date.ToString("dd/MM/yyyy")} {DateTime.Now.ToString("hh:mm tt")}";
             var tkcLogo = Image.FromFile(@"C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png"); 
             g.DrawImage(tkcLogo, new Point(40, 35));
             RectangleF rect1 = new RectangleF(12.0F, 25.0F, 182, 25.0F);
             RectangleF rect2 = new RectangleF(100.0F, 25.0F, 182, 25.0F);
             RectangleF rect3 = new RectangleF(50.0F, 140.0F, 182, 25.0F);
-            g.DrawString($"{DateTime.Now.Date.ToString("dd/MM/yyyy")}", font, solidBrush, rect1);
+            g.DrawString(currentDate, font, solidBrush, rect1);
             g.DrawString($"Queue Ticket", font, solidBrush, rect2, stringformat);
             g.DrawString($"Ticket Number : {TokenNumber}", font, solidBrush, rect3, stringformat);
             tkcLogo.Dispose();

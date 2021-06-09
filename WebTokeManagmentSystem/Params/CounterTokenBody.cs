@@ -17,7 +17,13 @@ namespace WebTokenManagmentSystem.Authentication.Params
         [Required]
         public int StatusId { get; set; }
 
-         
+        public string ServiceType { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+        public DateTime CompletedDate { get; set; }
+        public DateTime ServingTime { get; set; }
+
+
 
     }
 }

@@ -168,6 +168,28 @@ namespace WebAppQueueManagmentSystem.BLL.Token
              
             return return_message;
         }
+
+        public IList<CounterTokenBody> ViewCounterActivity(int counterId) {
+
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/Counter/View-Counter-Activity?CounterId={counterId}");
+            JArray TokenList = JArray.Parse(response.Content);
+
+            IList<CounterTokenBody> row = TokenList.Select(p => new CounterTokenBody
+            {
+                TokenNumber = (string)p["tokenNumber"],
+                StatusId = (int)p["statusId"],
+                CreatedDate = (DateTime)p["createdDate"],
+                CompletedDate = (DateTime)p["completedDate"],
+                ServiceType = (string)p["serviceType"],
+                ServingTime = (DateTime)p["servingTime"]
+
+            }).ToList();
+
+            var return_message = row;
+            return return_message;
+        } 
  
 
 

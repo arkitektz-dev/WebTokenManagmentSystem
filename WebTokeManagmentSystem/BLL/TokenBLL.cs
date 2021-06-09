@@ -32,6 +32,7 @@ namespace WebTokenManagmentSystem.BLL
 
             int? param_is_customer = Convert.ToInt32(model.CustomerType);
             string CustomerType = "";
+       
 
             switch (param_is_customer)
             {

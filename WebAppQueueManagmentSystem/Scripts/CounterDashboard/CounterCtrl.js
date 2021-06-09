@@ -1,10 +1,10 @@
-﻿ 
-
-let con = $.connection.ticketHub;
+﻿let con = $.connection.ticketHub;
 let currentToken = "";
+let doContinue = false;
+let isNextButtonRequest = false;
+
+
  
-
-
 con.client.getNewTicket = function (TokenDetail) {
     console.log(TokenDetail)
 
@@ -18,6 +18,15 @@ con.client.getRemovedTicketNumber = function (TicketNumber) {
 
 
 }
+
+setInterval(function () {
+    if ($("#TicketWorkSpaceArea").is(":visible") == false) {
+
+        document.getElementById("btnPickNextTicket").style.display = "block";
+    } else {
+        document.getElementById("btnPickNextTicket").style.display = "none";
+    }
+}, 1000);
 
 
 let RemoveTicketFromList = (TicketNumber) => {
@@ -46,93 +55,135 @@ let IdleWarning = (Switch) => {
 
 }
 
-let GetTokenStatus = () => {
 
-    if ($("#TicketWorkSpaceArea").is(":visible")) {
-        let txtTicketNumber = document.getElementById("txtTicketNo").innerText.replace(/Ticket Number /i, '');
+function GetTokenStatusNew() {
+    debugger;
+    var a = new Promise(function (resolve, reject) {
+        if ($("#TicketWorkSpaceArea").is(":visible") == true) {
+            let txtTicketNumber = document.getElementById("txtTicketNo").innerText.replace(/Ticket Number /i, '');
+            console.log(txtTicketNumber + "this is");
 
-        $.ajax({
-            type: "GET",
-            url: "/Home/GetTicketStatus",
-            data: { TokenNumber: txtTicketNumber },
-            success: function (data) {
+            var settings = {
+                "url": "https://localhost:44336/Home/GetTicketStatus?TokenNumber=" + txtTicketNumber,
+                "method": "GET",
+                "timeout": 0,
+            };
 
-                var TokenNumberStatus = data.message.TokenStatus;
-                if (TokenNumberStatus == 4) {
-                    return true;
-                } else {
-                    return false;
-                }
+            $.ajax(settings).done(function (response) {
+                let TokenNumberStatus = response.message.TokenStatus;
+                console.log("Token number is " + TokenNumberStatus);
+                //if (TokenNumberStatus == 4) {
+                //    resolve("false");
+                //} else {         
+                //    resolve("true");
+                //}
+                resolve("TokenNumberStatus")
+            });
+        } else {
+            resolve("1");
+        }
+
+      
+
+    });
+
+    return a 
+}
 
 
-            },
-            error: function () {
-                console.log("Error occured!!")
-            }
-        });
+//let GetTokenStatus = new Promise((resolve, reject) => {
+//    debugger;
+//});
 
-    } else {
-        console.log("Not visible")
-    }
+
+
+//let GetTokenStatus = () => {
+//    console.log("Start is " + ($("#TicketWorkSpaceArea").is(":visible")));
+//  
 
 
    
 
-}
+//}
 
  
-let SelectTicket = (TokenNumber) => {
+let SelectTicket = async (TokenNumber) => {
 
     console.log(TokenNumber);
     console.log(currentToken);
+    console.log("before");
+    var result = await GetTokenStatusNew();
 
-    var isOpen = GetTokenStatus();
-    console.log("The screen is " + isOpen);
-    if (isOpen == true) {
-        alert("Please close this ticket");
-        return;
+    console.log("Toke is servering or not ", result);
+
+    if (isNextButtonRequest == true) {
+        console.log("open ticket");
+        OpenTicket(TokenNumber);
+        isNextButtonRequest = false;
+        document.getElementById("txtComment").value = "";
+    } else {
+
+        if (result == "2") {
+            console.log("open ticket");
+            OpenTicket(TokenNumber);
+            document.getElementById("txtComment").value = "";
+        } else if (result == "4") {
+            alert("Please close this ticket");
+            document.getElementById("txtComment").value = "";
+            return;
+        } else if (result == "1") {
+            let isScreenOpen = $("#TicketWorkSpaceArea").is(":visible");
+            if (isScreenOpen == false) {
+                console.log("open ticket");
+                OpenTicket(TokenNumber);
+                document.getElementById("txtComment").value = "";
+            }
+        }
+
     }
 
-    //get User Id 
+
+}
+
+function OpenTicket(TokenNumber) {
+    debugger;
     const params = new URLSearchParams(window.location.search)
     var userID = params.get('UserId')
     console.log(userID);
 
-    $.ajax({
-        type: "GET",
-        url: "/Home/AssignCounterToTicket",
-        data: { TokenNumber: TokenNumber, UserId: userID, StatusId: 4 },
-        success: function (data) {
-            console.log(data.message);
-            var result = data.message;
+    var settings = {
+        "url": 'https://localhost:44336/Home/AssignCounterToTicket?TokenNumber=' + TokenNumber + '&UserId=' + userID+'&StatusId=4',
+        "method": "GET",
+        "timeout": 0,
+    };
 
-            if (result == "Success") {
+    $.ajax(settings).done(function (data) {
+        console.log(data.message);
+        var result = data.message;
 
-                console.log(TokenNumber);
-                IdleWarning("Off");
-                stoptime = false;
-                if (isRun == false) {
-                    timerCycle();
-                }
-                document.getElementById('txtTicketNo').innerText = "Ticket Number " +  TokenNumber;
-                 
-                currentToken = TokenNumber;
-         
-                console.log(currentToken);
-
-            } else {
-                console.log("Error")
-
+        if (result == "Success") {
+            console.log(result);
+            console.log(TokenNumber);
+            IdleWarning("Off");
+            stoptime = false;
+            if (isRun == false) {
+                timerCycle();
             }
+            document.getElementById('txtTicketNo').innerText = "Ticket Number " + TokenNumber;
 
-        },
-        error: function () {
-            alert("Error occured!!")
+            currentToken = TokenNumber;
+
+            console.log(currentToken);
+
+        } else {
+            console.log("Error")
+
         }
+
     });
 
+    
 }
-
 
 let btnCloseThisTicket = () => {
 
@@ -182,14 +233,15 @@ let btnGetNextTicket = () => {
     console.log(list);
     let TicketNumberCount = "";
 
+
     if (list != undefined && list != "" && list != null) {
-      
+        isNextButtonRequest = true;
         ClearTime();
         btnCloseThisTicket();
         TicketNumberCount = list.replace(/TicketNumber/i, '');
         currentToken = TicketNumberCount.toString();
         console.log(currentToken);
-        SelectTicket(TicketNumberCount);
+        SelectTicket(`${TicketNumberCount}`);
         
         
     } else {

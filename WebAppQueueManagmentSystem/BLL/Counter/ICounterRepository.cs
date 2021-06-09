@@ -1,4 +1,5 @@
-﻿using WebAppQueueManagmentSystem.ApiHelpers.Response;
+﻿using System.Collections.Generic;
+using WebAppQueueManagmentSystem.ApiHelpers.Response;
 
 namespace WebAppQueueManagmentSystem.BLL.Counter
 {
@@ -6,5 +7,6 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
     {
         CounterTokenBody AssignTokenToCounter(string TokenNumber, string UserId, int StatusId);
         CounterDetailBody CounterDetail(string UserID);
+        IList<ApiHelpers.Response.Counter> ListCounter();
     }
 }

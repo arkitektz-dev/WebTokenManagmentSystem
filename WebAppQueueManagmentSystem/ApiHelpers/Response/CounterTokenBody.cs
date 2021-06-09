@@ -10,5 +10,9 @@ namespace WebAppQueueManagmentSystem.ApiHelpers.Response
         public int? CounterId { get; set; }
         public string TokenNumber { get; set; }
         public int StatusId { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime CompletedDate { get; set; }
+        public string ServiceType { get; set; }
+        public DateTime ServingTime { get; set; }
     }
 }

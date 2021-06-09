@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -91,6 +92,29 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
 
 
         }
+
+        public IList<ApiHelpers.Response.Counter> ListCounter()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest("api/Counter/List-Counter");
+            JArray TokenList = JArray.Parse(response.Content);
+
+            IList<ApiHelpers.Response.Counter> row = TokenList.Select(p => new ApiHelpers.Response.Counter
+            {
+               CounterUserId = (string)p["counterUserId"],
+               Csrid = (int)p["csrid"],
+               Description = (string)p["description"],
+               Id = (int)p["id"],
+               Number = (int)p["number"]
+
+            }).ToList();
+
+            var return_message = row;
+
+            return return_message;
+        }
+
 
     }
 }
