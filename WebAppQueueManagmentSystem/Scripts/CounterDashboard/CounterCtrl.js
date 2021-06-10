@@ -72,11 +72,6 @@ function GetTokenStatusNew() {
             $.ajax(settings).done(function (response) {
                 let TokenNumberStatus = response.message.TokenStatus;
                 console.log("Token number is " + TokenNumberStatus);
-                //if (TokenNumberStatus == 4) {
-                //    resolve("false");
-                //} else {         
-                //    resolve("true");
-                //}
                 resolve("TokenNumberStatus")
             });
         } else {
@@ -89,23 +84,6 @@ function GetTokenStatusNew() {
 
     return a 
 }
-
-
-//let GetTokenStatus = new Promise((resolve, reject) => {
-//    debugger;
-//});
-
-
-
-//let GetTokenStatus = () => {
-//    console.log("Start is " + ($("#TicketWorkSpaceArea").is(":visible")));
-//  
-
-
-   
-
-//}
-
  
 let SelectTicket = async (TokenNumber) => {
 

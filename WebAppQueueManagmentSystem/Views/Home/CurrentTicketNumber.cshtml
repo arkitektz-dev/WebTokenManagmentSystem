@@ -15,6 +15,22 @@
         <div class="aside-nav collapse">
             <h1 class="text-center">Next in Queue</h1>
             <ul class="nav ticket-sidebar" id="listSidebar">
+                @{ 
+                    string value1 = "TokenNumber";
+                }
+                @foreach (var item in ViewBag.ListToken)
+                {
+
+                    <li style="margin-top: -29px;" id="@value1@item.Token">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <h1 class="card-title bg-primary p-4"> Ticket @item.Token</h1>
+                            </div>
+                        </div>
+                    </li>
+                     
+                }
+
             </ul>
         </div>
     </div>

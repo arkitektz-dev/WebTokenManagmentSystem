@@ -29,6 +29,7 @@ namespace WebAppQueueManagmentSystem.Controllers
             this.helper = _helper;
         }
 
+        [Authorize]
         public ActionResult Index()
         {
             
@@ -112,11 +113,16 @@ namespace WebAppQueueManagmentSystem.Controllers
 
         public ActionResult CurrentTicketNumber() {
 
+            //List Queue Ticket
+            ViewBag.ListToken = token.ListToken(1, 3);
+
             return View();
         }
 
         public ActionResult EveryCounterStatus()
         {
+
+
             return View();
         }
 
