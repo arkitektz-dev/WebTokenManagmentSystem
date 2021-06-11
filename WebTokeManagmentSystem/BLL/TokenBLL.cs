@@ -532,7 +532,7 @@ namespace WebTokenManagmentSystem.BLL
 
             row_token.Status = (byte?)model.StatusId;
             row_token.ServiceOptionId = model.ServiceOptionId;
-            row_token.Comment = model.Comment;
+            row_token.Comment = model.Comment == "" || model.Comment == null ? "" : model.Comment;
             if (model.StatusId == (int)GlobalEnums.Status.Complete)
             {
                 row_token.CompleteDate = DateTime.Now;
@@ -607,6 +607,33 @@ namespace WebTokenManagmentSystem.BLL
 
 
             return return_message;
+        }
+
+        public Token GetPendingTokenByCounterId(GetPendingTokenBody model)
+        {
+
+            var PendingToken = context.CounterTokenRelations.Where(x => x.CounterId == model.CounterId && x.StatusId == (byte?)GlobalEnums.Status.Serving).FirstOrDefault();
+
+            if (PendingToken != null)
+            {
+
+                var token = context.Tokens.Where(x => x.Id == PendingToken.TokenId).FirstOrDefault();
+
+                var return_message = new Token()
+                {
+                    CustomTokenNumber = token.CustomTokenNumber
+                };
+
+                return return_message;
+
+            }
+            else {
+                return null;
+            }
+
+
+
+
         }
 
     }

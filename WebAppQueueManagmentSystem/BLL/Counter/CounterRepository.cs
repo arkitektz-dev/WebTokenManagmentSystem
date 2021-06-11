@@ -115,6 +115,44 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
             return return_message;
         }
 
+        public Models.Token GetLastPendingTicket(string UserId)
+        {
+            var counterDetail = CounterDetail(UserId);
+
+
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            var RequestBody = new GetPendingTokenRequestBody()
+            {
+                CounterId = counterDetail.CounterID
+            };
+
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Get-Pending-Token-By-CounterId");
+
+
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound) {
+                return null;
+            }
+
+
+            Models.Token CounterTokenResponseBody = JsonConvert.DeserializeObject<Models.Token>(response.Content);
+
+            var row = CounterTokenResponseBody;
+
+            var return_message = new Models.Token()
+            {
+               CustomTokenNumber = row.CustomTokenNumber
+            };
+
+
+            return return_message;
+
+
+
+
+        }
+
+
 
     }
 }

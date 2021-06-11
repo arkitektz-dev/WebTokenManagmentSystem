@@ -4,10 +4,13 @@ let doContinue = false;
 let isNextButtonRequest = false;
 
 
+$.connection.hub.start().done(function () {
+    console.log("Connection Established");
+    IdleWarning("On");
+});
  
 con.client.getNewTicket = function (TokenDetail) {
     console.log(TokenDetail)
-
     AddNewTicket(TokenDetail);
 }
 
@@ -15,18 +18,55 @@ con.client.getRemovedTicketNumber = function (TicketNumber) {
     console.log("YOur ticket number");
     console.log(TicketNumber);
     RemoveTicketFromList(TicketNumber);
-
-
 }
 
 setInterval(function () {
-    if ($("#TicketWorkSpaceArea").is(":visible") == false) {
-
-        document.getElementById("btnPickNextTicket").style.display = "block";
-    } else {
-        document.getElementById("btnPickNextTicket").style.display = "none";
-    }
+    OpenPendingTicket();
 }, 1000);
+
+let OpenPendingTicket = () => {
+
+    const params = new URLSearchParams(window.location.search)
+    var userID = params.get('UserId')
+    console.log(userID);
+
+    $.ajax({
+        type: "GET",
+        url: "/Home/GetPendingCounter",
+        data: { UserId: userID },
+        success: function (data) {
+            console.log(data.tokenDetail.CustomTokenNumber);
+
+            var TokenNumber = data.tokenDetail.CustomTokenNumber;
+
+            if (TokenNumber != null || TokenNumber != "") {
+
+                IdleWarning("Off");
+                stoptime = false;
+                if (isRun == false) {
+                    timerCycle();
+                }
+                document.getElementById('txtTicketNo').innerText = "Ticket Number " + data.tokenDetail.CustomTokenNumber;
+
+                currentToken = TokenNumber;
+
+                console.log(currentToken);
+
+            } else {
+                document.getElementById("btnPickNextTicket").style.display = "none";
+            }
+
+
+        
+
+        },
+        error: function () {
+            alert("Error occured!!")
+        }
+    });
+
+ 
+}
 
 
 let RemoveTicketFromList = (TicketNumber) => {
@@ -35,12 +75,6 @@ let RemoveTicketFromList = (TicketNumber) => {
         ticketNumber.remove();
     }
 }
-
-
-$.connection.hub.start().done(function () {
-    console.log("Connection Established");
-    IdleWarning("On");
-});
 
 let IdleWarning = (Switch) => {
 
@@ -54,7 +88,6 @@ let IdleWarning = (Switch) => {
 
 
 }
-
 
 function GetTokenStatusNew() {
     debugger;
@@ -204,7 +237,6 @@ let btnCloseThisTicket = () => {
 
 }
 
-
 let btnGetNextTicket = () => {
 
     var list = document.getElementById("listSidebar").getElementsByTagName("li")[0].id;
@@ -232,7 +264,6 @@ let btnGetNextTicket = () => {
 
 
 }
-
 
 let AddNewTicket = (TokenDetail) => {
 

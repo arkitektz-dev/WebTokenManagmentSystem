@@ -17,7 +17,6 @@ namespace WebTokenManagmentSystem.Authentication.Params
         [Required]
         public int? ServiceOptionId { get; set; }
 
-        [Required]
         public string Comment { get; set; }
 
 

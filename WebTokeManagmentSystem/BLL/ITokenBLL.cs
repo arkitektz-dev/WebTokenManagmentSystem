@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebTokenManagmentSystem.Authentication.Params;
 using WebTokenManagmentSystem.Dtos.Token;
+using WebTokenManagmentSystem.Models;
 using WebTokenManagmentSystem.Params;
 
 namespace WebTokenManagmentSystem.BLL
@@ -19,5 +20,6 @@ namespace WebTokenManagmentSystem.BLL
         CompleteTicketDto SubmittedTicket(CompleteTicketBody model);
         List<TokenCounterDto> ListCounterToken();
         TokenStatusDto GetTokenStatus(TokenStatusBody model);
+        Token GetPendingTokenByCounterId(GetPendingTokenBody model);
     }
 }

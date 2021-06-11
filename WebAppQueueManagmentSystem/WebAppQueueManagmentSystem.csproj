@@ -247,6 +247,7 @@
   <ItemGroup>
     <Compile Include="ApiHelpers\ApiEnum\ApiEnum.cs" />
     <Compile Include="ApiHelpers\Request\CounterStatusRequest.cs" />
+    <Compile Include="ApiHelpers\Request\GetPendingTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\SubmittedTicketRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterDetailRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterRequestTokenBody.cs" />
@@ -811,6 +812,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Access.Dao">
+      <Guid>{4AC9E1DA-5BAD-4AC7-86E3-24F4CDCECA28}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

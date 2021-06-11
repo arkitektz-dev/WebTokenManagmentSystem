@@ -252,4 +252,5 @@ C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\obj\D
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\obj\Debug\WebAppQueueManagmentSystem.csproj.CopyComplete
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\obj\Debug\WebAppQueueManagmentSystem.dll
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\obj\Debug\WebAppQueueManagmentSystem.pdb
+C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\obj\Debug\WebAppQueueManagmentSystem.csproj.ResolveComReference.cache
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\obj\Debug\WebAppQueueManagmentSystem.csprojAssemblyReference.cache

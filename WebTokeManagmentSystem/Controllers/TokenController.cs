@@ -292,9 +292,25 @@ namespace WebTokeManagmentSystem.Controllers
                 return NotFound();
             }
         }
+ 
+        [HttpPost]
+        [Route("Get-Pending-Token-By-CounterId")]
+        public IActionResult Get_Pending_Token_By_CounterId([FromBody] GetPendingTokenBody model)
+        {
+            var message = tokenBLL.GetPendingTokenByCounterId(model);
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
 
-         
+
 
 
 

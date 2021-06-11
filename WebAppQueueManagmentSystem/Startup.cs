@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
 using Owin;
+using System;
 using WebAppQueueManagmentSystem.Models;
 
 [assembly: OwinStartupAttribute(typeof(WebAppQueueManagmentSystem.Startup))]
@@ -11,7 +14,8 @@ namespace WebAppQueueManagmentSystem
     {
         public void Configuration(IAppBuilder app)
         {
-            app.MapSignalR(); 
+            app.MapSignalR();
+
             ConfigureAuth(app);
         }
 

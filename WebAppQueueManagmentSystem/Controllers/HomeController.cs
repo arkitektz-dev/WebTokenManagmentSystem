@@ -36,6 +36,8 @@ namespace WebAppQueueManagmentSystem.Controllers
             return View();
         }
 
+       
+
         public PartialViewResult ListCountTicket()
         {
             var list = token.ListCounterToken().ToList();
@@ -144,6 +146,20 @@ namespace WebAppQueueManagmentSystem.Controllers
         public ActionResult GetNewTicket()
         {
             return View();
+        }
+
+        public JsonResult GetPendingCounter(string UserId) {
+
+            var tokenDetail = counter.GetLastPendingTicket(UserId);
+
+            if (tokenDetail != null)
+            {
+                return Json(new { tokenDetail }, JsonRequestBehavior.AllowGet);
+            }
+            else { 
+                return Json(new { String.Empty }, JsonRequestBehavior.AllowGet);
+            }
+
         }
 
         [HttpPost]
