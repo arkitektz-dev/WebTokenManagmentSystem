@@ -199,6 +199,11 @@ namespace WebTokenManagmentSystem.Helper
             else
                 return 1;
         }
+
+        public CounterTokenRelation GetCounterDetailById(int TokenID)
+        {
+            return _context.CounterTokenRelations.Where(x => x.TokenId == TokenID).FirstOrDefault();
+        }
       
 
 

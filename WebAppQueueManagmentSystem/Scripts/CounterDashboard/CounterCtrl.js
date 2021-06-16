@@ -8,7 +8,7 @@ $.connection.hub.start().done(function () {
     console.log("Connection Established");
     IdleWarning("On");
 });
- 
+
 con.client.getNewTicket = function (TokenDetail) {
     console.log(TokenDetail)
     AddNewTicket(TokenDetail);
@@ -57,7 +57,7 @@ let OpenPendingTicket = () => {
             }
 
 
-        
+
 
         },
         error: function () {
@@ -65,7 +65,7 @@ let OpenPendingTicket = () => {
         }
     });
 
- 
+
 }
 
 
@@ -111,13 +111,13 @@ function GetTokenStatusNew() {
             resolve("1");
         }
 
-      
+
 
     });
 
-    return a 
+    return a
 }
- 
+
 let SelectTicket = async (TokenNumber) => {
 
     console.log(TokenNumber);
@@ -163,7 +163,7 @@ function OpenTicket(TokenNumber) {
     console.log(userID);
 
     var settings = {
-        "url": 'https://localhost:44336/Home/AssignCounterToTicket?TokenNumber=' + TokenNumber + '&UserId=' + userID+'&StatusId=4',
+        "url": 'https://localhost:44336/Home/AssignCounterToTicket?TokenNumber=' + TokenNumber + '&UserId=' + userID + '&StatusId=4',
         "method": "GET",
         "timeout": 0,
     };
@@ -193,7 +193,7 @@ function OpenTicket(TokenNumber) {
 
     });
 
-    
+
 }
 
 let btnCloseThisTicket = () => {
@@ -220,7 +220,7 @@ let btnCloseThisTicket = () => {
             if (result == "Success") {
 
                 stoptime = true;
-                IdleWarning("On"); 
+                IdleWarning("On");
                 currentToken = "";
 
             } else {
@@ -252,15 +252,15 @@ let btnGetNextTicket = () => {
         currentToken = TicketNumberCount.toString();
         console.log(currentToken);
         SelectTicket(`${TicketNumberCount}`);
-        
-        
+
+
     } else {
         console.log("Rfdfdfdfd");
         btnCloseThisTicket();
     }
 
- 
- 
+
+
 
 
 }
@@ -279,12 +279,12 @@ let AddNewTicket = (TokenDetail) => {
                </div>
           </div>
       </li>      
-    `; 
+    `;
 
     console.log(card);
 
-    console.log($('#listSidebar').append(card));   
+    console.log($('#listSidebar').append(card));
 
-   
+
 
 }

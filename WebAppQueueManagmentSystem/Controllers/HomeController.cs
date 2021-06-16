@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using WebAppQueueManagmentSystem.ApiHelpers.Utility;
@@ -29,7 +31,7 @@ namespace WebAppQueueManagmentSystem.Controllers
             this.helper = _helper;
         }
 
-        [Authorize]
+  
         public ActionResult Index()
         {
             
@@ -142,6 +144,12 @@ namespace WebAppQueueManagmentSystem.Controllers
             return View();
         }
 
+        public ActionResult AllTicketStatus()
+        {
+            ViewBag.CounterStatus = token.StatusList();
+
+            return View();
+        }
 
         public ActionResult GetNewTicket()
         {
@@ -157,7 +165,7 @@ namespace WebAppQueueManagmentSystem.Controllers
                 return Json(new { tokenDetail }, JsonRequestBehavior.AllowGet);
             }
             else { 
-                return Json(new { String.Empty }, JsonRequestBehavior.AllowGet);
+                return Json(new { tokenDetail = "" }, JsonRequestBehavior.AllowGet);
             }
 
         }
@@ -165,6 +173,16 @@ namespace WebAppQueueManagmentSystem.Controllers
         [HttpPost]
         public JsonResult GetNewTicket(string CustomerType)
         {
+
+            PrinterSettings settings = new PrinterSettings();
+            string printerName = settings.PrinterName;
+            bool printerFound = false;
+
+            if (printerName.ToUpper().Contains("POS"))
+            {
+                printerFound = true;
+            }
+
             var row = token.GenerateTicket(CustomerType);
 
             var TokenDetail = new Token()
@@ -177,13 +195,17 @@ namespace WebAppQueueManagmentSystem.Controllers
             print();
             BroadcastTicketNumber(TokenDetail);
 
-            return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
+            return Json(new { TokenDetail, printerFound }, JsonRequestBehavior.AllowGet);
         }
+
+
 
         private void print()
         {
             try
             {
+               
+
                 PrintDocument pd = new PrintDocument();
                 pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
                 pd.Print();
@@ -193,6 +215,18 @@ namespace WebAppQueueManagmentSystem.Controllers
                 Response.Write(ex.Message);
                 Response.End();
             }
+        }
+
+        [HttpGet]
+        public PartialViewResult GetTicketList(DateTime TicketDate, int TicketStatus, int CustomerType)
+        {
+
+            var list = token.CurrentList(TicketDate,TicketStatus,CustomerType);
+
+
+
+
+            return PartialView(list);
         }
 
         public void BroadcastTicketNumber(Token TokenDetail) {

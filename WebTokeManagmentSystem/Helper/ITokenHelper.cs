@@ -8,6 +8,7 @@ namespace WebTokenManagmentSystem.Helper
         Token FindTokenByTokenNumber(string Token_Number);
         int? GenerateCounterNumber();
         Token GenerateNewToken(int? isCustomer);
+        CounterTokenRelation GetCounterDetailById(int TokenID);
         AppSetting GetStartCounter();
         int? GetTokenNumber(int? isCustomer);
         void InsertTokenStatus(string TokenNumber, GlobalEnums.Status status_number);

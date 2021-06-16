@@ -1,4 +1,0 @@
-C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokenManagmentSystem.Infrastructure\obj\Debug\netstandard2.0\WebTokenManagmentSystem.Infrastructure.csprojAssemblyReference.cache
-C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokenManagmentSystem.Infrastructure\obj\Debug\netstandard2.0\WebTokenManagmentSystem.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokenManagmentSystem.Infrastructure\obj\Debug\netstandard2.0\WebTokenManagmentSystem.Infrastructure.AssemblyInfo.cs
-C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokenManagmentSystem.Infrastructure\obj\Debug\netstandard2.0\WebTokenManagmentSystem.Infrastructure.csproj.CoreCompileInputs.cache

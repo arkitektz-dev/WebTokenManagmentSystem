@@ -109,5 +109,4 @@ let AddNewTicket = (TokenDetail) => {
     console.log($('#listSidebar').append(card));
 
 
-
 }

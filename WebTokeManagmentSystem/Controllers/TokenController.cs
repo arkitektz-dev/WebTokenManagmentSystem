@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using WebTokenManagmentSystem.Helper;
 using WebTokenManagmentSystem.BLL;
 using WebTokenManagmentSystem.Params;
+using WebTokenManagmentSystem.LINQExtension;
 
 namespace WebTokeManagmentSystem.Controllers
 {
@@ -51,7 +52,8 @@ namespace WebTokeManagmentSystem.Controllers
             {
                 return Ok(message);
             }
-            else {
+            else
+            {
                 return NotFound();
             }
 
@@ -66,11 +68,10 @@ namespace WebTokeManagmentSystem.Controllers
         [Route("List-Token")]
         public IActionResult List_Token(int? token_status, int? customer_Type)
         {
-           
+            var message = tokenBLL.ListToken(token_status, customer_Type);
 
-            var message = tokenBLL.ListToken(token_status,customer_Type);
-
-            if (message != null) {
+            if (message != null)
+            {
                 return Ok(message);
             }
             else
@@ -165,10 +166,10 @@ namespace WebTokeManagmentSystem.Controllers
             {
                 return NotFound();
             }
-             
+
         }
 
-    
+
         /// <summary>
         /// Assign Counter to Service
         /// </summary>
@@ -292,7 +293,7 @@ namespace WebTokeManagmentSystem.Controllers
                 return NotFound();
             }
         }
- 
+
         [HttpPost]
         [Route("Get-Pending-Token-By-CounterId")]
         public IActionResult Get_Pending_Token_By_CounterId([FromBody] GetPendingTokenBody model)
@@ -308,6 +309,79 @@ namespace WebTokeManagmentSystem.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet]
+        [Route("Get-Status-list")]
+        public IActionResult Get_Status_list()
+        {
+            var message = context.Statuses.Select(x => new
+            {
+                x.Id,
+                x.Name
+            });
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
+        [HttpGet]
+        [Route("Token-Filter")]
+        public IActionResult Token_Filter(DateTime TicketDate, int TicketStatus, int CustomerType)
+        {
+            List<CurrentCounterTokenDto> Master = new List<CurrentCounterTokenDto>();
+
+            var TodayTokenList = context
+                .Tokens
+                .Where(x => 
+                x.CreatedDate.Value.Date == TicketDate.Date
+                && x.Status == TicketStatus)
+                .WhereIf(CustomerType == 1, x => x.IsCustomer == true)
+                .WhereIf(CustomerType == 2, x => x.IsCustomer == false)
+                .ToList();
+
+            foreach (var item in TodayTokenList) {
+                CurrentCounterTokenDto row = new CurrentCounterTokenDto();
+                var CounterNumber = context.CounterTokenRelations.Where(x => x.TokenId == item.Id).FirstOrDefault();
+                
+
+                row.TokenId = item.Id;
+                row.TokenNumber = item.CustomTokenNumber;
+                if (CounterNumber != null)
+                {
+                    row.CounterId = (int)CounterNumber.CounterId;
+                }
+                row.TicketDate = (DateTime)item.CreatedDate;
+
+                Master.Add(row);
+            }
+
+            var message = Master;
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+
+
+
+
+
+
+
+
 
 
 

@@ -22,8 +22,6 @@ namespace WebAppQueueManagmentSystem.BLL.Token
             this.helper = _helper;
         }
 
-
-
         public Auth GenerateToken()
         {
             var email = ConfigurationManager.AppSettings["email"];
@@ -82,7 +80,6 @@ namespace WebAppQueueManagmentSystem.BLL.Token
             return return_message;
 
         }
-
 
         public IList<CounterListBody> ListToken(int token_status, int customer_Type)
         {
@@ -189,8 +186,49 @@ namespace WebAppQueueManagmentSystem.BLL.Token
 
             var return_message = row;
             return return_message;
-        } 
- 
+        }
+
+        public IList<StatusListBody> StatusList()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/Token/Get-Status-list");
+            JArray TokenList = JArray.Parse(response.Content);
+
+            IList<StatusListBody> row = TokenList.Select(p => new StatusListBody
+            {
+                Id = (int)p["id"],
+                Name = (string)p["name"]
+
+            }).ToList();
+
+            var return_message = row;
+            return return_message;
+        }
+
+        public IList<CurrentCounterTokenDto> CurrentList(DateTime TicketDate, int TicketStatus, int CustomerType)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/Token/Token-Filter?TicketDate={TicketDate}&TicketStatus={TicketStatus}&CustomerType={CustomerType}");
+            JArray TokenList = JArray.Parse(response.Content);
+
+            IList<CurrentCounterTokenDto> row = TokenList.Select(p => new CurrentCounterTokenDto
+            {
+              CounterId = (int)p["counterId"],
+              Status = (string)p["status"],
+              TicketDate = (DateTime)p["ticketDate"],
+              TokenId = (int)p["tokenId"],
+              TokenNumber = (string)p["tokenNumber"]
+            }).ToList();
+
+            var return_message = row;
+
+            return return_message;
+
+        }
+
+       
 
 
     }

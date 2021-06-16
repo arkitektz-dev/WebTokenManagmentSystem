@@ -11,5 +11,8 @@ namespace WebTokenManagmentSystem.Dtos.Token
         public string Date { get; set; }
         public string Time { get; set; }
         public bool? isCustomer { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? CompleteDate { get; set; }
+
     }
 }

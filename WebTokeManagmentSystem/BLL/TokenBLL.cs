@@ -1,15 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using WebTokenManagmentSystem.Models;
+using WebTokenManagmentSystem.Helper;
+using WebTokenManagmentSystem.Params;
+using WebTokenManagmentSystem.Dtos.Token;
+using Microsoft.Extensions.Configuration;
+using WebTokenManagmentSystem.LINQExtension;
 using WebTokenManagmentSystem.Authentication.enums;
 using WebTokenManagmentSystem.Authentication.Params;
-using WebTokenManagmentSystem.Dtos.Token;
-using WebTokenManagmentSystem.Helper;
-using WebTokenManagmentSystem.Models;
-using WebTokenManagmentSystem.LINQExtension;
-using WebTokenManagmentSystem.Params;
 
 namespace WebTokenManagmentSystem.BLL
 {
@@ -28,7 +28,6 @@ namespace WebTokenManagmentSystem.BLL
 
         public NewTokendto AddNewToken(TokenModel model)
         {
-
 
             int? param_is_customer = Convert.ToInt32(model.CustomerType);
             string CustomerType = "";
@@ -165,17 +164,7 @@ namespace WebTokenManagmentSystem.BLL
                 //Error : Invalid token status
                 return null;
 
-            //var Token_list = context.Tokens
-            //     .Where(x => x.Status == token_status_code
-            //     && x.CreatedDate.Value.Date == DateTime.Now.Date
-            //     && x.IsCustomer == (customer_type_id == (int?)GlobalEnums.CustomerType.Customer ? true : false))
-            //     .Select(row => new
-            //     {
-            //         token = customer_prefix + row.TokenNumber.Value.ToString("D5"),
-            //         date = row.CreatedDate.Value.ToString(@"dd/MM/yyyy"),
-            //         time = row.CreatedDate.Value.ToString(@"hh:m tt")
-            //     });
-
+            
             var Token_list = context.Tokens
                  
                  .WhereIf(token_status_code != (int?)GlobalEnums.Status.All, x => x.Status == token_status_code
@@ -189,7 +178,9 @@ namespace WebTokenManagmentSystem.BLL
                      token = row.TokenNumber.Value.ToString("D5"),
                      date =  row.CreatedDate.Value.ToString(@"dd/MM/yyyy"),
                      time =  row.CreatedDate.Value.ToString(@"hh:m tt"),
-                     isCustomer = row.IsCustomer
+                     isCustomer = row.IsCustomer,
+                     createdDate = row.CreatedDate,
+                     completeDate = row.CompleteDate
                  });
 
 
@@ -204,8 +195,8 @@ namespace WebTokenManagmentSystem.BLL
                 row.Date = item.date;
                 row.Time = item.time;
                 row.isCustomer = item.isCustomer;
-                
-
+                row.CreatedDate = item.createdDate;
+                row.CompleteDate = item.completeDate;
                 master.Add(row);
             }
 
@@ -493,7 +484,6 @@ namespace WebTokenManagmentSystem.BLL
             speech.SpeakAsync($"Ticket number {model.TokenNumber} please proceed to counter number {model.CounterId}");
 
 
-
             var return_message = new CounterTokenDto()
             {
                 CounterId = model.CounterId,
@@ -573,10 +563,7 @@ namespace WebTokenManagmentSystem.BLL
             List<TokenCounterDto> Master = new List<TokenCounterDto>();
 
             foreach (var item in list) {
-
-           
-               
-
+                 
                 TokenCounterDto row = new TokenCounterDto();
                 row.CounterName = context.Counters.Where(x => x.Id == item.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
                 row.TicketNumber = context.Tokens.Where(x => x.Id  ==  item.TokenId).Select(x => x.CustomTokenNumber).FirstOrDefault().ToString();

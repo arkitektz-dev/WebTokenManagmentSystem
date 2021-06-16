@@ -246,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiHelpers\ApiEnum\ApiEnum.cs" />
+    <Compile Include="ApiHelpers\ApiEnum\GlobalEnums.cs" />
     <Compile Include="ApiHelpers\Request\CounterStatusRequest.cs" />
     <Compile Include="ApiHelpers\Request\GetPendingTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\SubmittedTicketRequestBody.cs" />
@@ -256,7 +257,9 @@
     <Compile Include="ApiHelpers\Request\LoginRequestBody.cs" />
     <Compile Include="ApiHelpers\Response\Counter.cs" />
     <Compile Include="ApiHelpers\Response\CounterStatusBody.cs" />
+    <Compile Include="ApiHelpers\Response\CurrentCounterTokenDto.cs" />
     <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
+    <Compile Include="ApiHelpers\Response\StatusListBody.cs" />
     <Compile Include="ApiHelpers\Response\SubmittedTicketBody.cs" />
     <Compile Include="ApiHelpers\Response\CounterDetailBody.cs" />
     <Compile Include="ApiHelpers\Response\CounterListBody.cs" />
@@ -371,8 +374,20 @@
     <Content Include="assets\vendor\datatables\css\fixedHeader.bootstrap4.css" />
     <Content Include="assets\vendor\datatables\css\select.bootstrap4.css" />
     <Content Include="assets\vendor\datatables\js\buttons.bootstrap4.min.js" />
+    <Content Include="assets\vendor\datatables\js\buttons.colVis.min.js" />
+    <Content Include="assets\vendor\datatables\js\buttons.html5.min.js" />
+    <Content Include="assets\vendor\datatables\js\buttons.print.min.js" />
     <Content Include="assets\vendor\datatables\js\data-table.js" />
     <Content Include="assets\vendor\datatables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="assets\vendor\datatables\js\dataTables.buttons.min.js" />
+    <Content Include="assets\vendor\datatables\js\dataTables.fixedHeader.min.js" />
+    <Content Include="assets\vendor\datatables\js\dataTables.rowGroup.min.js" />
+    <Content Include="assets\vendor\datatables\js\dataTables.select.min.js" />
+    <Content Include="assets\vendor\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="assets\vendor\datatables\js\jszip.min.js" />
+    <Content Include="assets\vendor\datatables\js\pdfmake.min.js" />
+    <Content Include="assets\vendor\datatables\js\rowGroup.min.js" />
+    <Content Include="assets\vendor\datatables\js\vfs_fonts.js" />
     <Content Include="assets\vendor\datepicker\datepicker.js" />
     <Content Include="assets\vendor\datepicker\moment.js" />
     <Content Include="assets\vendor\datepicker\tempusdominus-bootstrap-4.css" />
@@ -657,6 +672,7 @@
     <Content Include="assets\vendor\inputmask\css\inputmask.css" />
     <Content Include="assets\vendor\inputmask\js\jquery.inputmask.bundle.js" />
     <Content Include="assets\vendor\jquery\jquery-3.3.1.min.js" />
+    <Content Include="assets\vendor\jquery\jquery-ui.js" />
     <Content Include="assets\vendor\jvectormap\jquery-jvectormap-2.0.2.css" />
     <Content Include="assets\vendor\jvectormap\jquery-jvectormap-2.0.2.min.js" />
     <Content Include="assets\vendor\jvectormap\jquery-jvectormap-au-mill.js" />
@@ -693,6 +709,7 @@
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
     <Content Include="Rotativa\wkhtmltoimage.exe" />
     <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <Content Include="Scripts\AllTicketStatus\AllTicketStatus.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="assets\vendor\fonts\circular-std\CircularStd-Black.woff" />
@@ -796,6 +813,8 @@
     <Content Include="Views\Home\ListCountTicket.cshtml" />
     <Content Include="Views\Counter\ListCounter.cshtml" />
     <Content Include="Views\Counter\TicketCounter.cshtml" />
+    <Content Include="Views\Home\AllTicketStatus.cshtml" />
+    <Content Include="Views\Home\GetTicketList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
