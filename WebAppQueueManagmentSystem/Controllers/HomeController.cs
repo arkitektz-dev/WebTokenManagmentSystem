@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Management;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -173,13 +175,10 @@ namespace WebAppQueueManagmentSystem.Controllers
         [HttpPost]
         public JsonResult GetNewTicket(string CustomerType)
         {
-
-            PrinterSettings settings = new PrinterSettings();
-            string printerName = settings.PrinterName;
             bool printerFound = false;
+            bool isPrinterAvialiable = ChechAvailablePrinter();
 
-            if (printerName.ToUpper().Contains("POS"))
-            {
+            if (isPrinterAvialiable == true) {
                 printerFound = true;
             }
 
@@ -189,13 +188,14 @@ namespace WebAppQueueManagmentSystem.Controllers
             {
                 token = row.token,
                 date = row.date,
-                time = row.time
+                time = row.time,
+                PrinterFound = printerFound
             };
             TokenNumber = TokenDetail.token;
-            print();
+            //print();
             BroadcastTicketNumber(TokenDetail);
 
-            return Json(new { TokenDetail, printerFound }, JsonRequestBehavior.AllowGet);
+            return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -225,11 +225,50 @@ namespace WebAppQueueManagmentSystem.Controllers
 
 
 
-
+        
             return PartialView(list);
         }
 
-        public void BroadcastTicketNumber(Token TokenDetail) {
+        public bool ChechAvailablePrinter()
+        {
+            // Set management scope
+            ManagementScope scope = new ManagementScope(@"\root\cimv2");
+            scope.Connect();
+
+            // Select Printers from WMI Object Collections
+            ManagementObjectSearcher searcher = new
+             ManagementObjectSearcher("SELECT * FROM Win32_Printer");
+
+            string printerName = "";
+            foreach (ManagementObject printer in searcher.Get())
+            {
+                printerName = printer["Name"].ToString();
+                string SelectedPrinterName = ConfigurationManager.AppSettings["PrinterName"];
+                if (printerName.Contains(SelectedPrinterName))
+                {
+                    Debug.WriteLine("Printer = " + printer["Name"]);
+                    if (printer["WorkOffline"].ToString().ToLower().Equals("true"))
+                    {
+                       
+                        // printer is offline by user
+                        Debug.WriteLine("Your Plug-N-Play printer is not connected.");
+                    }
+                    else
+                    {
+                        return true;
+                        // printer is not offline
+                        Debug.WriteLine("Your Plug-N-Play printer is connected.");
+                    }
+                }
+            }
+
+            return false;
+        }
+
+         
+    
+
+    public void BroadcastTicketNumber(Token TokenDetail) {
             TicketHub.TicketBroadCast(TokenDetail);
         }
 

@@ -24,6 +24,64 @@ setInterval(function () {
     OpenPendingTicket();
 }, 1000);
 
+
+let btnSkipThis = () => {
+  //
+
+    //var TokenStatusId = document.getElementById("StatusId").value;
+    var ServiceStatusId = document.getElementById("ServiceId").value;
+    var CounterComment = document.getElementById("txtComment").value;
+
+    //get User Id 
+    const params = new URLSearchParams(window.location.search)
+    var userID = params.get('UserId')
+    console.log(userID);
+
+    //console.log(currentToken,TokenStatusId, ServiceStatusId, CounterComment, userID);
+
+    $.ajax({
+        type: "GET",
+        url: "/Home/SubmittedTicket",
+        data: { TokenNumber: currentToken, Comment: CounterComment, ServiceOptionId: ServiceStatusId, StatusId: 2 },
+        success: function (data) {
+            console.log(data.message);
+            var result = data.message;
+
+            if (result == "Success") {
+
+                stoptime = true;
+                IdleWarning("On");
+                currentToken = "";
+
+            } else {
+                console.log("Error")
+            }
+
+        },
+        error: function () {
+            alert("Error occured!!")
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
 let OpenPendingTicket = () => {
 
     const params = new URLSearchParams(window.location.search)
@@ -37,28 +95,29 @@ let OpenPendingTicket = () => {
         success: function (data) {
             console.log(data.tokenDetail.CustomTokenNumber);
 
-            var TokenNumber = data.tokenDetail.CustomTokenNumber;
+            if (data.tokenDetail.CustomTokenNumber != undefined) {
 
-            if (TokenNumber != null || TokenNumber != "") {
+                var TokenNumber = data.tokenDetail.CustomTokenNumber;
 
-                IdleWarning("Off");
-                stoptime = false;
-                if (isRun == false) {
-                    timerCycle();
+                if (TokenNumber != null || TokenNumber != "") {
+
+                    IdleWarning("Off");
+                    stoptime = false;
+                    if (isRun == false) {
+                        timerCycle();
+                    }
+                    document.getElementById('txtTicketNo').innerText = "Ticket Number " + data.tokenDetail.CustomTokenNumber;
+
+                    currentToken = TokenNumber;
+
+                    console.log(currentToken);
+
+                } else {
+                    document.getElementById("btnPickNextTicket").style.display = "none";
                 }
-                document.getElementById('txtTicketNo').innerText = "Ticket Number " + data.tokenDetail.CustomTokenNumber;
 
-                currentToken = TokenNumber;
-
-                console.log(currentToken);
-
-            } else {
-                document.getElementById("btnPickNextTicket").style.display = "none";
             }
-
-
-
-
+            
         },
         error: function () {
             alert("Error occured!!")

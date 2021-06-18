@@ -558,19 +558,34 @@ namespace WebTokenManagmentSystem.BLL
         public List<TokenCounterDto> ListCounterToken()
         {
 
-            var list = context.CounterTokenRelations.Where(x => x.StatusId == (byte?)GlobalEnums.Status.Serving).ToList();
+        
+
+            var counterList = context.Counters.ToList();
 
             List<TokenCounterDto> Master = new List<TokenCounterDto>();
 
-            foreach (var item in list) {
-                 
-                TokenCounterDto row = new TokenCounterDto();
-                row.CounterName = context.Counters.Where(x => x.Id == item.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
-                row.TicketNumber = context.Tokens.Where(x => x.Id  ==  item.TokenId).Select(x => x.CustomTokenNumber).FirstOrDefault().ToString();
 
-                Master.Add(row);
+            foreach (var item in counterList) {
+                TokenCounterDto row = new TokenCounterDto();
+
+                var counterRow = context.CounterTokenRelations.Where(x => x.StatusId == (byte?)GlobalEnums.Status.Serving && x.CounterId == item.Id ).FirstOrDefault();
+
+                if (counterRow != null)
+                {
+                    row.CounterName = context.Counters.Where(x => x.Id == counterRow.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
+                    row.TicketNumber = context.Tokens.Where(x => x.Id == counterRow.TokenId).Select(x => x.CustomTokenNumber).FirstOrDefault().ToString();
+                    Master.Add(row);
+                }
+                else {
+                    row.CounterName = item.Id.ToString();
+                    row.TicketNumber = "-";
+                    Master.Add(row);
+                }
+
+                
 
             }
+
 
             return Master;
         }
@@ -599,19 +614,30 @@ namespace WebTokenManagmentSystem.BLL
         public Token GetPendingTokenByCounterId(GetPendingTokenBody model)
         {
 
-            var PendingToken = context.CounterTokenRelations.Where(x => x.CounterId == model.CounterId && x.StatusId == (byte?)GlobalEnums.Status.Serving).FirstOrDefault();
+            var PendingToken = context.CounterTokenRelations.Where(x => x.CounterId == model.CounterId && x.StatusId == (byte?)GlobalEnums.Status.Serving && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
 
             if (PendingToken != null)
             {
 
-                var token = context.Tokens.Where(x => x.Id == PendingToken.TokenId).FirstOrDefault();
+                var isTokenSkipped = context.TokenStatusHistories.Where(x => x.TokenId == PendingToken.TokenId && x.Status == (byte?)GlobalEnums.Status.Skip).FirstOrDefault();
 
-                var return_message = new Token()
+
+                if (isTokenSkipped == null)
                 {
-                    CustomTokenNumber = token.CustomTokenNumber
-                };
+                    var token = context.Tokens.Where(x => x.Id == PendingToken.TokenId).FirstOrDefault();
 
-                return return_message;
+                    var return_message = new Token()
+                    {
+                        CustomTokenNumber = token.CustomTokenNumber
+                    };
+
+                    return return_message;
+                }
+                else {
+                    return null;
+                }
+
+        
 
             }
             else {

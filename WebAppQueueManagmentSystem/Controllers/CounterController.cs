@@ -24,6 +24,10 @@ namespace WebAppQueueManagmentSystem.Controllers
             this.helper = _helper;
         }
 
+        public ActionResult AddCounter()
+        {
+            return View();
+        }
 
         // GET: Counter
         public ActionResult ListCounter()

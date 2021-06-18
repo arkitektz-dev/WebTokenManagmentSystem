@@ -62,6 +62,22 @@ let makeRequest = (CustomerType) => {
         data: { CustomerType: CustomerType },
         success: function (data) {
 
+            if (data.TokenDetail.PrinterFound == false) {
+
+
+                document.getElementById("txtDisplayTicket").innerText = `Your ticket number is ${data.TokenDetail.token}`
+                document.getElementById("txtDisplayTicket").style.display = "block";
+
+                setTimeout(function () {
+                document.getElementById("txtDisplayTicket").style.display = "none";
+                    
+                },5000)
+
+
+            }
+
+
+            console.log(data);
         },
         error: function () {
             alert("Error occured!!")
@@ -71,14 +87,17 @@ let makeRequest = (CustomerType) => {
 
 
 let RefreshList = () => {
-    console.log("Run");
+  
 
     $.ajax({
         type: "GET",
         url: "/Home/ListCountTicket",
         success: function (content) {
-            document.getElementById("listCurrentTicketNumber").innerHTML = "";
-            $("#listCurrentTicketNumber").append(content);
+
+            if (document.getElementById("listCurrentTicketNumber") != null) {
+                document.getElementById("listCurrentTicketNumber").innerHTML = "";
+                $("#listCurrentTicketNumber").append(content);
+            }
 
         },
         error: function () {

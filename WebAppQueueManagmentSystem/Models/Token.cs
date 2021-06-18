@@ -18,6 +18,7 @@ namespace WebAppQueueManagmentSystem.Models
         public int? TokenNumber { get; set; }
         public byte? Status { get; set; }
         public bool? IsCustomer { get; set; }
-        public string Comment { get; set; } 
+        public string Comment { get; set; }
+        public bool PrinterFound { get; set; }
     }
 }

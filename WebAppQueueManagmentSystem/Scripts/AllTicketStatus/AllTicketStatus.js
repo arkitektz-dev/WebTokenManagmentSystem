@@ -19,7 +19,8 @@
  
 
     });
- //DateTime TicketDate, int TicketStatus, int CustomerType
+
+
     function CallTable(TicketDate, TicketStatus, CustomerType) {
              $.ajax({
                 type: "GET",
