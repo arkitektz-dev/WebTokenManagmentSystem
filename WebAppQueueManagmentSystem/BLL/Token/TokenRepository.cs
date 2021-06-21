@@ -43,7 +43,7 @@ namespace WebAppQueueManagmentSystem.BLL.Token
             IRestResponse response = client.Execute(request);
             Console.WriteLine(response.Content);
 
- 
+
             LoginUserBody LoginResponseBody = JsonConvert.DeserializeObject<LoginUserBody>(response.Content);
 
             var return_message = new Auth()
@@ -104,16 +104,16 @@ namespace WebAppQueueManagmentSystem.BLL.Token
 
         }
 
-        public SubmittedTicketBody Submitted_Token(string TokenNumber,string Comment,int ServiceOptionId,byte StatusId)
+        public SubmittedTicketBody Submitted_Token(string TokenNumber, string Comment, int ServiceOptionId, byte StatusId)
         {
             var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
 
             var RequestBody = new SubmittedTicketRequestBody()
             {
-               TokenNumber = TokenNumber,
-               Comment = Comment,
-               ServiceOptionId = ServiceOptionId,
-               StatusId = StatusId
+                TokenNumber = TokenNumber,
+                Comment = Comment,
+                ServiceOptionId = ServiceOptionId,
+                StatusId = StatusId
             };
 
             IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Counter-Submit-Ticket");
@@ -162,7 +162,7 @@ namespace WebAppQueueManagmentSystem.BLL.Token
             {
                 TokenStatus = row.TokenStatus
             };
-             
+
             return return_message;
         }
 
@@ -215,11 +215,11 @@ namespace WebAppQueueManagmentSystem.BLL.Token
 
             IList<CurrentCounterTokenDto> row = TokenList.Select(p => new CurrentCounterTokenDto
             {
-              CounterId = (int)p["counterId"],
-              Status = (string)p["status"],
-              TicketDate = (DateTime)p["ticketDate"],
-              TokenId = (int)p["tokenId"],
-              TokenNumber = (string)p["tokenNumber"]
+                CounterId = (int)p["counterId"],
+                Status = (string)p["status"],
+                TicketDate = (DateTime)p["ticketDate"],
+                TokenId = (int)p["tokenId"],
+                TokenNumber = (string)p["tokenNumber"]
             }).ToList();
 
             var return_message = row;
@@ -228,8 +228,31 @@ namespace WebAppQueueManagmentSystem.BLL.Token
 
         }
 
-       
+        public StatusChangeBody ChangeTokenStatus(string TokenNumber, byte Status)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
 
+            var RequestBody = new StatusChangeBody()
+            {
+                TokenNumber = TokenNumber,
+                Status = Status
+                
+            };
+
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Change-Token-Status-By-Token-Number");
+            StatusChangeBody row = JsonConvert.DeserializeObject<StatusChangeBody>(response.Content);
+
+            var return_message = new StatusChangeBody()
+            {
+                TokenNumber = row.TokenNumber,
+                Status = row.Status
+            };
+
+            return return_message;
+
+        }
+
+     
 
     }
 }

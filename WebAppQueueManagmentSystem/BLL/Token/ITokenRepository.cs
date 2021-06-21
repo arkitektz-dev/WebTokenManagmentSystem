@@ -17,5 +17,6 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         IList<CounterTokenBody> ViewCounterActivity(int counterId);
         IList<StatusListBody> StatusList();
         IList<CurrentCounterTokenDto> CurrentList(DateTime TicketDate, int TicketStatus, int CustomerType);
+        StatusChangeBody ChangeTokenStatus(string TokenNumber, byte Status);
     }
 }

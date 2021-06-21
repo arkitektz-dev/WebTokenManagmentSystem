@@ -27,5 +27,13 @@ namespace WebAppQueueManagmentSystem.Hubs
             context.Clients.All.getRemovedTicketNumber(TicketNumber);
         }
 
+        public static void SoundPlayed()
+        {
+            IHubContext context = GlobalHost.ConnectionManager.GetHubContext<TicketHub>();
+            context.Clients.All.getSoundPlayed(true);
+        }
+             
+
+
     }
 }

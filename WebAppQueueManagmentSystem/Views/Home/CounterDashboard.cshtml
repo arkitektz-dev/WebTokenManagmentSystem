@@ -3,6 +3,8 @@
     string value = "TicketNumber";
 } 
  
+<input type="hidden" id="CounterNumber" value="@TempData["CounterNumber"]" name="CounterNumber" />
+
 <aside class="page-aside">
     <div class="aside-content">
         <div class="aside-header">
@@ -13,14 +15,13 @@
         </div>
       
         <div class="aside-nav collapse">
+            <p class="text-center">Ticket in Queue <strong id="TicketQueue"> : 0 </strong> </p>
             <ul class="nav ticket-sidebar" id="listSidebar">
 
                  
 
                 @foreach (var item in ViewBag.ListToken)
                 {
-
-
                     <li id="@value@item.Token">
                         <div class="card">
 
@@ -93,17 +94,21 @@
                         </div>
 
 
-                        <div class="row" style="width:35%; margin:0 auto;">
+                        <div class="row" style="margin: 2px 114px;">
                             <div class="col-md-3">
-                            <button class="btn btn-secondary" onclick="btnGetNextTicket()">Next</button>
-                            </div>
-
-                            <div class="col-md-3 ml-5">
-                            <button class="btn btn-secondary" onclick="btnSkipThis()">Skip this</button>
+                                <button class="btn btn-secondary ml-3" onclick="btnGetNextTicket()">Next</button>
                             </div>
 
                             <div class="col-md-3">
-                            <button class="btn btn-secondary ml-5" onclick="btnCloseThisTicket()">Close</button>
+                                <button class="btn btn-secondary" onclick="btnSkipThis()">Skip this</button>
+                            </div>
+
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary" onclick="btnCloseThisTicket()">Close</button>
+                            </div>
+
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary" onclick="CallAgain()">Call</button>
                             </div>
                         </div>
 

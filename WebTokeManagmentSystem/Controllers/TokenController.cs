@@ -120,9 +120,6 @@ namespace WebTokeManagmentSystem.Controllers
             {
                 return NotFound();
             }
-
-
-
         }
 
         /// <summary>
@@ -376,7 +373,27 @@ namespace WebTokeManagmentSystem.Controllers
         }
 
 
+        /// <summary>
+        /// Get Average Time
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        [Route("Get-Average-Time")]
+        public IActionResult Get_Average_Time(int? CounterId)
+        {
+            var message = tokenBLL.GetAverageTime();
 
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
 
 
 

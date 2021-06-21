@@ -8,7 +8,10 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Net;
+using System.Speech.Synthesis;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebAppQueueManagmentSystem.ApiHelpers.Utility;
@@ -25,7 +28,9 @@ namespace WebAppQueueManagmentSystem.Controllers
         readonly ITokenRepository token;
         readonly ICounterRepository counter;
         readonly IApiUtility helper;
-        
+        public static bool isPlayed = false;
+             
+
         public HomeController(ITokenRepository _token, ICounterRepository _counter, IApiUtility _helper)
         {
             this.token = _token;
@@ -33,14 +38,14 @@ namespace WebAppQueueManagmentSystem.Controllers
             this.helper = _helper;
         }
 
-  
+
         public ActionResult Index()
         {
-            
+
             return View();
         }
 
-       
+
 
         public PartialViewResult ListCountTicket()
         {
@@ -53,8 +58,8 @@ namespace WebAppQueueManagmentSystem.Controllers
         public JsonResult GetTicketStatus(string TokenNumber) {
 
             var message = token.GetTokenStatus(TokenNumber);
-          
-            return Json(new { message },JsonRequestBehavior.AllowGet);
+
+            return Json(new { message }, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -81,13 +86,14 @@ namespace WebAppQueueManagmentSystem.Controllers
         {
             var message = counter.AssignTokenToCounter(TokenNumber, UserId, StatusId);
 
-            if (message != null){
+            if (message != null) {
                 BroadcastNewAssignTicket(TokenNumber);
                 BroadcastRemoveTicket(TokenNumber);
+                //TicketHub.SoundPlayed();
                 return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
-           
+
             }
-            else { 
+            else {
                 return Json(new { message = "Error" }, JsonRequestBehavior.AllowGet);
             }
 
@@ -105,7 +111,7 @@ namespace WebAppQueueManagmentSystem.Controllers
 
         public JsonResult SubmittedTicket(string TokenNumber, string Comment, int ServiceOptionId, byte StatusId)
         {
-            var message = token.Submitted_Token( TokenNumber,  Comment,  ServiceOptionId,  StatusId);
+            var message = token.Submitted_Token(TokenNumber, Comment, ServiceOptionId, StatusId);
 
             if (message != null)
             {
@@ -138,11 +144,11 @@ namespace WebAppQueueManagmentSystem.Controllers
             return View();
         }
 
-    
+
         public ActionResult GenerateTicket()
         {
             print();
-        
+
             return View();
         }
 
@@ -157,6 +163,54 @@ namespace WebAppQueueManagmentSystem.Controllers
         {
             return View();
         }
+
+        //public async Task<ActionResult> CallAgain(string TokenNumber, string Counter)
+        //{
+        //    var speech = new System.Speech.Synthesis.SpeechSynthesizer();
+
+        //    speech.SelectVoice("Microsoft Zira Desktop");
+        //    speech.Rate = -1;
+        //    speech.SpeakAsync($"Ticket number {TokenNumber} please proceed to counter number {Counter}");
+
+
+
+        //    return View();
+        //}
+
+        public async Task<ActionResult> CallAgain(string TokenNumber, string Counter)
+        {
+            TicketHub.SoundPlayed();
+            Task<ViewResult> task = Task.Run(() =>
+            {
+                using (SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer())
+                {
+                    speechSynthesizer.SelectVoice("Microsoft Zira Desktop");
+                    speechSynthesizer.Rate = -1;
+                    speechSynthesizer.Speak($"Ticket number {TokenNumber} please proceed to counter number {Counter}");
+                    return View();
+                }
+            });
+
+            return await task;
+        }
+
+
+
+
+        public JsonResult ChangeTokenStatus(string TokenNumber, byte Status)
+        {
+            var tokenDetail = token.ChangeTokenStatus(TokenNumber, Status);
+
+            if (tokenDetail != null)
+            {
+                return Json(new { tokenDetail }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { tokenDetail = "" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
 
         public JsonResult GetPendingCounter(string UserId) {
 

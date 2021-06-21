@@ -191,6 +191,9 @@ namespace WebTokenManagmentSystem.BLL
             {
                 ListTokenDto row = new ListTokenDto();
 
+               
+
+
                 row.Token = (item.isCustomer == true ? "C" : "N") + item.token;
                 row.Date = item.date;
                 row.Time = item.time;
@@ -281,6 +284,20 @@ namespace WebTokenManagmentSystem.BLL
 
             context.TokenStatusHistories.Add(inserted_Row);
             context.SaveChanges();
+
+
+            if (model.Status == (byte)GlobalEnums.Status.Skip) {
+                var row = context.CounterTokenRelations
+                    .Where(x =>
+                    x.StatusId == (byte)GlobalEnums.Status.Serving
+                    && x.TokenId == tokenHelper.FindTokenByTokenNumber(model.TokenNumber).Id
+                    && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
+
+                if (row != null)
+                    row.StatusId = (byte?)GlobalEnums.Status.Skip;
+                context.SaveChanges();
+
+            }
 
             var return_message = new StatusChangeDto()
             {
@@ -481,7 +498,7 @@ namespace WebTokenManagmentSystem.BLL
 
             speech.SelectVoice("Microsoft Zira Desktop");
             speech.Rate = -1;
-            speech.SpeakAsync($"Ticket number {model.TokenNumber} please proceed to counter number {model.CounterId}");
+            speech.Speak($"Ticket number {model.TokenNumber} please proceed to counter number {model.CounterId}");
 
 
             var return_message = new CounterTokenDto()
@@ -561,20 +578,27 @@ namespace WebTokenManagmentSystem.BLL
         
 
             var counterList = context.Counters.ToList();
-
+         
             List<TokenCounterDto> Master = new List<TokenCounterDto>();
 
 
             foreach (var item in counterList) {
                 TokenCounterDto row = new TokenCounterDto();
 
-                var counterRow = context.CounterTokenRelations.Where(x => x.StatusId == (byte?)GlobalEnums.Status.Serving && x.CounterId == item.Id ).FirstOrDefault();
+                var counterRow = context.CounterTokenRelations.Where(x => x.StatusId != (byte)GlobalEnums.Status.Skip && x.StatusId == (byte?)GlobalEnums.Status.Serving && x.CounterId == item.Id && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
+
+                
+
+                  
+                
 
                 if (counterRow != null)
                 {
-                    row.CounterName = context.Counters.Where(x => x.Id == counterRow.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
-                    row.TicketNumber = context.Tokens.Where(x => x.Id == counterRow.TokenId).Select(x => x.CustomTokenNumber).FirstOrDefault().ToString();
-                    Master.Add(row);
+                
+                        row.CounterName = context.Counters.Where(x => x.Id == counterRow.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
+                        row.TicketNumber = context.Tokens.Where(x => x.Id == counterRow.TokenId).Select(x => x.CustomTokenNumber).FirstOrDefault().ToString();
+                        Master.Add(row);
+  
                 }
                 else {
                     row.CounterName = item.Id.ToString();
@@ -647,6 +671,14 @@ namespace WebTokenManagmentSystem.BLL
 
 
 
+        }
+
+        public int GetAverageTime()
+        {
+            var list = context.TokenStatusHistories.ToList();
+
+
+            return 0;
         }
 
     }
