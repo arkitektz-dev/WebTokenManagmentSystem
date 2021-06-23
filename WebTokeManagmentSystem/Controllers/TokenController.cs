@@ -15,6 +15,8 @@ using WebTokenManagmentSystem.Helper;
 using WebTokenManagmentSystem.BLL;
 using WebTokenManagmentSystem.Params;
 using WebTokenManagmentSystem.LINQExtension;
+using WebTokenManagmentSystem.Service;
+using Microsoft.Extensions.Hosting;
 
 namespace WebTokeManagmentSystem.Controllers
 {
@@ -27,13 +29,15 @@ namespace WebTokeManagmentSystem.Controllers
         private IConfiguration config;
         private readonly ITokenHelper tokenHelper;
         private readonly ITokenBLL tokenBLL;
+        private readonly TicketSpeaker _ticketSpeaker;
 
-        public TokenController(WebTokenManagmentSystemDBContext _context, IConfiguration _config, ITokenHelper _tokenHelper, ITokenBLL _tokenBLL)
+        public TokenController(IHostedService hostedService, WebTokenManagmentSystemDBContext _context, IConfiguration _config, ITokenHelper _tokenHelper, ITokenBLL _tokenBLL)
         {
             config = _config;
             context = _context;
             tokenHelper = _tokenHelper;
             tokenBLL = _tokenBLL;
+            _ticketSpeaker = hostedService as TicketSpeaker;
         }
 
 
@@ -380,7 +384,7 @@ namespace WebTokeManagmentSystem.Controllers
         /// 
         [HttpGet]
         [Route("Get-Average-Time")]
-        public IActionResult Get_Average_Time(int? CounterId)
+        public IActionResult Get_Average_Time()
         {
             var message = tokenBLL.GetAverageTime();
 
@@ -393,6 +397,20 @@ namespace WebTokeManagmentSystem.Controllers
                 return NotFound();
             }
 
+        }
+
+        /// <summary>
+        /// Get Average Time
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        [Route("Add-Ticket-To-Queue")]
+        public IActionResult Add_Ticket_To_Queue()
+        {
+             
+            return Ok();
+            //_ticketSpeaker.StartAsync(new System.Threading.CancellationToken());
         }
 
 

@@ -246,7 +246,7 @@ namespace WebAppQueueManagmentSystem.Controllers
                 PrinterFound = printerFound
             };
             TokenNumber = TokenDetail.token;
-            //print();
+            print();
             BroadcastTicketNumber(TokenDetail);
 
             return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
@@ -340,9 +340,11 @@ namespace WebAppQueueManagmentSystem.Controllers
             RectangleF rect1 = new RectangleF(12.0F, 25.0F, 182, 25.0F);
             RectangleF rect2 = new RectangleF(100.0F, 25.0F, 182, 25.0F);
             RectangleF rect3 = new RectangleF(50.0F, 140.0F, 182, 25.0F);
+            RectangleF rect4 = new RectangleF(50.0F, 180.0F, 182, 25.0F);
             g.DrawString(currentDate, font, solidBrush, rect1);
             g.DrawString($"Queue Ticket", font, solidBrush, rect2, stringformat);
             g.DrawString($"Ticket Number : {TokenNumber}", font, solidBrush, rect3, stringformat);
+            g.DrawString($"Expected Time : {token.GetAverageTime()} min", font, solidBrush, rect4, stringformat);
             tkcLogo.Dispose();
         }
     }

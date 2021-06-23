@@ -22,5 +22,6 @@ namespace WebTokenManagmentSystem.BLL
         TokenStatusDto GetTokenStatus(TokenStatusBody model);
         Token GetPendingTokenByCounterId(GetPendingTokenBody model);
         int GetAverageTime();
+
     }
 }

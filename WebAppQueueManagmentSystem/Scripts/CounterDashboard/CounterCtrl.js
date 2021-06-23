@@ -11,13 +11,13 @@ $.connection.hub.start().done(function () {
 });
 
 con.client.getNewTicket = function (TokenDetail) {
-    //console.log(TokenDetail)
+    console.log(TokenDetail)
     AddNewTicket(TokenDetail);
 }
 
 con.client.getRemovedTicketNumber = function (TicketNumber) {
-    //console.log("YOur ticket number");
-    //console.log(TicketNumber);
+    console.log("YOur ticket number");
+    console.log(TicketNumber);
     RemoveTicketFromList(TicketNumber);
 }
 
@@ -159,9 +159,9 @@ let OpenPendingTicket = () => {
 
 let RemoveTicketFromList = (TicketNumber) => {
     var ticketNumber = document.getElementById(`TicketNumber${TicketNumber}`);
-    if (ticketNumber != null) {
+   
         ticketNumber.remove();
-    }
+ 
 }
 
 let IdleWarning = (Switch) => {
@@ -207,6 +207,8 @@ function GetTokenStatusNew() {
 }
 
 let SelectTicket = async (TokenNumber) => {
+
+    debugger;
 
     //console.log(TokenNumber);
     //console.log(currentToken);
@@ -368,6 +370,8 @@ let AddNewTicket = (TokenDetail) => {
           </div>
       </li>      
     `;
+
+    $('#listSidebar').append(card)
 
     //console.log(card);
 

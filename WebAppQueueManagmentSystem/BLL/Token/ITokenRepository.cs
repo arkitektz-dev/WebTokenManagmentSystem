@@ -18,5 +18,6 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         IList<StatusListBody> StatusList();
         IList<CurrentCounterTokenDto> CurrentList(DateTime TicketDate, int TicketStatus, int CustomerType);
         StatusChangeBody ChangeTokenStatus(string TokenNumber, byte Status);
+        int GetAverageTime();
     }
 }

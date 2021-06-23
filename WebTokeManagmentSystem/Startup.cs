@@ -20,6 +20,7 @@ using WebTokenManagmentSystem.Helper;
 using WebTokenManagmentSystem.Models;
 using Prometheus; 
 using WebTokenManagmentSystem.BLL;
+using WebTokenManagmentSystem.Service;
 
 namespace WebTokeManagmentSystem
 {
@@ -43,7 +44,7 @@ namespace WebTokeManagmentSystem
             services.AddScoped<ITokenBLL, TokenBLL>();
             services.AddScoped<ICounterHelper, CounterHelper>();
             services.AddScoped<ICounterBLL, CounterBLL>();
-
+            services.AddSingleton<IHostedService, TicketSpeaker>();
 
 
             services.AddSwaggerGen(options => {

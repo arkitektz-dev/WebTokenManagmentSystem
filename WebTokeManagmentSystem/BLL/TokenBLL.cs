@@ -675,10 +675,70 @@ namespace WebTokenManagmentSystem.BLL
 
         public int GetAverageTime()
         {
-            var list = context.TokenStatusHistories.ToList();
+            var listTotal = context.TokenStatusHistories.Where(x => x.Status == (int?)GlobalEnums.Status.Serving).ToList();
+
+            if (listTotal.Count == 0)
+            {
+                return Convert.ToInt32(
+                        context.AppSettings
+                        .Where(x => x.SettingKey == "Default_Waiting_Time")
+                        .Select(x => x.SettingValue)
+                        .FirstOrDefault()
+                    );
+            }
 
 
-            return 0;
+
+            var getLatestDate = context.TokenStatusHistories.Max(x => x.Id);
+            var getLatestDateDetail = context.TokenStatusHistories.Where(x => x.Id == getLatestDate).FirstOrDefault();
+          
+            var list = context.TokenStatusHistories
+                .Where(x => 
+                x.CreatedDate.Value.Date == getLatestDateDetail.CreatedDate.Value.Date
+                && x.Status == (int)GlobalEnums.Status.Serving
+                )
+                .ToList();
+
+            if (list.Count == 0) {
+
+                int counter = 0;
+                while (list.Count == 0)
+                {
+                    counter++;
+                     list = context.TokenStatusHistories
+                        .Where(x =>
+                        x.CreatedDate.Value.Date == DateTime.Now.Date.AddDays(-1)
+                        && x.Status == (int)GlobalEnums.Status.Serving
+                        )
+                        .ToList();
+                }
+            }
+
+            List<int> ListTotalTime = new List<int>();
+
+            foreach (var item in list) {
+
+                var TicketTakenTime = (DateTime)context
+                    .TokenStatusHistories
+                    .Where(x => x.TokenId == item.TokenId && x.Status == (int?)GlobalEnums.Status.Pending)
+                    .Select(x => x.CreatedDate)
+                    .FirstOrDefault(); 
+
+                var TicketServedTime = (DateTime)context
+                    .TokenStatusHistories
+                    .Where(x => x.TokenId == item.TokenId && x.Status == (int?)GlobalEnums.Status.Serving)
+                    .Select(x => x.CreatedDate)
+                    .FirstOrDefault();
+
+                TimeSpan value = (TicketServedTime - TicketTakenTime);
+
+                ListTotalTime.Add(value.Minutes);
+            }
+
+            //return ListTotalTime.Sum() / ListTotalTime.Count();
+
+            return (int)ListTotalTime.Average();
+
         }
 
     }

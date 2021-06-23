@@ -29,6 +29,7 @@ namespace WebTokenManagmentSystem.Models
         public virtual DbSet<CounterServiceRelation> CounterServiceRelations { get; set; }
         public virtual DbSet<CounterTokenRelation> CounterTokenRelations { get; set; }
         public virtual DbSet<CounterType> CounterTypes { get; set; }
+        public virtual DbSet<QueueHistory> QueueHistories { get; set; }
         public virtual DbSet<ServiceMaster> ServiceMasters { get; set; }
         public virtual DbSet<ServiceOption> ServiceOptions { get; set; }
         public virtual DbSet<Status> Statuses { get; set; }
@@ -229,6 +230,17 @@ namespace WebTokenManagmentSystem.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.CounterName).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<QueueHistory>(entity =>
+            {
+                entity.ToTable("QueueHistory");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<ServiceMaster>(entity =>

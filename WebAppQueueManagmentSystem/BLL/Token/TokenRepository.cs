@@ -252,7 +252,18 @@ namespace WebAppQueueManagmentSystem.BLL.Token
 
         }
 
-     
+        public int GetAverageTime()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/Token/Get-Average-Time");
+             
+            var return_message = response.Content;
+
+            return Convert.ToInt32(return_message);
+
+        }
+
 
     }
 }

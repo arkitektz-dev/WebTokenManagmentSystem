@@ -1811,15 +1811,13 @@ Leftsidebar - dark
     -webkit-transition: all 0.3s ease;
 }
 
-.sidebar-dark .nav-divider {
-    color: #a4aadb;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
 
 .sidebar-dark.nav-left-sidebar .nav-link i {
     color: #7a80b4;
 }
+    .sidebar-dark.nav-left-sidebar .nav-link i {
+        color: #ffffff;
+    }
 
 .sidebar-dark.nav-left-sidebar .navbar-nav .nav-item {}
 

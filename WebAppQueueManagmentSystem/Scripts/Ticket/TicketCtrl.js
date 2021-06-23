@@ -113,7 +113,8 @@ let AddNewTicket = (TokenDetail) => {
 
     console.log(TokenDetail);
 
-    var card = `
+     
+        var card = `
         <li style="margin-top: -29px;" id="TokenNumber${TokenDetail.token}">
           <div class="card mb-0">
           <div class="card-body">
@@ -123,9 +124,12 @@ let AddNewTicket = (TokenDetail) => {
      </li>  
     `;
 
-    console.log(card);
-    document.getElementById("listCurrentTicketNumber").innerHTML = "";
-    console.log($('#listSidebar').append(card));
+        console.log(card);
+        document.getElementById("listCurrentTicketNumber").innerHTML = "";
+        console.log($('#listSidebar').append(card));
+  
+
+
 
 
 }

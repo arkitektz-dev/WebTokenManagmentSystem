@@ -278,6 +278,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="BackgroundService\AnnouncementWorker.cs" />
     <Compile Include="BLL\Counter\CounterRepository.cs" />
     <Compile Include="BLL\Counter\ICounterRepository.cs" />
     <Compile Include="BLL\Token\ITokenRepository.cs" />
