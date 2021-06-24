@@ -44,7 +44,11 @@ namespace WebTokeManagmentSystem
             services.AddScoped<ITokenBLL, TokenBLL>();
             services.AddScoped<ICounterHelper, CounterHelper>();
             services.AddScoped<ICounterBLL, CounterBLL>();
-            services.AddSingleton<IHostedService, TicketSpeaker>();
+
+            //services.AddSingleton<IHostedService, TicketSpeaker>();
+
+            services.AddSingleton<TicketSpeaker>();
+            services.AddHostedService<TicketSpeaker>(provider => provider.GetService<TicketSpeaker>());
 
 
             services.AddSwaggerGen(options => {
@@ -66,7 +70,7 @@ namespace WebTokeManagmentSystem
                 .AddDefaultTokenProviders();
 
             //For Web Token Managment System
-            services.AddDbContext<WebTokenManagmentSystemDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
+            services.AddTransient<WebTokenManagmentSystemDBContext>();
 
 
 

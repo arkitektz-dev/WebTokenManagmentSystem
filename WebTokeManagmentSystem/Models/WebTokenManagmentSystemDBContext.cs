@@ -35,6 +35,7 @@ namespace WebTokenManagmentSystem.Models
         public virtual DbSet<Status> Statuses { get; set; }
         public virtual DbSet<Token> Tokens { get; set; }
         public virtual DbSet<TokenStatusHistory> TokenStatusHistories { get; set; }
+        public virtual DbSet<UserCounterHistory> UserCounterHistories { get; set; }
         public virtual DbSet<UserToken> UserTokens { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -241,6 +242,8 @@ namespace WebTokenManagmentSystem.Models
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.IsPlayed).HasColumnName("isPlayed");
             });
 
             modelBuilder.Entity<ServiceMaster>(entity =>
@@ -332,6 +335,21 @@ namespace WebTokenManagmentSystem.Models
                     .WithMany(p => p.TokenStatusHistories)
                     .HasForeignKey(d => d.TokenId)
                     .HasConstraintName("FK_Token_Status_History_Token_Status_History");
+            });
+
+            modelBuilder.Entity<UserCounterHistory>(entity =>
+            {
+                entity.ToTable("UserCounterHistory");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.CounterId).HasColumnName("CounterID");
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
             });
 
             modelBuilder.Entity<UserToken>(entity =>

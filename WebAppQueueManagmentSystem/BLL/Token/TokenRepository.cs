@@ -264,6 +264,49 @@ namespace WebAppQueueManagmentSystem.BLL.Token
 
         }
 
+        public AddTicketToQueueBody InsertAnncoumentInQueue(int CounterId,string TokenNumber)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
 
+            var RequestBody = new AddTicketToQueueBody()
+            {
+                 CounterId = CounterId,
+                 TokenNumber = TokenNumber
+            };
+
+
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Add-Ticket-To-Queue");
+
+            AddTicketToQueueBody row = JsonConvert.DeserializeObject<AddTicketToQueueBody>(response.Content);
+
+            var return_message = new AddTicketToQueueBody()
+            {
+                CounterId = row.CounterId,
+                TokenNumber = row.TokenNumber
+            };
+
+
+            return return_message;
+        }
+
+        public List<CounterListResponse> GetCounterList()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/Token/GetCounterList");
+            JArray CounterList = JArray.Parse(response.Content);
+
+            List<CounterListResponse> ReturnCouterList = new List<CounterListResponse>();
+            foreach (var item in CounterList)
+            {
+                CounterListResponse row = new CounterListResponse();
+                row.CounterID = (int)item;
+                row.CounterNumber = $"Counter No {row.CounterID}";
+
+                ReturnCouterList.Add(row);
+            }
+             
+            return ReturnCouterList;
+        }
     }
 }

@@ -494,11 +494,14 @@ namespace WebTokenManagmentSystem.BLL
             context.CounterTokenRelations.Add(row);
             context.SaveChanges();
 
-            var speech = new System.Speech.Synthesis.SpeechSynthesizer();
+            AddTicketToQueueBody QueueRow = new AddTicketToQueueBody()
+            {
+                TokenNumber = model.TokenNumber,
+                CounterId = (int)model.CounterId
+            };
 
-            speech.SelectVoice("Microsoft Zira Desktop");
-            speech.Rate = -1;
-            speech.Speak($"Ticket number {model.TokenNumber} please proceed to counter number {model.CounterId}");
+            AddTicketToQueue(QueueRow);
+
 
 
             var return_message = new CounterTokenDto()
@@ -689,8 +692,8 @@ namespace WebTokenManagmentSystem.BLL
 
 
 
-            var getLatestDate = context.TokenStatusHistories.Max(x => x.Id);
-            var getLatestDateDetail = context.TokenStatusHistories.Where(x => x.Id == getLatestDate).FirstOrDefault();
+            var getLastTicketServedID = context.TokenStatusHistories.Where(x => x.Status == (int?)GlobalEnums.Status.Serving).Max(x => x.Id);
+            var getLatestDateDetail = context.TokenStatusHistories.Where(x => x.Id == getLastTicketServedID).FirstOrDefault();
           
             var list = context.TokenStatusHistories
                 .Where(x => 
@@ -718,19 +721,19 @@ namespace WebTokenManagmentSystem.BLL
 
             foreach (var item in list) {
 
-                var TicketTakenTime = (DateTime)context
+                var TicketTakenTime = (DateTime?)context
                     .TokenStatusHistories
                     .Where(x => x.TokenId == item.TokenId && x.Status == (int?)GlobalEnums.Status.Pending)
                     .Select(x => x.CreatedDate)
                     .FirstOrDefault(); 
 
-                var TicketServedTime = (DateTime)context
+                var TicketServedTime = (DateTime?)context
                     .TokenStatusHistories
                     .Where(x => x.TokenId == item.TokenId && x.Status == (int?)GlobalEnums.Status.Serving)
                     .Select(x => x.CreatedDate)
                     .FirstOrDefault();
 
-                TimeSpan value = (TicketServedTime - TicketTakenTime);
+                TimeSpan value = ((TimeSpan)(TicketServedTime - TicketTakenTime));
 
                 ListTotalTime.Add(value.Minutes);
             }
@@ -739,6 +742,23 @@ namespace WebTokenManagmentSystem.BLL
 
             return (int)ListTotalTime.Average();
 
+        }
+
+
+        public AddTicketToQueueBody AddTicketToQueue(AddTicketToQueueBody model)
+        {
+            QueueHistory row = new QueueHistory()
+            {
+                CounterId = model.CounterId,
+                TokenNumber = model.TokenNumber,
+                Announcement = $"Ticket number {model.TokenNumber} please proceed to counter number {model.CounterId}",
+                IsPlayed = false
+            };
+
+            context.QueueHistories.Add(row);
+            context.SaveChanges();
+
+            return model;
         }
 
     }

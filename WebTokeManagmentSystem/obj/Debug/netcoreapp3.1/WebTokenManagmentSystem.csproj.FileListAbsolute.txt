@@ -1,4 +1,3 @@
-C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug\netcoreapp3.1\WebTokenManagmentSystem.csprojAssemblyReference.cache
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug\netcoreapp3.1\WebTokenManagmentSystem.AssemblyInfoInputs.cache
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug\netcoreapp3.1\WebTokenManagmentSystem.AssemblyInfo.cs
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug\netcoreapp3.1\WebTokenManagmentSystem.csproj.CoreCompileInputs.cache
@@ -88,3 +87,4 @@ C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug\netcoreapp3.1\WebTokenManagmentSystem.dll
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug\netcoreapp3.1\WebTokenManagmentSystem.pdb
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug\netcoreapp3.1\WebTokenManagmentSystem.genruntimeconfig.cache
+C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Debug\netcoreapp3.1\WebTokenManagmentSystem.csprojAssemblyReference.cache

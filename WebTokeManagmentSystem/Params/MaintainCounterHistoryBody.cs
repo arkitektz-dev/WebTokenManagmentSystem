@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace WebTokenManagmentSystem.Params
 {
-    public class AddTicketToQueueBody
+    public class MaintainCounterHistoryBody
     {
         [Required]
-        public string TokenNumber { get; set; }
-        
+        public string UserID { get; set; }
         [Required]
         public int CounterId { get; set; }
-   
     }
 }

@@ -54,6 +54,11 @@ namespace WebAppQueueManagmentSystem.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "CounterID")]
+        public int CounterID { get; set; }
+
+
+        [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

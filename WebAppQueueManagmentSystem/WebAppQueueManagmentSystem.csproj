@@ -249,6 +249,7 @@
   <ItemGroup>
     <Compile Include="ApiHelpers\ApiEnum\ApiEnum.cs" />
     <Compile Include="ApiHelpers\ApiEnum\GlobalEnums.cs" />
+    <Compile Include="ApiHelpers\Request\AddTicketToQueueBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterStatusRequest.cs" />
     <Compile Include="ApiHelpers\Request\GetPendingTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\SubmittedTicketRequestBody.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="ApiHelpers\Request\ListTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\LoginRequestBody.cs" />
     <Compile Include="ApiHelpers\Response\Counter.cs" />
+    <Compile Include="ApiHelpers\Response\CounterListResponse.cs" />
     <Compile Include="ApiHelpers\Response\CounterStatusBody.cs" />
     <Compile Include="ApiHelpers\Response\CurrentCounterTokenDto.cs" />
     <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
@@ -278,7 +280,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="BackgroundService\AnnouncementWorker.cs" />
     <Compile Include="BLL\Counter\CounterRepository.cs" />
     <Compile Include="BLL\Counter\ICounterRepository.cs" />
     <Compile Include="BLL\Token\ITokenRepository.cs" />

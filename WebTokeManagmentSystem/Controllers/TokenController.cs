@@ -30,14 +30,15 @@ namespace WebTokeManagmentSystem.Controllers
         private readonly ITokenHelper tokenHelper;
         private readonly ITokenBLL tokenBLL;
         private readonly TicketSpeaker _ticketSpeaker;
+        public static bool isServiceRunning = true;
 
-        public TokenController(IHostedService hostedService, WebTokenManagmentSystemDBContext _context, IConfiguration _config, ITokenHelper _tokenHelper, ITokenBLL _tokenBLL)
+        public TokenController(TicketSpeaker hostedService, WebTokenManagmentSystemDBContext _context, IConfiguration _config, ITokenHelper _tokenHelper, ITokenBLL _tokenBLL)
         {
             config = _config;
             context = _context;
             tokenHelper = _tokenHelper;
             tokenBLL = _tokenBLL;
-            _ticketSpeaker = hostedService as TicketSpeaker;
+            _ticketSpeaker = hostedService;
         }
 
 
@@ -404,14 +405,120 @@ namespace WebTokeManagmentSystem.Controllers
         /// </summary>
         /// <returns></returns>
         /// 
-        [HttpGet]
+        [HttpPost]
         [Route("Add-Ticket-To-Queue")]
-        public IActionResult Add_Ticket_To_Queue()
+        public IActionResult Add_Ticket_To_Queue([FromBody] AddTicketToQueueBody model)
         {
+            var message = tokenBLL.AddTicketToQueue(model);
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        
+        }
+
+        /// <summary>
+        /// On/Off Anncoument Service
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        [Route("AnncoumentSwitch")]
+        public IActionResult Anncoument_Switch(bool Switch)
+        {
+            if (Switch == true)
+            {
+                if (isServiceRunning != true) { 
+                    _ticketSpeaker.StartAsync(new System.Threading.CancellationToken());
+                    isServiceRunning = true;
+                }
+            }
+            else {
+                
+                if (isServiceRunning != false)
+                {
+                    _ticketSpeaker.StopAsync(new System.Threading.CancellationToken());
+                    isServiceRunning = false;
+                }
+            }
              
             return Ok();
-            //_ticketSpeaker.StartAsync(new System.Threading.CancellationToken());
+
         }
+
+        /// <summary>
+        /// Get Counter list
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        [Route("GetCounterList")]
+        public IActionResult Get_Counter_List()
+        {
+            var message = context.Counters.Select(x => x.Id).ToList();
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        /// <summary>
+        /// Main User Counter History
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        [Route("ControlCounter")]
+        public IActionResult Control_Counter([FromBody] MaintainCounterHistoryBody model)
+        {
+            var PreviousCounterUserID = context
+                .Counters
+                .Where(x => x.Id == model.CounterId)
+                .Select(x => x.CounterUserId)
+                .FirstOrDefault();
+
+            if (PreviousCounterUserID != null) {
+
+                if (PreviousCounterUserID != model.UserID) {
+
+                    var CurrentCounterRecored = 
+                         context
+                        .Counters
+                        .Where(x => x.Id == model.CounterId)
+                        .FirstOrDefault();
+
+                    var ParamtericCounterRecored =
+                        context
+                        .Counters
+                        .Where(x => x.CounterUserId == model.UserID)
+                        .FirstOrDefault();
+
+                    var TempParamtericRecord = CurrentCounterRecored;
+
+                    CurrentCounterRecored.CounterUserId = ParamtericCounterRecored.CounterUserId;
+                    context.SaveChanges();
+                    ParamtericCounterRecored.CounterUserId = TempParamtericRecord.CounterUserId;
+                    context.SaveChanges();
+
+                    
+
+                }
+            }
+            return Ok();
+        }
+
+
+
 
 
 

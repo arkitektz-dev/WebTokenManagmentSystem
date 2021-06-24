@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using WebAppQueueManagmentSystem.ApiHelpers.Request;
 using WebAppQueueManagmentSystem.ApiHelpers.Response;
 using WebAppQueueManagmentSystem.Models;
 
@@ -19,5 +20,7 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         IList<CurrentCounterTokenDto> CurrentList(DateTime TicketDate, int TicketStatus, int CustomerType);
         StatusChangeBody ChangeTokenStatus(string TokenNumber, byte Status);
         int GetAverageTime();
+        AddTicketToQueueBody InsertAnncoumentInQueue(int CounterId, string TokenNumber);
+        List<CounterListResponse> GetCounterList();
     }
 }

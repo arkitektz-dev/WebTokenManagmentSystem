@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin; 
 using Microsoft.Owin.Security;
 using WebAppQueueManagmentSystem.Models;
+using WebAppQueueManagmentSystem.BLL.Token;
+using Unity;
 
 namespace WebAppQueueManagmentSystem.Controllers
 {
@@ -18,9 +20,12 @@ namespace WebAppQueueManagmentSystem.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        readonly ITokenRepository token;
 
-        public AccountController()
+        [InjectionConstructor]
+        public AccountController(ITokenRepository _token)
         {
+            this.token = _token;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -59,6 +64,7 @@ namespace WebAppQueueManagmentSystem.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            ViewBag.CounterList = token.GetCounterList();
             return View();
         }
 
