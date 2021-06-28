@@ -29,15 +29,13 @@ namespace WebAppQueueManagmentSystem.Controllers
         readonly ICounterRepository counter;
         readonly IApiUtility helper;
         public static bool isPlayed = false;
-             
-
+         
         public HomeController(ITokenRepository _token, ICounterRepository _counter, IApiUtility _helper)
         {
             this.token = _token;
             this.counter = _counter;
             this.helper = _helper;
         }
-
 
         #region ActionResults
         public ActionResult Index()
@@ -222,6 +220,16 @@ namespace WebAppQueueManagmentSystem.Controllers
             BroadcastTicketNumber(TokenDetail);
 
             return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetAllTicketCount()
+        {
+            var message = token.GetTicketStatuses();
+            return Json(new { message }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetAllChartsValues()
+        {
+            var message = token.GetAllChartValues();
+            return Json(message, JsonRequestBehavior.AllowGet);
         }
         #endregion
 

@@ -93,14 +93,14 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
 
         }
 
-        public IList<ApiHelpers.Response.Counter> ListCounter()
+        public IList<ApiHelpers.Response.CounterResponse> ListCounter()
         {
             var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
 
             IRestResponse response = helper.RunGetRequest("api/Counter/List-Counter");
             JArray TokenList = JArray.Parse(response.Content);
 
-            IList<ApiHelpers.Response.Counter> row = TokenList.Select(p => new ApiHelpers.Response.Counter
+            IList<ApiHelpers.Response.CounterResponse> row = TokenList.Select(p => new ApiHelpers.Response.CounterResponse
             {
                CounterUserId = (string)p["counterUserId"],
                Csrid = (int)p["csrid"],

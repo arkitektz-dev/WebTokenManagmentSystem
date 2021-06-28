@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WebAppQueueManagmentSystem.ApiHelpers.Response
 {
-    public partial class Counter
+    public partial class CounterResponse
     {
         public int Id { get; set; }
         public string CounterUserId { get; set; }

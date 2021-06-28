@@ -13,12 +13,19 @@
         var cmbTokenStatus = document.getElementById("cmbTokenStatus").value;  
         var cmbCustomerType = document.getElementById("cmbCustomerType").value;   
         console.log(date, cmbTokenStatus, cmbCustomerType);
-
+        LoadingOn();
         CallTable(date, cmbTokenStatus, cmbCustomerType);
-
+        LoadingOff();
  
 
     });
+
+    const LoadingOn = () => {
+         document.getElementById("LoaderEnabled").style.display = "block";
+    }
+    const LoadingOff = () => {
+         document.getElementById("LoaderEnabled").style.display = "none";
+    }
 
 
     function CallTable(TicketDate, TicketStatus, CustomerType) {

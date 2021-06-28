@@ -745,7 +745,7 @@ namespace WebTokenManagmentSystem.BLL
         }
 
 
-        public AddTicketToQueueBody AddTicketToQueue(AddTicketToQueueBody model)
+        public AddTicketToQueueDto AddTicketToQueue(AddTicketToQueueBody model)
         {
             QueueHistory row = new QueueHistory()
             {
@@ -758,7 +758,71 @@ namespace WebTokenManagmentSystem.BLL
             context.QueueHistories.Add(row);
             context.SaveChanges();
 
-            return model;
+            var return_message = new AddTicketToQueueDto()
+            {
+                CounterId = model.CounterId,
+                TokenNumber = model.TokenNumber
+            };
+
+            return return_message;
+        }
+
+        public MaintainCounterHistoryDto MaintainCounterHistory(MaintainCounterHistoryBody model)
+        {
+
+            var PreviousCounterUserID = context
+                                        .Counters
+                                        .Where(x => x.Id == model.CounterId)
+                                        .Select(x => x.CounterUserId)
+                                        .FirstOrDefault();
+
+            if (PreviousCounterUserID != null)
+            {
+                if (PreviousCounterUserID != model.UserID)
+                {
+
+                    var CurrentCounterRecored =
+                         context
+                        .Counters
+                        .Where(x => x.Id == model.CounterId)
+                        .FirstOrDefault();
+
+                    var ParamtericCounterRecored =
+                        context
+                        .Counters
+                        .Where(x => x.CounterUserId == model.UserID)
+                        .FirstOrDefault();
+
+                    var TempParamtericRecord = CurrentCounterRecored.CounterUserId;
+
+                    CurrentCounterRecored.CounterUserId = ParamtericCounterRecored.CounterUserId;
+                    context.SaveChanges();
+                    ParamtericCounterRecored.CounterUserId = TempParamtericRecord;
+                    context.SaveChanges();
+
+
+                    //Record History
+                    UserCounterHistory row = new UserCounterHistory()
+                    {
+                        UserId = model.UserID,
+                        CounterId = model.CounterId
+                    };
+
+                    context.UserCounterHistories.Add(row);
+                    context.SaveChanges();
+
+                    var return_message = new MaintainCounterHistoryDto()
+                    {
+                        CounterId = model.CounterId,
+                        UserID = model.UserID
+                    };
+
+                    return return_message;
+                }
+            }
+
+            return null;
+
         }
 
     }

@@ -7,17 +7,15 @@
         // ============================================================== 
 
         new Chartist.Bar('.ct-chart-product', {
-            labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+            labels: ['Cashier1', 'Cashier2', 'Cashier3', 'Cashier4'],
             series: [
-                [800000, 1200000, 1400000, 1300000],
-                [200000, 400000, 500000, 300000],
-                [100000, 200000, 400000, 600000]
+                [10, 12, 14, 13]
             ]
         }, {
             stackBars: true,
             axisY: {
                 labelInterpolationFnc: function(value) {
-                    return (value / 1000) + 'k';
+                    return value;
                 }
             }
         }).on('draw', function(data) {

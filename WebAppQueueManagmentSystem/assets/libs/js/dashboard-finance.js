@@ -78,75 +78,117 @@ $(function() {
     // ============================================================== 
     // Chart Balance Bar
     // ============================================================== 
-    var ctx = document.getElementById("chartjs_balance_bar").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
 
-        
-        data: {
-            labels: ["Current", "1-30", "31-60", "61-90", "91+"],
-            datasets: [{
-                label: 'Total',
-                data: [500, 1000, 1500, 3700, 2500],
-                backgroundColor: "rgb(107, 51, 123,.8)",
-                borderColor: "rgb(107, 51, 123,.8)",
-                borderWidth:2
+    let ChartLabels = [];
+    let TotalLabels = [];
+    let SuccessLabels = [];
+    let PendingLabels = [];
 
-            },
-                {
-                label: 'Success',
-                data: [1000, 1500, 2500, 3500, 2500],
-                backgroundColor: "rgb(32, 91, 69)",
-                borderColor: "rgb(32, 91, 69)",
-                borderWidth:2
-                },
 
-                {
-                    label: 'Pending',
-                    data: [1000, 1500, 2500, 3500, 2500],
-                    backgroundColor: "rgb(188, 140, 45)",
-                    borderColor: "rgb(188, 140, 45)",
-                    borderWidth: 2
-                }
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetAllChartsValues",
+            success: function (data) {
+                console.log(data);
+                //Chart Label 
+                data.Month.map((item, index) => {
+                    ChartLabels.push(item);
+                });
 
-            ]
+                //Total Labels
+                data.Total.map((item, index) => {
+                    TotalLabels.push(item);
+                });
 
-        },
-        options: {
-            legend: {
-                    display: true,
+                //Success Labels
+                data.Success.map((item, index) => {
+                    SuccessLabels.push(item);
+                });
 
-                    position: 'bottom',
+                //Pending Labels
+                data.Pending.map((item, index) => {
+                    PendingLabels.push(item);
+                });
 
-                    labels: {
-                        fontColor: '#71748d',
-                        fontFamily:'Circular Std Book',
-                        fontSize: 14,
+
+                var ctx = document.getElementById("chartjs_balance_bar").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ChartLabels,
+                        datasets: [{
+                            label: 'Total',
+                            data: TotalLabels,
+                            backgroundColor: "rgb(107, 51, 123,.8)",
+                            borderColor: "rgb(107, 51, 123,.8)",
+                            borderWidth: 2
+
+                        },
+                        {
+                            label: 'Success',
+                            data: SuccessLabels,
+                            backgroundColor: "rgb(32, 91, 69)",
+                            borderColor: "rgb(32, 91, 69)",
+                            borderWidth: 2
+                        },
+
+                        {
+                            label: 'Pending',
+                            data: PendingLabels,
+                            backgroundColor: "rgb(188, 140, 45)",
+                            borderColor: "rgb(188, 140, 45)",
+                            borderWidth: 2
+                        }
+
+                        ]
+
+                    },
+                    options: {
+                        legend: {
+                            display: true,
+
+                            position: 'bottom',
+
+                            labels: {
+                                fontColor: '#71748d',
+                                fontFamily: 'Circular Std Book',
+                                fontSize: 14,
+                            }
+                        },
+
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    fontSize: 14,
+                                    fontFamily: 'Circular Std Book',
+                                    fontColor: '#71748d',
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    fontSize: 14,
+                                    fontFamily: 'Circular Std Book',
+                                    fontColor: '#71748d',
+                                }
+                            }]
+                        }
                     }
+                });
+
+
+                console.log(ChartLabels);
+
             },
+            error: function (err) {
+                console.log(err)
+            }
+        });
 
-                scales: {
-                    xAxes: [{
-                ticks: {
-                    fontSize: 14,
-                     fontFamily:'Circular Std Book',
-                     fontColor: '#71748d',
-                }
-            }],
-            yAxes: [{
-                ticks: {
-                    fontSize: 14,
-                     fontFamily:'Circular Std Book',
-                     fontColor: '#71748d',
-                }
-            }]
-                }
-    }
-
-
-
-});
  
+
+
+
+  
     
     // ============================================================== 
     // Gross Profit Margin

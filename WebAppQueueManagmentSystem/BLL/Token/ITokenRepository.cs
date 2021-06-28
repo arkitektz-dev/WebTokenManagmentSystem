@@ -22,5 +22,9 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         int GetAverageTime();
         AddTicketToQueueBody InsertAnncoumentInQueue(int CounterId, string TokenNumber);
         List<CounterListResponse> GetCounterList();
+        MaintainCounterHistoryResponse ControlCounter(int CounterId, string UserId);
+        QueueCardBody GetTicketStatuses();
+        ChartBody GetAllChartValues();
+
     }
 }

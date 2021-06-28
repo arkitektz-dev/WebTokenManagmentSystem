@@ -460,7 +460,25 @@ namespace WebTokeManagmentSystem.Controllers
         [Route("GetCounterList")]
         public IActionResult Get_Counter_List()
         {
-            var message = context.Counters.Select(x => x.Id).ToList();
+            var counterList = context.Counters.Select(x => x.Id).ToList();
+            List<int> AvailableCounterList = new List<int>();
+
+            foreach (var item in counterList) {
+
+                //bool isAvailable = context
+                //    .UserCounterHistories
+                //    .Where(x => x.CreatedDate.Value.Date == DateTime.Now.Date
+                //     && x.CounterId == (int)item)
+                //    .Count() > 0;
+
+                //if (isAvailable == true)
+                //    continue;
+
+                AvailableCounterList.Add(item);
+
+            }
+
+            var message = AvailableCounterList;
 
             if (message != null)
             {
@@ -481,40 +499,19 @@ namespace WebTokeManagmentSystem.Controllers
         [Route("ControlCounter")]
         public IActionResult Control_Counter([FromBody] MaintainCounterHistoryBody model)
         {
-            var PreviousCounterUserID = context
-                .Counters
-                .Where(x => x.Id == model.CounterId)
-                .Select(x => x.CounterUserId)
-                .FirstOrDefault();
 
-            if (PreviousCounterUserID != null) {
+            var message = tokenBLL.MaintainCounterHistory(model);
 
-                if (PreviousCounterUserID != model.UserID) {
-
-                    var CurrentCounterRecored = 
-                         context
-                        .Counters
-                        .Where(x => x.Id == model.CounterId)
-                        .FirstOrDefault();
-
-                    var ParamtericCounterRecored =
-                        context
-                        .Counters
-                        .Where(x => x.CounterUserId == model.UserID)
-                        .FirstOrDefault();
-
-                    var TempParamtericRecord = CurrentCounterRecored;
-
-                    CurrentCounterRecored.CounterUserId = ParamtericCounterRecored.CounterUserId;
-                    context.SaveChanges();
-                    ParamtericCounterRecored.CounterUserId = TempParamtericRecord.CounterUserId;
-                    context.SaveChanges();
-
-                    
-
-                }
+            if (message != null)
+            {
+                return Ok(message);
             }
-            return Ok();
+            else
+            {
+                return NotFound();
+            }
+
+             
         }
 
 

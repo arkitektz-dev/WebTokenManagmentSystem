@@ -57,15 +57,9 @@
             Morris.Bar({
                 element: 'morris_bar',
                 data: [
-                    { x: '2011 Q1', y: 0 },
-                    { x: '2011 Q2', y: 1 },
-                    { x: '2011 Q3', y: 2 },
-                    { x: '2011 Q4', y: 3 },
-                    { x: '2012 Q1', y: 4 },
-                    { x: '2012 Q2', y: 5 },
-                    { x: '2012 Q3', y: 6 },
-                    { x: '2012 Q4', y: 7 },
-                    { x: '2013 Q1', y: 8 }
+                    { x: 'Counter 1', y: 29 },
+                    { x: 'Counter 2', y: 31 },
+                    { x: 'Counter 3', y: 12 }
                 ],
                 xkey: 'x',
                 ykeys: ['y'],

@@ -69,12 +69,23 @@ namespace WebAppQueueManagmentSystem.Controllers
         }
 
         //
+        // GET: /Account/Login
+        [AllowAnonymous]
+        public ActionResult AdminLogin(string returnUrl)
+        { 
+            return View();
+        }
+
+
+        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            ViewBag.CounterList = token.GetCounterList();
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -89,11 +100,20 @@ namespace WebAppQueueManagmentSystem.Controllers
             {
                 case SignInStatus.Success:
 
-
+                     
                     var RoleForUser =  UserManager.GetRoles(user.Id);
             
                     if (RoleForUser.Contains("Cashier"))
                     {
+
+                        if (token.ControlCounter(model.CounterID, user.Id) != null)
+                        {
+
+                            //Reintializeing the value after database update
+                            user = UserManager.FindByEmail(model.Email);
+                        }
+
+
                         return RedirectToAction("CounterDashboard", "Home" , new { UserId = user.Id });
                     }
 
@@ -182,12 +202,7 @@ namespace WebAppQueueManagmentSystem.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -196,6 +211,8 @@ namespace WebAppQueueManagmentSystem.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+
 
         //
         // GET: /Account/ConfirmEmail

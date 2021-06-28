@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     TempData["Is-Dashboard-Active"] = "active";
 }
 
@@ -25,7 +25,7 @@
             <div class="card-body">
                 <div class="d-inline-block">
                     <h5 class="text-muted">Active Counters</h5>
-                    <h2 class="mb-0">5</h2>
+                    <h2 class="mb-0" id="txtActiveCounter">0</h2>
                 </div>
                 <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
                     <i class="fa fa-briefcase fa-fw fa-sm text-secondary"></i>
@@ -33,12 +33,12 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12" style="margin-right: -16px;">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
         <div class="card" style="border-radius: 12px;">
             <div class="card-body">
                 <div class="d-inline-block">
                     <h5 class="text-muted">Ticket Issued</h5>
-                    <h2 class="mb-0"> 24</h2>
+                    <h2 class="mb-0" id="txtTicketIssued">0</h2>
                 </div>
                 <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
                     <i class="fa fa-ticket-alt fa-fw fa-sm text-primary"></i>
@@ -51,7 +51,7 @@
             <div class="card-body">
                 <div class="d-inline-block">
                     <h5 class="text-muted">Issue Resolved</h5>
-                    <h2 class="mb-0">14</h2>
+                    <h2 class="mb-0" id="txtIssuedResolved">0</h2>
                 </div>
                 <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
                     <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
@@ -59,12 +59,12 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12" style="margin-right: -16px;">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
         <div class="card" style="border-radius: 12px;">
             <div class="card-body">
                 <div class="d-inline-block">
                     <h5 class="text-muted">Waiting</h5>
-                    <h2 class="mb-0"> 10</h2>
+                    <h2 class="mb-0" id="txtWaiting">0</h2>
                 </div>
                 <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
                     <i class="fa fa-user fa-fw fa-sm text-brand"></i>
@@ -86,19 +86,27 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-        <div class="card" style="border-radius: 12px;">
-            <h5 class="card-header" style="border-radius: 12px;">EBIT (Earnings Before Interest & Tax)</h5>
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-header">
+                <!-- <div class="float-right">
+                        <select class="custom-select">
+                            <option selected>Today</option>
+                            <option value="1">Weekly</option>
+                            <option value="2">Monthly</option>
+                            <option value="3">Yearly</option>
+                        </select>
+                    </div> -->
+                <h5 class="mb-0"> Counter Tickets</h5>
+            </div>
             <div class="card-body">
-                <div id="ebit_morris"></div>
-                <div class="text-center">
-                    <span class="legend-item mr-3">
-                        <span class="fa-xs text-secondary mr-1 legend-tile"><i class="fa fa-fw fa-square-full"></i></span>
-                        <span class="legend-text">EBIT (Earnings Before Interest & Tax)</span>
-                    </span>
-                    <p></p>
-                </div>
+                <div id="morris_bar"></div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>  
+<script src="~/Scripts/DashboardWidget/DashboardWidgetCtrl.js"></script>

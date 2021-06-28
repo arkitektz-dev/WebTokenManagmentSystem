@@ -308,5 +308,58 @@ namespace WebAppQueueManagmentSystem.BLL.Token
              
             return ReturnCouterList;
         }
+
+        public MaintainCounterHistoryResponse ControlCounter(int CounterId, string UserId)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            var RequestBody = new MaintainCounterHistoryBody()
+            {
+              CounterId = CounterId,
+              UserID = UserId
+            };
+
+
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/ControlCounter");
+
+
+            MaintainCounterHistoryResponse row = JsonConvert.DeserializeObject<MaintainCounterHistoryResponse>(response.Content);
+
+
+
+            var return_message = new MaintainCounterHistoryResponse()
+            {
+                CounterId = CounterId,
+                UserID = UserId
+            };
+
+
+            return return_message;
+        }
+
+        public QueueCardBody GetTicketStatuses()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/DishboardWidget/TopCardValues");
+
+
+            QueueCardBody row = JsonConvert.DeserializeObject<QueueCardBody>(response.Content);
+
+
+            var return_message = row;
+
+            return return_message;
+        }
+
+        public ChartBody GetAllChartValues()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/DishboardWidget/GetChartDetails");
+            ChartBody row = JsonConvert.DeserializeObject<ChartBody>(response.Content);
+            var return_message = row;
+            return return_message;
+        }
     }
 }

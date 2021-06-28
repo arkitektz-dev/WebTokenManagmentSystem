@@ -252,17 +252,21 @@
     <Compile Include="ApiHelpers\Request\AddTicketToQueueBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterStatusRequest.cs" />
     <Compile Include="ApiHelpers\Request\GetPendingTokenRequestBody.cs" />
+    <Compile Include="ApiHelpers\Request\MaintainCounterHistoryBody.cs" />
     <Compile Include="ApiHelpers\Request\SubmittedTicketRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterDetailRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterRequestTokenBody.cs" />
     <Compile Include="ApiHelpers\Request\GenerateTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\ListTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\LoginRequestBody.cs" />
-    <Compile Include="ApiHelpers\Response\Counter.cs" />
+    <Compile Include="ApiHelpers\Response\ChartBody.cs" />
+    <Compile Include="ApiHelpers\Response\CounterResponse.cs" />
     <Compile Include="ApiHelpers\Response\CounterListResponse.cs" />
     <Compile Include="ApiHelpers\Response\CounterStatusBody.cs" />
     <Compile Include="ApiHelpers\Response\CurrentCounterTokenDto.cs" />
     <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
+    <Compile Include="ApiHelpers\Response\MaintainCounterHistoryResponse.cs" />
+    <Compile Include="ApiHelpers\Response\QueueCardBody.cs" />
     <Compile Include="ApiHelpers\Response\StatusChangeBody.cs" />
     <Compile Include="ApiHelpers\Response\StatusListBody.cs" />
     <Compile Include="ApiHelpers\Response\SubmittedTicketBody.cs" />
@@ -288,6 +292,7 @@
     <Compile Include="Controllers\CounterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -758,6 +763,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CounterDashboard\CounterCtrl.js" />
     <Content Include="Scripts\CurrentTicketNumber\CurrentTicketCtrl.js" />
+    <Content Include="Scripts\DashboardWidget\DashboardWidgetCtrl.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -821,6 +827,8 @@
     <Content Include="Views\Home\AllTicketStatus.cshtml" />
     <Content Include="Views\Home\GetTicketList.cshtml" />
     <Content Include="Views\Counter\AddCounter.cshtml" />
+    <Content Include="Views\Account\AdminLogin.cshtml" />
+    <Content Include="Views\User\ListUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
