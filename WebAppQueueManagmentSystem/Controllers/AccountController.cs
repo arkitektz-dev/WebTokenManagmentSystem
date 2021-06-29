@@ -201,8 +201,7 @@ namespace WebAppQueueManagmentSystem.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                
+       
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -211,6 +210,41 @@ namespace WebAppQueueManagmentSystem.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        [AllowAnonymous]
+        public ActionResult RegisterPlan()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateUser(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+
+                    return RedirectToAction("Index", "Home");
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+
+
+
 
 
 

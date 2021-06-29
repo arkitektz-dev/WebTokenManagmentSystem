@@ -361,5 +361,25 @@ namespace WebAppQueueManagmentSystem.BLL.Token
             var return_message = row;
             return return_message;
         }
+
+        public IList<CounterValueBody> GetCountTicketByCounter()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/User/Get-Counter-Details");
+
+            JArray TokenList = JArray.Parse(response.Content);
+
+            IList<CounterValueBody> row = TokenList.Select(p => new CounterValueBody
+            { 
+                 Counter = (string)p["counter"],
+                 CompletedTickets = (string)p["completedTickets"]
+
+            }).ToList();
+
+            var return_message = row;
+
+            return return_message;
+        }
     }
 }

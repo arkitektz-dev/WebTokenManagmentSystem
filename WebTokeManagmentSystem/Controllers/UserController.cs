@@ -17,6 +17,7 @@ using WebTokenManagmentSystem.Params;
 using WebTokenManagmentSystem.LINQExtension;
 using WebTokenManagmentSystem.Service;
 using Microsoft.Extensions.Hosting;
+using WebTokenManagmentSystem.Dtos.User;
 
 namespace WebTokenManagmentSystem.Controllers
 {
@@ -39,8 +40,7 @@ namespace WebTokenManagmentSystem.Controllers
             tokenBLL = _tokenBLL;
             _ticketSpeaker = hostedService;
         }
-
-
+ 
         /// <summary>
         /// Get User List
         /// </summary>
@@ -50,27 +50,30 @@ namespace WebTokenManagmentSystem.Controllers
         [Route("Get-User-List")]
         public IActionResult GetUserList(string Role)
         {
-            if (String.IsNullOrEmpty(Role))
-                return Ok(context.AspNetUsers.ToList());
+            var UserList = context.AspNetUsers.ToList();
+            var UserRoleList = context.AspNetUserRoles.ToList();
+            var RoleList = context.AspNetRoles.ToList();
 
-            var list = context.AspNetUsers.ToList();
-
-            List<AspNetUser> ListUser = new List<AspNetUser>();
-            foreach (var item in list)
+            List<UserListDto> Master = new List<UserListDto>();
+            foreach (var item in UserList)
             {
-                var isUserInRole = context
-                     .AspNetUserRoles
-                     .Where(x => x.UserId == item.Id && x.RoleId == Role)
-                     .ToList()
-                     .Count() > 0;
+                UserListDto row = new UserListDto();
 
-                if (isUserInRole == true) {
-                    ListUser.Add(item);
-                }
+                var isUserRoleFound = UserRoleList.Where(x => x.UserId == item.Id).ToList();
 
+                if (isUserRoleFound.Count() > 0 == false)
+                    continue;
+
+                row.Id = item.Id;
+                row.Role = isUserRoleFound.Select(x => x.Role.Name).FirstOrDefault();
+                row.Email = item.Email;
+ 
+                Master.Add(row);
             }
 
-            var message = list;
+
+
+            var message = Master.ToList();
 
             if (message != null)
             {
@@ -92,7 +95,20 @@ namespace WebTokenManagmentSystem.Controllers
         [Route("Get-Role-List")]
         public IActionResult GetRoleList()
         {
-            var message = context.AspNetRoles.ToList();
+            var list = context.AspNetRoles.ToList();
+
+            List<UserRoleDto> Master = new List<UserRoleDto>();
+
+            foreach (var item in list)
+            {
+                UserRoleDto row = new UserRoleDto();
+                row.Id = item.Id;
+                row.UserName = item.Name;
+                Master.Add(row);
+                
+            }
+
+            var message = Master;
 
             if (message != null)
             {
@@ -103,9 +119,7 @@ namespace WebTokenManagmentSystem.Controllers
                 return NotFound();
             }
         }
-
-
-
+ 
         /// <summary>
         /// Get User Role List
         /// </summary>
@@ -147,13 +161,7 @@ namespace WebTokenManagmentSystem.Controllers
                 return NotFound();
             }
         }
-
-        class CounterValueDTO
-        {
-            public string Counter { get; set; }
-            public string CompletedTickets { get; set; }
-        }
-
+ 
 
 
 

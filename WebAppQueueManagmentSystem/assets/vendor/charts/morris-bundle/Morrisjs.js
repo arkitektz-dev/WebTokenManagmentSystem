@@ -53,22 +53,50 @@
 
         }
 
+
+
         if ($('#morris_bar').length) {
-            Morris.Bar({
-                element: 'morris_bar',
-                data: [
-                    { x: 'Counter 1', y: 29 },
-                    { x: 'Counter 2', y: 31 },
-                    { x: 'Counter 3', y: 12 }
-                ],
-                xkey: 'x',
-                ykeys: ['y'],
-                labels: ['Y'],
-                   barColors: ['#5969ff'],
-                     resize: true,
+
+
+            $.ajax({
+                type: "GET",
+                url: "/Home/GetAllCounterValues",
+                success: function (data) {
+
+                    console.log(data);
+
+                    let DataList = [];
+
+                    data.map((item, index) => {
+                        console.log(item);
+                        let Duplicate = {
+                            x: `Counter ${item.Counter}`,
+                            y: Number(item.CompletedTickets)
+                        }
+
+                        DataList.push(Duplicate);
+                    });
+
+                    Morris.Bar({
+                        element: 'morris_bar',
+                        data: DataList,
+                        xkey: 'x',
+                        ykeys: ['y'],
+                        labels: ['Y'],
+                        barColors: ['#5969ff'],
+                        resize: true,
                         gridTextSize: '14px'
 
+                    });
+
+                },
+                error: function () {
+
+                }
             });
+           
+
+      
         }
 
 

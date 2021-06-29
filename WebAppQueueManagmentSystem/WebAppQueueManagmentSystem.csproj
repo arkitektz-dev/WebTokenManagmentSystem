@@ -263,6 +263,7 @@
     <Compile Include="ApiHelpers\Response\CounterResponse.cs" />
     <Compile Include="ApiHelpers\Response\CounterListResponse.cs" />
     <Compile Include="ApiHelpers\Response\CounterStatusBody.cs" />
+    <Compile Include="ApiHelpers\Response\CounterValueBody.cs" />
     <Compile Include="ApiHelpers\Response\CurrentCounterTokenDto.cs" />
     <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\MaintainCounterHistoryResponse.cs" />
@@ -276,6 +277,8 @@
     <Compile Include="ApiHelpers\Response\GenerateTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\LoginUserBody.cs" />
     <Compile Include="ApiHelpers\Response\TokenStatusBody.cs" />
+    <Compile Include="ApiHelpers\Response\UserListBody.cs" />
+    <Compile Include="ApiHelpers\Response\UserRoleBody.cs" />
     <Compile Include="ApiHelpers\Utility\ApiUtility.cs" />
     <Compile Include="ApiHelpers\Utility\IApiUtility.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -288,6 +291,8 @@
     <Compile Include="BLL\Counter\ICounterRepository.cs" />
     <Compile Include="BLL\Token\ITokenRepository.cs" />
     <Compile Include="BLL\Token\TokenRepository.cs" />
+    <Compile Include="BLL\User\IUserRepository.cs" />
+    <Compile Include="BLL\User\UserRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CounterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -777,6 +782,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Ticket\TicketCtrl.js" />
+    <Content Include="Scripts\UserHelper\ListUserCtrl.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -829,6 +835,8 @@
     <Content Include="Views\Counter\AddCounter.cshtml" />
     <Content Include="Views\Account\AdminLogin.cshtml" />
     <Content Include="Views\User\ListUser.cshtml" />
+    <Content Include="Views\User\ListUserTable.cshtml" />
+    <Content Include="Views\Account\RegisterPlan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,6 +25,8 @@ namespace WebAppQueueManagmentSystem.BLL.Token
         MaintainCounterHistoryResponse ControlCounter(int CounterId, string UserId);
         QueueCardBody GetTicketStatuses();
         ChartBody GetAllChartValues();
+        IList<CounterValueBody> GetCountTicketByCounter();
+
 
     }
 }

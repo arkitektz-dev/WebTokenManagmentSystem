@@ -95,16 +95,7 @@ namespace WebTokenManagmentSystem.Controllers
             {
                 return NotFound();
             }
-
         }
-
-
-      
-
-
-
-
-
 
     }
 }

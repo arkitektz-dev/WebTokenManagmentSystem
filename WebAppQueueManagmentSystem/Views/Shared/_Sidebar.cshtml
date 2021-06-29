@@ -15,7 +15,7 @@
 
 
                     <li class="nav-item ">
-                        <a class="nav-link @TempData["Is-Dashboard-Active"]" href="#">
+                        <a class="nav-link @TempData["Is-Dashboard-Active"]" href="@Url.Action("Index","Home")">
                             <i class="fas fa-fw fa-columns"></i>Dashboard
                         </a>
                     </li>
@@ -34,7 +34,7 @@
                                     <a class="nav-link" href="@Url.Action("ListCounter","Counter")">Counter List</a>
                                 </li>
 
-                                <li class="nav-item">
+                                @*<li class="nav-item">
                                     <a class="nav-link" href="#">Add Counter</a>
                                 </li>
 
@@ -45,7 +45,7 @@
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Counter Type List</a>
-                                </li>
+                                </li>*@
 
 
 
@@ -63,12 +63,12 @@
                         <div id="submenu-2" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">User List</a>
+                                    <a class="nav-link" href="@Url.Action("ListUser","User")">User List</a>
                                 </li>
 
-                                <li class="nav-item">
+                                @*<li class="nav-item">
                                     <a class="nav-link" href="#">Add User</a>
-                                </li>
+                                </li>*@
 
                             </ul>
                         </div>
@@ -88,9 +88,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="@Url.Action("AllTicketStatus","Home")">Token List</a>
                                 </li>
-                                <li class="nav-item">
+                                @*<li class="nav-item">
                                     <a class="nav-link" href="#">Counter Performance</a>
-                                </li>
+                                </li>*@
 
 
 
@@ -121,7 +121,7 @@
                         </div>
                     </li>
 
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="collapse"
                            aria-expanded="false"
                            data-target="#submenu-5"
@@ -147,14 +147,14 @@
 
                             </ul>
                         </div>
-                    </li>
+                    </li>*@
 
-                    <li class="nav-divider">
+                    @*<li class="nav-divider">
                         Entites
-                    </li>
+                    </li>*@
 
 
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="collapse"
                            aria-expanded="false"
                            data-target="#submenu-6"
@@ -235,7 +235,7 @@
 
                             </ul>
                         </div>
-                    </li>
+                    </li>*@
 
 
 

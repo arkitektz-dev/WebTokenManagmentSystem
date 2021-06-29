@@ -231,6 +231,11 @@ namespace WebAppQueueManagmentSystem.Controllers
             var message = token.GetAllChartValues();
             return Json(message, JsonRequestBehavior.AllowGet);
         }
+        public JsonResult GetAllCounterValues() 
+        {
+            var message = token.GetCountTicketByCounter();
+            return Json(message, JsonRequestBehavior.AllowGet);
+        }
         #endregion
 
 
