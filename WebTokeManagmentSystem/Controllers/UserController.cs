@@ -18,6 +18,7 @@ using WebTokenManagmentSystem.LINQExtension;
 using WebTokenManagmentSystem.Service;
 using Microsoft.Extensions.Hosting;
 using WebTokenManagmentSystem.Dtos.User;
+using WebTokeManagmentSystem.Authentication;
 
 namespace WebTokenManagmentSystem.Controllers
 {
@@ -161,9 +162,105 @@ namespace WebTokenManagmentSystem.Controllers
                 return NotFound();
             }
         }
- 
+
+        /// <summary>
+        /// Get Cashier Type
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        [Route("Get-Counter-Type")]
+        public IActionResult GetCounterType()
+        {
+
+            var list = context.ServiceMasters.ToList();
+
+            List<CashierTypeDto> MasterList = new List<CashierTypeDto>();
+            foreach(var item in list)
+            {
+                CashierTypeDto row = new CashierTypeDto();
+                row.ID = item.Id;
+                row.Name = item.ServiceName;
+
+                MasterList.Add(row);
+                
+            }
+
+            var message = list;
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        /// <summary>
+        /// Generate new token based on customer type
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        [Route("Change-User-Role")]
+        public IActionResult Change_User_Role([FromBody] ChangeUserModel model)
+        {
+            var Roles = context.AspNetRoles.Where(x => x.Id == model.RoleId).FirstOrDefault();
+
+            if (Roles != null)
+            {
+                if (Roles.Name == UserRoles.Cashier)
+                {
+                    //Counter
+
+                    AspNetUserRole row = new AspNetUserRole();
+                    row.UserId = model.UserId;
+                    row.RoleId = model.RoleId;
+
+                    context.AspNetUserRoles.Add(row);
+                    context.SaveChanges();
 
 
+                    Counter counterRow = new Counter();
+                    counterRow.CounterUserId = model.UserId;
+                    counterRow.Csrid = context.CounterServiceRelations.Where(x => x.ServiceMasterId == model.CSRID).FirstOrDefault().Id;
+                    counterRow.Number = context.Counters.Select(x => x.Number).Max() + 1;
+
+                    context.Counters.Add(counterRow);
+                    context.SaveChanges();
+
+
+                    return Ok(model);
+                }
+
+                if (Roles.Name == UserRoles.Admin)
+                {
+                    //Admin
+
+                    AspNetUserRole row = new AspNetUserRole();
+                    row.UserId = model.UserId;
+                    row.RoleId = model.RoleId;
+
+                    context.AspNetUserRoles.Add(row);
+                    context.SaveChanges();
+
+                    return Ok(model);
+                }
+
+
+            }
+            else {
+                return NotFound();
+            }
+
+            return NotFound();
+
+
+        }
+
+      
 
 
     }

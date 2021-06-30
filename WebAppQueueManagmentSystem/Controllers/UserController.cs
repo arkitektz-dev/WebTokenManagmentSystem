@@ -35,6 +35,7 @@ namespace WebAppQueueManagmentSystem.Controllers
 
             return View();
         }
+        
 
         public PartialViewResult ListUserTable(string Role)
         {
@@ -42,6 +43,8 @@ namespace WebAppQueueManagmentSystem.Controllers
 
             return PartialView(list);
         }
+
+
        
     }
 }

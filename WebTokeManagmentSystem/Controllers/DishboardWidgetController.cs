@@ -49,7 +49,7 @@ namespace WebTokenManagmentSystem.Controllers
         public IActionResult TopCardValues()
         {
             var ActiveCounter = context
-                 .Counters
+                 .UserCounterHistories
                  .Where(x => x.CreatedDate.Value.Date == DateTime.Now.Date)
                  .ToList()
                  .Count();

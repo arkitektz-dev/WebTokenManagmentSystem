@@ -250,6 +250,7 @@
     <Compile Include="ApiHelpers\ApiEnum\ApiEnum.cs" />
     <Compile Include="ApiHelpers\ApiEnum\GlobalEnums.cs" />
     <Compile Include="ApiHelpers\Request\AddTicketToQueueBody.cs" />
+    <Compile Include="ApiHelpers\Request\ChangeUserRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterStatusRequest.cs" />
     <Compile Include="ApiHelpers\Request\GetPendingTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\MaintainCounterHistoryBody.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="ApiHelpers\Request\GenerateTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\ListTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\LoginRequestBody.cs" />
+    <Compile Include="ApiHelpers\Response\CashierTypeBody.cs" />
     <Compile Include="ApiHelpers\Response\ChartBody.cs" />
     <Compile Include="ApiHelpers\Response\CounterResponse.cs" />
     <Compile Include="ApiHelpers\Response\CounterListResponse.cs" />
@@ -837,6 +839,8 @@
     <Content Include="Views\User\ListUser.cshtml" />
     <Content Include="Views\User\ListUserTable.cshtml" />
     <Content Include="Views\Account\RegisterPlan.cshtml" />
+    <Content Include="Views\User\ManageUser.cshtml" />
+    <Content Include="Views\Account\CreateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

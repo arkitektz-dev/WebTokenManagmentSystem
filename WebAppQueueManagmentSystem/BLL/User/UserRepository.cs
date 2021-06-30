@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using WebAppQueueManagmentSystem.ApiHelpers.Request;
 using WebAppQueueManagmentSystem.ApiHelpers.Response;
 using WebAppQueueManagmentSystem.ApiHelpers.Utility;
 
@@ -59,6 +61,53 @@ namespace WebAppQueueManagmentSystem.BLL.User
 
             return return_message;
         }
+
+        public IList<CashierTypeBody> GetCashierTypeList()
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            IRestResponse response = helper.RunGetRequest($"api/User/Get-Counter-Type");
+            JArray TokenList = JArray.Parse(response.Content);
+
+            IList<ApiHelpers.Response.CashierTypeBody> row = TokenList.Select(p => new ApiHelpers.Response.CashierTypeBody
+            {
+                ID = (int)p["id"],
+                Name = (string)p["serviceName"],
+
+            }).ToList();
+
+            var return_message = row;
+
+            return return_message;
+        }
+
+        public bool isUserSaved(int? CSRID, string RoleID, string UserId)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            var RequestBody = new ChangeUserRequestBody()
+            {
+                CSRID = CSRID,
+                RoleId = RoleID,
+                UserId = UserId
+            };
+
+
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/User/Change-User-Role");
+
+            GenerateTokenBody row = JsonConvert.DeserializeObject<GenerateTokenBody>(response.Content);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+
+
 
     }
 }

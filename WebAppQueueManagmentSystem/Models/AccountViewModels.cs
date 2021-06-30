@@ -84,6 +84,27 @@ namespace WebAppQueueManagmentSystem.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        
+        [Display(Name = "Role Id")]
+        public string Role { get; set; }
+
+        [Display(Name = "Service Type")]
+        public int ServiceTypeId { get; set; }
+
+ 
+
+
+
+
+
     }
 
     public class ResetPasswordViewModel

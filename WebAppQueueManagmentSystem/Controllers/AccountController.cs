@@ -12,6 +12,9 @@ using Microsoft.Owin.Security;
 using WebAppQueueManagmentSystem.Models;
 using WebAppQueueManagmentSystem.BLL.Token;
 using Unity;
+using WebAppQueueManagmentSystem.BLL.Counter;
+using WebAppQueueManagmentSystem.ApiHelpers.Utility;
+using WebAppQueueManagmentSystem.BLL.User;
 
 namespace WebAppQueueManagmentSystem.Controllers
 {
@@ -21,11 +24,20 @@ namespace WebAppQueueManagmentSystem.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         readonly ITokenRepository token;
+        readonly ICounterRepository counter;
+        readonly IApiUtility helper;
+        readonly IUserRepository userHelper;
 
         [InjectionConstructor]
-        public AccountController(ITokenRepository _token)
+        public AccountController(ITokenRepository _token,
+            ICounterRepository _counter,
+            IApiUtility _helper,
+            IUserRepository _user)
         {
             this.token = _token;
+            this.counter = _counter;
+            this.helper = _helper;
+            this.userHelper = _user;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -214,15 +226,19 @@ namespace WebAppQueueManagmentSystem.Controllers
         [AllowAnonymous]
         public ActionResult RegisterPlan()
         {
+            ViewBag.CashierTypeList = userHelper.GetCashierTypeList();
+            ViewBag.RoleList = userHelper.GetUserRole();
             return View();
         }
+
+
 
         //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateUser(RegisterViewModel model)
+        public async Task<ActionResult> RegisterPlan(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -230,10 +246,20 @@ namespace WebAppQueueManagmentSystem.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                   bool isDone = userHelper.isUserSaved(model.ServiceTypeId,model.Role, user.Id);
+
+                    if (isDone == true)
+                    {
+                        return RedirectToAction("ListUser", "User");
+                    }
+                    else {
+                        return RedirectToAction("RegisterPlan", "User");
+                    }
 
 
-                    return RedirectToAction("Index", "Home");
+
+                    
                 }
                 AddErrors(result);
             }

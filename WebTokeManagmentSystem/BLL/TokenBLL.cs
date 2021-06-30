@@ -725,7 +725,11 @@ namespace WebTokenManagmentSystem.BLL
                     .TokenStatusHistories
                     .Where(x => x.TokenId == item.TokenId && x.Status == (int?)GlobalEnums.Status.Pending)
                     .Select(x => x.CreatedDate)
-                    .FirstOrDefault(); 
+                    .FirstOrDefault();
+
+                if (TicketTakenTime == null) {
+                    TicketTakenTime = DateTime.Now.Date;
+                }
 
                 var TicketServedTime = (DateTime?)context
                     .TokenStatusHistories
