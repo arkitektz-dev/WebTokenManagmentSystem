@@ -224,6 +224,20 @@ namespace WebAppQueueManagmentSystem.Controllers
         public JsonResult GetAllTicketCount()
         {
             var message = token.GetTicketStatuses();
+
+            if (HttpRuntime.Cache["LoggedInUsers"] != null)//check if the list has been created
+            {
+                string username = User.Identity.Name;
+
+                List<string> loggedInUsers = (List<string>)HttpRuntime.Cache["LoggedInUsers"];
+                message.ActiveCounter = loggedInUsers.Count().ToString();
+                return Json(new { message }, JsonRequestBehavior.AllowGet);
+
+            }
+            else {
+                message.ActiveCounter = "0";
+            }
+
             return Json(new { message }, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetAllChartsValues()
@@ -231,11 +245,13 @@ namespace WebAppQueueManagmentSystem.Controllers
             var message = token.GetAllChartValues();
             return Json(message, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult GetAllCounterValues() 
+        public ActionResult GetAllCounterValues() 
         {
             var message = token.GetCountTicketByCounter();
+             
             return Json(message, JsonRequestBehavior.AllowGet);
         }
+        
         #endregion
 
 

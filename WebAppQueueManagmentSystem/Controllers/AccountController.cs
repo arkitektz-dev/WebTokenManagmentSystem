@@ -15,6 +15,7 @@ using Unity;
 using WebAppQueueManagmentSystem.BLL.Counter;
 using WebAppQueueManagmentSystem.ApiHelpers.Utility;
 using WebAppQueueManagmentSystem.BLL.User;
+using System.Collections.Generic;
 
 namespace WebAppQueueManagmentSystem.Controllers
 {
@@ -114,7 +115,26 @@ namespace WebAppQueueManagmentSystem.Controllers
 
                      
                     var RoleForUser =  UserManager.GetRoles(user.Id);
-            
+
+                    if (HttpRuntime.Cache["LoggedInUsers"] != null) //if the list exists, add this user to it
+                    {
+                        //get the list of logged in users from the cache
+                        List<string> loggedInUsers = (List<string>)HttpRuntime.Cache["LoggedInUsers"];
+                        //add this user to the list
+                        loggedInUsers.Add(user.UserName);
+                        //add the list back into the cache
+                        HttpRuntime.Cache["LoggedInUsers"] = loggedInUsers;
+                    }
+                    else //the list does not exist so create it
+                    {
+                        //create a new list
+                        List<string> loggedInUsers = new List<string>();
+                        //add this user to the list
+                        loggedInUsers.Add(user.UserName);
+                        //add the list into the cache
+                        HttpRuntime.Cache["LoggedInUsers"] = loggedInUsers;
+                    }
+
                     if (RoleForUser.Contains("Cashier"))
                     {
 
@@ -242,6 +262,8 @@ namespace WebAppQueueManagmentSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                ViewBag.CashierTypeList = userHelper.GetCashierTypeList();
+                ViewBag.RoleList = userHelper.GetUserRole();
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -256,10 +278,6 @@ namespace WebAppQueueManagmentSystem.Controllers
                     else {
                         return RedirectToAction("RegisterPlan", "User");
                     }
-
-
-
-                    
                 }
                 AddErrors(result);
             }
@@ -493,6 +511,19 @@ namespace WebAppQueueManagmentSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            if (HttpRuntime.Cache["LoggedInUsers"] != null)//check if the list has been created
+            {
+                string username = User.Identity.Name;
+         
+                List<string> loggedInUsers = (List<string>)HttpRuntime.Cache["LoggedInUsers"];
+                if (loggedInUsers.Contains(username))//if the user is in the list
+                {
+                    //then remove them
+                    loggedInUsers.Remove(username);
+                }
+                 
+            }
+            //else
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Login", "Account");
         }
