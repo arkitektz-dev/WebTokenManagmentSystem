@@ -98,15 +98,8 @@ namespace WebTokenManagmentSystem.BLL
 
                 };
 
-                return return_message;
-
-
-            }
-
-
-
-
-
+                return return_message; 
+            } 
         }
 
         public List<ListTokenDto> ListToken(int? token_status, int? customer_Type)
@@ -442,8 +435,7 @@ namespace WebTokenManagmentSystem.BLL
 
         public CounterTokenDto AssignTicketToCounter(CounterTokenBody model)
         {
-             
-
+ 
             var count_TokenNumber = context.Counters.Where(x => x.Id == model.CounterId).Count() > 0;
             if (!count_TokenNumber)
                 //Error : Counter not found
@@ -590,16 +582,12 @@ namespace WebTokenManagmentSystem.BLL
 
                 var counterRow = context.CounterTokenRelations.Where(x => x.StatusId != (byte)GlobalEnums.Status.Skip && x.StatusId == (byte?)GlobalEnums.Status.Serving && x.CounterId == item.Id && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
 
-                
-
-                  
-                
 
                 if (counterRow != null)
                 {
-                
-                        row.CounterName = context.Counters.Where(x => x.Id == counterRow.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
-                        row.TicketNumber = context.Tokens.Where(x => x.Id == counterRow.TokenId).Select(x => x.CustomTokenNumber).FirstOrDefault().ToString();
+                    row.CounterName = context.Counters.Where(x => x.Id == counterRow.CounterId).Select(x => x.Number).FirstOrDefault().ToString();
+                    
+                    row.TicketNumber = context.Tokens.Where(x => x.Id == counterRow.TokenId).Select(x => x.CustomTokenNumber).FirstOrDefault().ToString();
                         Master.Add(row);
   
                 }
@@ -609,11 +597,7 @@ namespace WebTokenManagmentSystem.BLL
                     Master.Add(row);
                 }
 
-                
-
             }
-
-
             return Master;
         }
 
