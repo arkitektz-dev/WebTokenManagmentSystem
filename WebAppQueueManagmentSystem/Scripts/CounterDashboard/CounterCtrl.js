@@ -127,12 +127,12 @@ let OpenPendingTicket = () => {
         url: "/Home/GetPendingCounter",
         data: { UserId: userID },
         success: function (data) {
-            //console.log(data.tokenDetail.CustomTokenNumber);
+            console.log("This is from this" + " " + data.tokenDetail.CustomTokenNumber);
 
             if (data.tokenDetail.CustomTokenNumber != undefined) {
 
                 var TokenNumber = data.tokenDetail.CustomTokenNumber;
-
+                debugger;
                 if (TokenNumber != null || TokenNumber != "") {
 
                     IdleWarning("Off");
@@ -306,8 +306,8 @@ let btnCloseThisTicket = () => {
         success: function (data) {
             //console.log(data.message);
             var result = data.message;
-
-            if (result == "Success") {
+            console.log(result);
+            if (result.includes("Success")) {
 
                 stoptime = true;
                 IdleWarning("On");

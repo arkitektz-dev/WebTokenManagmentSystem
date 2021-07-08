@@ -116,6 +116,32 @@ namespace WebAppQueueManagmentSystem.Controllers
         #endregion
 
         #region JsonResult
+        [HttpPost]
+        public JsonResult GetNewTicket(string CustomerType)
+        {
+            bool printerFound = false;
+            bool isPrinterAvialiable = ChecKAvailablePrinter();
+
+            if (isPrinterAvialiable == true)
+            {
+                printerFound = true;
+            }
+
+            var row = token.GenerateTicket(CustomerType);
+
+            var TokenDetail = new Token()
+            {
+                token = row.token,
+                date = row.date,
+                time = row.time,
+                PrinterFound = printerFound
+            };
+            TokenNumber = TokenDetail.token;
+            print();
+            BroadcastTicketNumber(TokenDetail);
+
+            return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
+        }
         public JsonResult GetTicketStatus(string TokenNumber)
         {
 
@@ -195,32 +221,6 @@ namespace WebAppQueueManagmentSystem.Controllers
             }
 
         }
-        [HttpPost]
-        public JsonResult GetNewTicket(string CustomerType)
-        {
-            bool printerFound = false;
-            bool isPrinterAvialiable = ChecKAvailablePrinter();
-
-            if (isPrinterAvialiable == true)
-            {
-                printerFound = true;
-            }
-
-            var row = token.GenerateTicket(CustomerType);
-
-            var TokenDetail = new Token()
-            {
-                token = row.token,
-                date = row.date,
-                time = row.time,
-                PrinterFound = printerFound
-            };
-            TokenNumber = TokenDetail.token;
-            print();
-            BroadcastTicketNumber(TokenDetail);
-
-            return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
-        }
         public JsonResult GetAllTicketCount()
         {
             var message = token.GetTicketStatuses();
@@ -251,7 +251,6 @@ namespace WebAppQueueManagmentSystem.Controllers
              
             return Json(message, JsonRequestBehavior.AllowGet);
         }
-        
         #endregion
 
 
@@ -347,9 +346,5 @@ namespace WebAppQueueManagmentSystem.Controllers
             tkcLogo.Dispose();
         }
         #endregion
-
-
-
-
     }
 }

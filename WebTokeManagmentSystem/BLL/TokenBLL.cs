@@ -643,8 +643,11 @@ namespace WebTokenManagmentSystem.BLL
 
             var PendingToken = context.CounterTokenRelations.Where(x => x.CounterId == model.CounterId && x.StatusId == (byte?)GlobalEnums.Status.Serving && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
 
-            if (PendingToken != null)
+            if (PendingToken != null && PendingToken.Token != null)
             {
+                if (PendingToken.Token.Status != (byte?)GlobalEnums.Status.Complete) {
+                    return null;
+                }
 
                 var isTokenSkipped = context.TokenStatusHistories.Where(x => x.TokenId == PendingToken.TokenId && x.Status == (byte?)GlobalEnums.Status.Skip).FirstOrDefault();
 
