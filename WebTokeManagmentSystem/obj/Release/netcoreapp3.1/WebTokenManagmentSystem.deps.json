@@ -30,6 +30,7 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.6",
+          "Neodynamic.SDK.WebClientPrint": "6.0.0",
           "Swashbuckle.AspNetCore": "5.2.0",
           "System.Speech": "5.0.0",
           "prometheus-net.AspNetCore": "4.1.1",
@@ -966,6 +967,20 @@
           "Microsoft.NETCore.Platforms": "5.0.1"
         }
       },
+      "Neodynamic.SDK.WebClientPrint/6.0.0": {
+        "dependencies": {
+          "System.Text.Encoding.CodePages": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Neodynamic.SDK.WebClientPrint.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Neodynamic.SDK.WebClientPrint.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.2": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -1621,6 +1636,9 @@
       "System.Text.Encoding.CodePages/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
         }
       },
       "System.Text.Encoding.Extensions/4.3.0": {
@@ -3730,6 +3748,13 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "Neodynamic.SDK.WebClientPrint/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mNKxkF8dSMT99hCe4sLQWGghzzgdEe409qU9HMQsShGJZczTyP+gbsaW6Inoizp5QuG401w5PllC3k9YAzQMRg==",
+      "path": "neodynamic.sdk.webclientprint/6.0.0",
+      "hashPath": "neodynamic.sdk.webclientprint.6.0.0.nupkg.sha512"
     },
     "Newtonsoft.Json/12.0.2": {
       "type": "package",

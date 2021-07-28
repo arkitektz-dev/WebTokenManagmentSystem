@@ -87,3 +87,4 @@ C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Relea
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\WebTokenManagmentSystem.dll
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\WebTokenManagmentSystem.pdb
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\WebTokenManagmentSystem.genruntimeconfig.cache
+C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\bin\Release\netcoreapp3.1\Neodynamic.SDK.WebClientPrint.dll

@@ -424,13 +424,7 @@ namespace WebTokenManagmentSystem.BLL
          
             };
 
-
-
             return return_message;
-
-
-
-
         }
 
         public CounterTokenDto AssignTicketToCounter(CounterTokenBody model)
@@ -760,7 +754,6 @@ namespace WebTokenManagmentSystem.BLL
 
         public MaintainCounterHistoryDto MaintainCounterHistory(MaintainCounterHistoryBody model)
         {
-
             var PreviousCounterUserID = context
                                         .Counters
                                         .Where(x => x.Id == model.CounterId)
@@ -813,8 +806,6 @@ namespace WebTokenManagmentSystem.BLL
             }
 
             return null;
-
         }
-
     }
 }

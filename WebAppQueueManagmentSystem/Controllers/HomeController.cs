@@ -17,11 +17,13 @@ using System.Web.Mvc;
 using WebAppQueueManagmentSystem.ApiHelpers.Utility;
 using WebAppQueueManagmentSystem.BLL.Counter;
 using WebAppQueueManagmentSystem.BLL.Token;
+using WebAppQueueManagmentSystem.Cors;
 using WebAppQueueManagmentSystem.Hubs;
 using WebAppQueueManagmentSystem.Models;
 
 namespace WebAppQueueManagmentSystem.Controllers
 {
+    [AllowCrossSite]
     public class HomeController : Controller
     {
         string TokenNumber;
@@ -29,12 +31,14 @@ namespace WebAppQueueManagmentSystem.Controllers
         readonly ICounterRepository counter;
         readonly IApiUtility helper;
         public static bool isPlayed = false;
+        readonly ISimpleLogger logger;
          
-        public HomeController(ITokenRepository _token, ICounterRepository _counter, IApiUtility _helper)
+        public HomeController(ITokenRepository _token, ICounterRepository _counter, IApiUtility _helper, ISimpleLogger _logger)
         {
             this.token = _token;
             this.counter = _counter;
             this.helper = _helper;
+            this.logger = _logger;
         }
 
         #region ActionResults
@@ -44,6 +48,7 @@ namespace WebAppQueueManagmentSystem.Controllers
             return View();
         }
         //Counter Dashboard
+      
         public ActionResult CounterDashboard(string UserId)
         {
             var CounterDetail = counter.CounterDetail(UserId);
@@ -119,28 +124,40 @@ namespace WebAppQueueManagmentSystem.Controllers
         [HttpPost]
         public JsonResult GetNewTicket(string CustomerType)
         {
-            bool printerFound = false;
-            bool isPrinterAvialiable = ChecKAvailablePrinter();
-
-            if (isPrinterAvialiable == true)
+            try
             {
-                printerFound = true;
+                bool printerFound = false;
+                bool isPrinterAvialiable = ChecKAvailablePrinter();
+
+                if (isPrinterAvialiable == true)
+                {
+                    printerFound = true;
+                }
+
+                var row = token.GenerateTicket(CustomerType);
+
+                var TokenDetail = new Token()
+                {
+                    token = row.token,
+                    date = row.date,
+                    time = row.time,
+                    PrinterFound = printerFound
+                };
+                TokenNumber = TokenDetail.token;
+                print();
+                BroadcastTicketNumber(TokenDetail);
+
+                
+                return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Location : HomeController, Action :  GetNewTicket");
+                logger.Error(ex.ToString());
+                return Json(new { message = "An Error has been occured" }, JsonRequestBehavior.AllowGet);
             }
 
-            var row = token.GenerateTicket(CustomerType);
-
-            var TokenDetail = new Token()
-            {
-                token = row.token,
-                date = row.date,
-                time = row.time,
-                PrinterFound = printerFound
-            };
-            TokenNumber = TokenDetail.token;
-            print();
-            BroadcastTicketNumber(TokenDetail);
-
-            return Json(new { TokenDetail }, JsonRequestBehavior.AllowGet);
+           
         }
         public JsonResult GetTicketStatus(string TokenNumber)
         {
@@ -275,9 +292,18 @@ namespace WebAppQueueManagmentSystem.Controllers
                 PrintDocument pd = new PrintDocument();
                 pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
                 pd.Print();
+
+                logger.Trace("");
+                logger.Trace("Location : HomeController, Action :  GetNewTicket, Message : Printing Status");
+                logger.Trace("Printer request send successfully");
+
             }
             catch (Exception ex)
             {
+                logger.Trace("");
+                logger.Error("Location : HomeController, Action :  print()");
+                logger.Error(ex.ToString());
+
                 Response.Write(ex.Message);
                 Response.End();
             }
@@ -285,38 +311,70 @@ namespace WebAppQueueManagmentSystem.Controllers
         [NonAction]
         public bool ChecKAvailablePrinter()
         {
-            // Set management scope
-            ManagementScope scope = new ManagementScope(@"\root\cimv2");
-            scope.Connect();
-
-            // Select Printers from WMI Object Collections
-            ManagementObjectSearcher searcher = new
-             ManagementObjectSearcher("SELECT * FROM Win32_Printer");
-
-            string printerName = "";
-            foreach (ManagementObject printer in searcher.Get())
+            try
             {
-                printerName = printer["Name"].ToString();
-                string SelectedPrinterName = ConfigurationManager.AppSettings["PrinterName"];
-                if (printerName.Contains(SelectedPrinterName))
-                {
-                    Debug.WriteLine("Printer = " + printer["Name"]);
-                    if (printer["WorkOffline"].ToString().ToLower().Equals("true"))
-                    {
 
-                        // printer is offline by user
-                        Debug.WriteLine("Your Plug-N-Play printer is not connected.");
-                    }
-                    else
+                // Set management scope
+                ManagementScope scope = new ManagementScope(@"\root\cimv2");
+                scope.Connect();
+
+                logger.Trace("");
+                logger.Trace("Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable");
+                logger.Trace(scope.ToString());
+
+                // Select Printers from WMI Object Collections
+                ManagementObjectSearcher searcher = new
+                 ManagementObjectSearcher("SELECT * FROM Win32_Printer");
+
+                logger.Trace("");
+                logger.Trace("Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher");
+                logger.Trace(searcher.ToString());
+
+                string printerName = "";
+                foreach (ManagementObject printer in searcher.Get())
+                {
+                    logger.Trace("");
+                    logger.Trace("Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher");
+                    logger.Trace(printer.ToString());
+
+                    printerName = printer["Name"].ToString();
+                    string SelectedPrinterName = ConfigurationManager.AppSettings["PrinterName"];
+                    if (printerName.Contains(SelectedPrinterName))
                     {
-                        return true;
-                        // printer is not offline
-                        Debug.WriteLine("Your Plug-N-Play printer is connected.");
+                        Debug.WriteLine("Printer = " + printer["Name"]);
+                        if (printer["WorkOffline"].ToString().ToLower().Equals("true"))
+                        {
+                            logger.Trace("");
+                            logger.Trace("Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status");
+                            logger.Trace("Your Plug-N-Play printer is not connected");
+                         
+                            logger.Trace(printer.ToString());
+ 
+                         
+                        }
+                        else
+                        {
+                            logger.Trace("");
+                            logger.Trace("Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status");
+                            logger.Trace("Your Plug-N-Play printer is connected");
+
+                            return true;
+
+                            
+                        }
                     }
                 }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                logger.Trace("");
+                logger.Error("Location : HomeController, Action :  ChecKAvailablePrinter");
+                logger.Error(ex.ToString());
+                return false;
             }
 
-            return false;
         }
         [NonAction]
         public void BroadcastTicketNumber(Token TokenDetail)
@@ -326,24 +384,35 @@ namespace WebAppQueueManagmentSystem.Controllers
         [NonAction]
         void pd_PrintPage(object sender, PrintPageEventArgs e)
         {
-            var g = e.Graphics;
-            var stringformat = new StringFormat();
-            stringformat.Alignment = StringAlignment.Far;
-            var solidBrush = new SolidBrush(Color.Black);
-            var fontFamily = new FontFamily("Times New Roman");
-            var font = new Font(fontFamily, 15, FontStyle.Regular, GraphicsUnit.Pixel);
-            string currentDate = $"{DateTime.Now.Date.ToString("dd/MM/yyyy")} {DateTime.Now.ToString("hh:mm tt")}";
-            var tkcLogo = Image.FromFile(@"C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png");
-            g.DrawImage(tkcLogo, new Point(40, 35));
-            RectangleF rect1 = new RectangleF(12.0F, 25.0F, 182, 25.0F);
-            RectangleF rect2 = new RectangleF(100.0F, 25.0F, 182, 25.0F);
-            RectangleF rect3 = new RectangleF(50.0F, 140.0F, 182, 25.0F);
-            RectangleF rect4 = new RectangleF(50.0F, 180.0F, 182, 25.0F);
-            g.DrawString(currentDate, font, solidBrush, rect1);
-            g.DrawString($"Queue Ticket", font, solidBrush, rect2, stringformat);
-            g.DrawString($"Ticket Number : {TokenNumber}", font, solidBrush, rect3, stringformat);
-            g.DrawString($"Expected Time : {token.GetAverageTime()} min", font, solidBrush, rect4, stringformat);
-            tkcLogo.Dispose();
+            try
+            {
+                var g = e.Graphics;
+                var stringformat = new StringFormat();
+                stringformat.Alignment = StringAlignment.Far;
+                var solidBrush = new SolidBrush(Color.Black);
+                var fontFamily = new FontFamily("Times New Roman");
+                var font = new Font(fontFamily, 15, FontStyle.Regular, GraphicsUnit.Pixel);
+                string currentDate = $"{DateTime.Now.Date.ToString("dd/MM/yyyy")} {DateTime.Now.ToString("hh:mm tt")}";
+                var tkcLogo = Image.FromFile(ConfigurationManager.AppSettings["PrintLogo"].ToString());
+                g.DrawImage(tkcLogo, new Point(40, 35));
+                RectangleF rect1 = new RectangleF(12.0F, 25.0F, 182, 25.0F);
+                RectangleF rect2 = new RectangleF(100.0F, 25.0F, 182, 25.0F);
+                RectangleF rect3 = new RectangleF(50.0F, 140.0F, 182, 25.0F);
+                RectangleF rect4 = new RectangleF(50.0F, 180.0F, 182, 25.0F);
+                g.DrawString(currentDate, font, solidBrush, rect1);
+                g.DrawString($"Queue Ticket", font, solidBrush, rect2, stringformat);
+                g.DrawString($"Ticket Number : {TokenNumber}", font, solidBrush, rect3, stringformat);
+                g.DrawString($"Expected Time : {token.GetAverageTime()} min", font, solidBrush, rect4, stringformat);
+                tkcLogo.Dispose();
+
+            }
+            catch (Exception ex) {
+                logger.Trace("");
+                logger.Error("Location : HomeController, Action :  pd_PrintPage");
+                logger.Error(ex.ToString());
+            }
+
+     
         }
         #endregion
     }

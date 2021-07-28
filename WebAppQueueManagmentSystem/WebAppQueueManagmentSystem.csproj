@@ -300,9 +300,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Cors\AllowCrossSiteAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ISimpleLogger.cs" />
+    <Compile Include="Helpers\SimpleLogger.cs" />
     <Compile Include="Hubs\TicketHub.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Auth.cs" />
@@ -768,6 +771,7 @@
     <Content Include="assets\vendor\summernote\css\font\summernote.woff2" />
     <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Configuration\WebConfiguration.js" />
     <Content Include="Scripts\CounterDashboard\CounterCtrl.js" />
     <Content Include="Scripts\CurrentTicketNumber\CurrentTicketCtrl.js" />
     <Content Include="Scripts\DashboardWidget\DashboardWidgetCtrl.js" />
@@ -844,6 +848,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

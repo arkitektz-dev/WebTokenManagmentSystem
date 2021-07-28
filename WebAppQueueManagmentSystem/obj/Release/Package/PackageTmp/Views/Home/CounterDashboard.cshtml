@@ -1,0 +1,205 @@
+﻿
+@{ 
+    string value = "TicketNumber";
+} 
+ 
+<input type="hidden" id="CounterNumber" value="@TempData["CounterNumber"]" name="CounterNumber" />
+
+<aside class="page-aside">
+    <div class="aside-content">
+        <div class="aside-header">
+            <button class="navbar-toggle" data-target=".aside-nav" data-toggle="collapse" type="button">
+                <span class="icon"><i class="fas fa-caret-down"></i></span>
+            </button>
+       
+        </div>
+      
+        <div class="aside-nav collapse">
+            <p class="text-center">Ticket in Queue <strong id="TicketQueue"> : 0 </strong> </p>
+            <ul class="nav ticket-sidebar" id="listSidebar">
+
+                 
+
+                @foreach (var item in ViewBag.ListToken)
+                {
+                    <li id="@value@item.Token">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <h3 class="card-title">Ticket @item.Token</h3>
+                                <p class="card-text">Ticket Issue Time: @item.Time</p>
+                                <button class="btn btn-primary text-white btn-block" onclick="SelectTicket('@item.Token')">Pick this</button>
+                            </div>
+                        </div>
+                    </li>
+
+                }
+
+
+            </ul>
+        </div>
+    </div>
+</aside>
+
+
+
+<div class="main-content container-fluid p-0">
+    <div class="email-inbox-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="email-search">
+                    <div class="input-group input-search">
+                        <button style="display:none;" id="btnPickNextTicket"  onclick="btnGetNextTicket()" class="btn  btn-secondary">Pick Next Ticket</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-right">
+                <div class="email-title">
+                    <span class="icon"><i class="fas fa-inbox"></i></span>
+                   
+                    Counter @TempData["CounterNumber"]
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row" style="display:none;" id="TicketWorkSpaceArea">
+        <div class="col-md-11 mx-5">
+            <h1 class="text-center" id="txtTicketNo">Ticket No : 1</h1>
+            <h2 class="text-center">Serving Time : <span id="txt"></span> </h2>
+            <div class="card">
+                <h5 class="card-header">Ticket Form</h5>
+
+                <div class="card-body border-top">
+
+                    <div>
+                        <input type="hidden" name="Ticket_No" value="1" />
+                         
+
+                        <div class="form-group">
+                            <label for="input-select">Type of service:</label>
+                            @Html.DropDownList("ServiceId", new SelectList(ViewBag.TypeOfService, "Id", "Name"), new { @class = "form-control col-md-4" })
+
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label for="input-select">Comment</label>
+                            <textarea id="txtComment" class="form-control" name="Ticket_Comment" rows="3"></textarea>
+                        </div>
+
+
+                        <div class="row" style="margin: 2px 114px;">
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary ml-3" onclick="btnGetNextTicket()">Next</button>
+                            </div>
+
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary" onclick="btnSkipThis()">Skip this</button>
+                            </div>
+
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary" onclick="btnCloseThisTicket()">Close</button>
+                            </div>
+
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary" onclick="CallAgain()">Call</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="row" style="display:none;" id="idleWarning">
+        <div class="col-md-11 mx-5">
+            <h1 class="text-center">Please select a ticket</h1> 
+          
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    const timer = document.getElementById('txt');
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+    var stoptime = false;
+    var isRun = false;
+
+    function timerCycle() {
+
+        isRun = true;
+        console.log(stoptime);
+
+        if (stoptime == true) {
+            console.log("Value Cleared");
+            hr = 0;
+            min = 0;
+            sec = 0;
+        } else {
+            sec = parseInt(sec);
+            min = parseInt(min);
+            hr = parseInt(hr);
+
+            sec = sec + 1;
+
+            if (sec == 60) {
+                min = min + 1;
+                sec = 0;
+            }
+            if (min == 60) {
+                hr = hr + 1;
+                min = 0;
+                sec = 0;
+            }
+
+            if (sec < 10 || sec == 0) {
+                sec = '0' + sec;
+            }
+            if (min < 10 || min == 0) {
+                min = '0' + min;
+            }
+            if (hr < 10 || hr == 0) {
+                hr = '0' + hr;
+            }
+
+            timer.innerHTML = hr + ':' + min + ':' + sec;
+
+           
+        }
+          
+
+        setTimeout("timerCycle()", 1000);
+          
+        
+    }
+
+    function ClearTime() {
+        console.log("Value Cleared");
+        hr = 0;
+        min = 0;
+        sec = 0;
+    }
+
+</script>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.4.2.min.js"></script>
+<script src="~/signalr/hubs"></script>
+<script src="~/Scripts/CounterDashboard/CounterCtrl.js"></script>

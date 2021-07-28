@@ -1,0 +1,66 @@
+﻿@using WebAppQueueManagmentSystem.Models
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+
+
+
+<div class="card ">
+    <div class="card-header text-center">
+        <a>
+            <img class="logo-img" style="width:77%;" src="https://seekvectorlogo.com/wp-content/uploads/2020/03/meezan-bank-vector-logo.png" alt="logo">
+        </a>
+        <span class="splash-description">Please enter your user information.</span>
+    </div>
+    <div class="card-body">
+
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-lg", @id = "username", type = "text", placeholder = "Email", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-lg", @id = "password", @type = "password", @placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <label class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
+                </label>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+
+            @*<div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>*@
+
+
+        }
+
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

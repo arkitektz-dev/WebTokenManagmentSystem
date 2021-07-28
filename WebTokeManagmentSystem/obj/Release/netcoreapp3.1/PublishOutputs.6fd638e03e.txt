@@ -34,6 +34,7 @@ C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Relea
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Win32.Registry.dll
+C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\PubTmp\Out\Neodynamic.SDK.WebClientPrint.dll
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\PubTmp\Out\Newtonsoft.Json.dll
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\PubTmp\Out\Newtonsoft.Json.Bson.dll
 C:\Users\pc\source\repos\WebTokeManagmentSystem\WebTokeManagmentSystem\obj\Release\netcoreapp3.1\PubTmp\Out\Prometheus.NetCore.dll

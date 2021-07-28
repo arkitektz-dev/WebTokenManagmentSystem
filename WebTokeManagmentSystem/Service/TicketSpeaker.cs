@@ -15,7 +15,7 @@ namespace WebTokenManagmentSystem.Service
         private Timer _timer;
         private static bool isAccouning = false;
         private WebTokenManagmentSystemDBContext context = new WebTokenManagmentSystemDBContext();
-
+       
 
 
         public void Dispose()
@@ -26,9 +26,11 @@ namespace WebTokenManagmentSystem.Service
         public Task StartAsync(CancellationToken cancellationToken)
         {
             Debug.WriteLine("Timed Background Service is on");
-          
-        
-           // _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
+            var logger = new SimpleLogger();
+
+
+            logger.Trace("Service is running");
+            _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
           
             return Task.CompletedTask;
         }
@@ -42,7 +44,7 @@ namespace WebTokenManagmentSystem.Service
 
         private void DoWork(object state)
         {
-       
+            var logger = new SimpleLogger();
             Debug.WriteLine("Timed Background Service is working");
             var AnnoucmentRow = context.QueueHistories.Where(x => x.IsPlayed == false).FirstOrDefault();
             if (AnnoucmentRow != null && !isAccouning)
@@ -50,6 +52,7 @@ namespace WebTokenManagmentSystem.Service
                 isAccouning = true;
                 Debug.WriteLine("New Accoument");
                 var speech = new System.Speech.Synthesis.SpeechSynthesizer();
+                logger.Trace("Accoune");
                 speech.SelectVoice("Microsoft Zira Desktop");
                 speech.Rate = -1;
                 speech.Speak($"Ticket number {AnnoucmentRow.TokenNumber} please proceed to counter number {AnnoucmentRow.CounterId}");

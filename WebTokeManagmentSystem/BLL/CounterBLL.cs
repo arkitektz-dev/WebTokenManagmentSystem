@@ -77,6 +77,8 @@ namespace WebTokenManagmentSystem.BLL
 
             List<CounterTokenBody> List = new List<CounterTokenBody>();
             foreach (var item in listToken) {
+
+
                 CounterTokenBody row = new CounterTokenBody();
                 var rowItem = context.Tokens.Where(x => x.Id == item.TokenId).FirstOrDefault();
                 row.TokenNumber = rowItem.CustomTokenNumber;

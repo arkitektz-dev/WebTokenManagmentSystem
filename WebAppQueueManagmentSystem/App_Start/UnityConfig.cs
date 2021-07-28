@@ -18,7 +18,8 @@ namespace WebAppQueueManagmentSystem
             container.RegisterType<ITokenRepository, TokenRepository>();
             container.RegisterType<ICounterRepository, CounterRepository>();
             container.RegisterType<IApiUtility, ApiUtility>(); 
-            container.RegisterType<IUserRepository, UserRepository>(); 
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<ISimpleLogger, SimpleLogger>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

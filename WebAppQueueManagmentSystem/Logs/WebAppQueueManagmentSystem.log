@@ -1,0 +1,17 @@
+﻿2021-07-28 17:32:09.259 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-07-28 17:32:09.261 [TRACE]   System.Management.ManagementScope
+2021-07-28 17:32:09.266 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-07-28 17:32:09.267 [TRACE]   System.Management.ManagementObjectSearcher
+2021-07-28 17:32:09.492 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-28 17:32:09.493 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-07-28 17:32:09.499 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-28 17:32:09.499 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-07-28 17:32:09.500 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-28 17:32:09.501 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-07-28 17:32:09.511 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-28 17:32:09.511 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-07-28 17:32:09.512 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-28 17:32:09.512 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-07-28 17:32:09.513 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-28 17:32:09.513 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-07-28 17:32:18.112 [TRACE]   This is from print
