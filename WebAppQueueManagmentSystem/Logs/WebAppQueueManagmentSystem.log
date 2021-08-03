@@ -15,3 +15,1091 @@
 2021-07-28 17:32:09.513 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
 2021-07-28 17:32:09.513 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
 2021-07-28 17:32:18.112 [TRACE]   This is from print
+2021-07-30 12:14:57.317 [TRACE]   
+2021-07-30 12:14:57.320 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-07-30 12:14:57.320 [TRACE]   System.Management.ManagementScope
+2021-07-30 12:14:57.323 [TRACE]   
+2021-07-30 12:14:57.324 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-07-30 12:14:57.324 [TRACE]   System.Management.ManagementObjectSearcher
+2021-07-30 12:14:57.914 [TRACE]   
+2021-07-30 12:14:57.915 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 12:14:57.916 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-07-30 12:14:57.922 [TRACE]   
+2021-07-30 12:14:57.922 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 12:14:57.922 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-07-30 12:14:57.923 [TRACE]   
+2021-07-30 12:14:57.924 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 12:14:57.924 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-07-30 12:14:57.933 [TRACE]   
+2021-07-30 12:14:57.934 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-07-30 12:14:57.934 [TRACE]   Your Plug-N-Play printer is not connected
+2021-07-30 12:14:57.934 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-07-30 12:14:57.935 [TRACE]   
+2021-07-30 12:14:57.935 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 12:14:57.936 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-07-30 12:14:57.936 [TRACE]   
+2021-07-30 12:14:57.937 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 12:14:57.937 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-07-30 12:14:57.938 [TRACE]   
+2021-07-30 12:14:57.938 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 12:14:57.938 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-07-30 12:15:04.674 [TRACE]   
+2021-07-30 12:15:04.674 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-07-30 12:15:04.675 [TRACE]   Printer request send successfully
+2021-07-30 16:39:59.596 [TRACE]   
+2021-07-30 16:39:59.597 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-07-30 16:39:59.598 [TRACE]   System.Management.ManagementScope
+2021-07-30 16:39:59.601 [TRACE]   
+2021-07-30 16:39:59.601 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-07-30 16:39:59.602 [TRACE]   System.Management.ManagementObjectSearcher
+2021-07-30 16:40:00.080 [TRACE]   
+2021-07-30 16:40:00.080 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 16:40:00.081 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-07-30 16:40:00.087 [TRACE]   
+2021-07-30 16:40:00.088 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 16:40:00.088 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-07-30 16:40:00.089 [TRACE]   
+2021-07-30 16:40:00.089 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 16:40:00.090 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-07-30 16:40:00.099 [TRACE]   
+2021-07-30 16:40:00.100 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-07-30 16:40:00.100 [TRACE]   Your Plug-N-Play printer is not connected
+2021-07-30 16:40:00.101 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-07-30 16:40:00.101 [TRACE]   
+2021-07-30 16:40:00.102 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 16:40:00.102 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-07-30 16:40:00.103 [TRACE]   
+2021-07-30 16:40:00.103 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 16:40:00.103 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-07-30 16:40:00.104 [TRACE]   
+2021-07-30 16:40:00.104 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 16:40:00.105 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-07-30 16:40:05.417 [TRACE]   
+2021-07-30 16:40:05.418 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-07-30 16:40:05.418 [TRACE]   Printer request send successfully
+2021-07-30 17:19:03.895 [TRACE]   
+2021-07-30 17:19:03.898 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-07-30 17:19:03.899 [TRACE]   System.Management.ManagementScope
+2021-07-30 17:19:03.904 [TRACE]   
+2021-07-30 17:19:03.904 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-07-30 17:19:03.905 [TRACE]   System.Management.ManagementObjectSearcher
+2021-07-30 17:19:04.138 [TRACE]   
+2021-07-30 17:19:04.138 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 17:19:04.138 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-07-30 17:19:04.147 [TRACE]   
+2021-07-30 17:19:04.147 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 17:19:04.148 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-07-30 17:19:04.148 [TRACE]   
+2021-07-30 17:19:04.149 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-07-30 17:19:04.149 [TRACE]   Your Plug-N-Play printer is not connected
+2021-07-30 17:19:04.149 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-07-30 17:19:04.150 [TRACE]   
+2021-07-30 17:19:04.150 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 17:19:04.151 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-07-30 17:19:04.151 [TRACE]   
+2021-07-30 17:19:04.151 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 17:19:04.152 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-07-30 17:19:04.152 [TRACE]   
+2021-07-30 17:19:04.153 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-07-30 17:19:04.153 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-07-30 17:19:04.797 [TRACE]   
+2021-07-30 17:19:04.798 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-07-30 17:19:04.827 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-07-30 17:19:04.836 [TRACE]   
+2021-07-30 17:19:04.836 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-07-30 17:19:04.836 [TRACE]   Printer request send successfully
+2021-08-02 11:06:43.712 [TRACE]   
+2021-08-02 11:06:43.717 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:06:43.718 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:06:43.737 [TRACE]   
+2021-08-02 11:06:43.737 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:06:43.738 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:06:45.455 [TRACE]   
+2021-08-02 11:06:45.455 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:06:45.456 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:06:45.466 [TRACE]   
+2021-08-02 11:06:45.466 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:06:45.466 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:06:45.467 [TRACE]   
+2021-08-02 11:06:45.467 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:06:45.467 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:06:45.467 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:06:45.468 [TRACE]   
+2021-08-02 11:06:45.468 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:06:45.469 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:06:45.469 [TRACE]   
+2021-08-02 11:06:45.470 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:06:45.470 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:06:45.471 [TRACE]   
+2021-08-02 11:06:45.471 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:06:45.471 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:06:46.173 [TRACE]   
+2021-08-02 11:06:46.174 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:06:46.209 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:06:46.218 [TRACE]   
+2021-08-02 11:06:46.219 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:06:46.219 [TRACE]   Printer request send successfully
+2021-08-02 11:09:23.917 [TRACE]   
+2021-08-02 11:09:23.919 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:09:23.920 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:09:23.925 [TRACE]   
+2021-08-02 11:09:23.928 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:09:23.931 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:09:24.220 [TRACE]   
+2021-08-02 11:09:24.221 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:09:24.221 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:09:24.230 [TRACE]   
+2021-08-02 11:09:24.230 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:09:24.231 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:09:24.232 [TRACE]   
+2021-08-02 11:09:24.232 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:09:24.233 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:09:24.233 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:09:24.234 [TRACE]   
+2021-08-02 11:09:24.234 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:09:24.235 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:09:24.235 [TRACE]   
+2021-08-02 11:09:24.236 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:09:24.236 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:09:24.236 [TRACE]   
+2021-08-02 11:09:24.237 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:09:24.237 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:09:24.838 [TRACE]   
+2021-08-02 11:09:24.838 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:09:24.841 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:09:24.850 [TRACE]   
+2021-08-02 11:09:24.850 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:09:24.850 [TRACE]   Printer request send successfully
+2021-08-02 11:11:29.149 [TRACE]   
+2021-08-02 11:11:29.151 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:11:29.151 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:11:29.155 [TRACE]   
+2021-08-02 11:11:29.155 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:11:29.156 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:11:29.431 [TRACE]   
+2021-08-02 11:11:29.432 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:11:29.432 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:11:29.441 [TRACE]   
+2021-08-02 11:11:29.441 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:11:29.442 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:11:29.442 [TRACE]   
+2021-08-02 11:11:29.442 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:11:29.443 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:11:29.443 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:11:29.443 [TRACE]   
+2021-08-02 11:11:29.444 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:11:29.444 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:11:29.445 [TRACE]   
+2021-08-02 11:11:29.445 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:11:29.445 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:11:29.446 [TRACE]   
+2021-08-02 11:11:29.446 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:11:29.447 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:11:30.098 [TRACE]   
+2021-08-02 11:11:30.098 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:11:30.101 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:11:30.109 [TRACE]   
+2021-08-02 11:11:30.110 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:11:30.110 [TRACE]   Printer request send successfully
+2021-08-02 11:13:24.899 [TRACE]   
+2021-08-02 11:13:24.901 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:13:24.901 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:13:24.906 [TRACE]   
+2021-08-02 11:13:24.906 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:13:24.907 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:13:25.119 [TRACE]   
+2021-08-02 11:13:25.120 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.120 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:13:25.129 [TRACE]   
+2021-08-02 11:13:25.129 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.129 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:13:25.130 [TRACE]   
+2021-08-02 11:13:25.130 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:13:25.130 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:13:25.131 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:13:25.131 [TRACE]   
+2021-08-02 11:13:25.132 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.132 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:13:25.133 [TRACE]   
+2021-08-02 11:13:25.133 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.133 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:13:25.134 [TRACE]   
+2021-08-02 11:13:25.134 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.134 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:13:25.481 [TRACE]   
+2021-08-02 11:13:25.482 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:13:25.485 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:13:25.493 [TRACE]   
+2021-08-02 11:13:25.494 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:13:25.494 [TRACE]   Printer request send successfully
+2021-08-02 11:13:25.671 [TRACE]   
+2021-08-02 11:13:25.671 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:13:25.672 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:13:25.672 [TRACE]   
+2021-08-02 11:13:25.673 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:13:25.673 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:13:25.809 [TRACE]   
+2021-08-02 11:13:25.809 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.810 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:13:25.810 [TRACE]   
+2021-08-02 11:13:25.811 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.811 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:13:25.811 [TRACE]   
+2021-08-02 11:13:25.812 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:13:25.812 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:13:25.812 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:13:25.813 [TRACE]   
+2021-08-02 11:13:25.813 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.813 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:13:25.814 [TRACE]   
+2021-08-02 11:13:25.814 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.815 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:13:25.815 [TRACE]   
+2021-08-02 11:13:25.815 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:25.816 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:13:26.050 [TRACE]   
+2021-08-02 11:13:26.050 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:13:26.051 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:13:26.053 [TRACE]   
+2021-08-02 11:13:26.053 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:13:26.053 [TRACE]   Printer request send successfully
+2021-08-02 11:13:26.205 [TRACE]   
+2021-08-02 11:13:26.206 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:13:26.206 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:13:26.206 [TRACE]   
+2021-08-02 11:13:26.207 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:13:26.207 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:13:26.386 [TRACE]   
+2021-08-02 11:13:26.387 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:26.387 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:13:26.387 [TRACE]   
+2021-08-02 11:13:26.388 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:26.388 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:13:26.388 [TRACE]   
+2021-08-02 11:13:26.389 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:13:26.389 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:13:26.390 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:13:26.390 [TRACE]   
+2021-08-02 11:13:26.391 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:26.391 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:13:26.392 [TRACE]   
+2021-08-02 11:13:26.392 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:26.392 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:13:26.393 [TRACE]   
+2021-08-02 11:13:26.393 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:13:26.393 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:13:26.658 [TRACE]   
+2021-08-02 11:13:26.659 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:13:26.659 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:13:26.661 [TRACE]   
+2021-08-02 11:13:26.662 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:13:26.662 [TRACE]   Printer request send successfully
+2021-08-02 11:21:12.025 [TRACE]   
+2021-08-02 11:21:12.025 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:21:12.026 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:21:12.026 [TRACE]   
+2021-08-02 11:21:12.026 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:21:12.027 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:21:12.231 [TRACE]   
+2021-08-02 11:21:12.231 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:21:12.231 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:21:12.232 [TRACE]   
+2021-08-02 11:21:12.232 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:21:12.233 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:21:12.233 [TRACE]   
+2021-08-02 11:21:12.233 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:21:12.233 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:21:12.234 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:21:12.234 [TRACE]   
+2021-08-02 11:21:12.235 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:21:12.235 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:21:12.235 [TRACE]   
+2021-08-02 11:21:12.236 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:21:12.236 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:21:12.236 [TRACE]   
+2021-08-02 11:21:12.237 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:21:12.237 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:21:12.466 [TRACE]   
+2021-08-02 11:21:12.467 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:21:12.467 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:21:12.469 [TRACE]   
+2021-08-02 11:21:12.469 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:21:12.470 [TRACE]   Printer request send successfully
+2021-08-02 11:32:01.299 [TRACE]   
+2021-08-02 11:32:01.299 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:32:01.300 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:32:01.300 [TRACE]   
+2021-08-02 11:32:01.300 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:32:01.301 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:32:01.502 [TRACE]   
+2021-08-02 11:32:01.502 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:32:01.503 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:32:01.503 [TRACE]   
+2021-08-02 11:32:01.503 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:32:01.504 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:32:01.504 [TRACE]   
+2021-08-02 11:32:01.504 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:32:01.505 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:32:01.505 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:32:01.506 [TRACE]   
+2021-08-02 11:32:01.506 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:32:01.507 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:32:01.507 [TRACE]   
+2021-08-02 11:32:01.507 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:32:01.508 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:32:01.508 [TRACE]   
+2021-08-02 11:32:01.509 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:32:01.509 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:32:01.760 [TRACE]   
+2021-08-02 11:32:01.761 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:32:01.761 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:32:01.763 [TRACE]   
+2021-08-02 11:32:01.764 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:32:01.764 [TRACE]   Printer request send successfully
+2021-08-02 11:44:24.859 [TRACE]   
+2021-08-02 11:44:24.863 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:44:24.863 [TRACE]   Ticket number C00001 please proceed to counter number 2
+2021-08-02 11:44:24.863 [TRACE]   
+2021-08-02 11:44:32.055 [TRACE]   
+2021-08-02 11:44:32.055 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:44:32.056 [TRACE]   Ticket number C00002 please proceed to counter number 2
+2021-08-02 11:44:32.056 [TRACE]   
+2021-08-02 11:44:42.048 [TRACE]   
+2021-08-02 11:44:42.050 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:44:42.051 [TRACE]   Ticket number C00003 please proceed to counter number 2
+2021-08-02 11:44:42.052 [TRACE]   
+2021-08-02 11:44:52.036 [TRACE]   
+2021-08-02 11:44:52.042 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:44:52.044 [TRACE]   Ticket number C00003 please proceed to counter number 2
+2021-08-02 11:44:52.044 [TRACE]   
+2021-08-02 11:45:02.059 [TRACE]   
+2021-08-02 11:45:02.059 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:45:02.060 [TRACE]   Ticket number C00004 please proceed to counter number 2
+2021-08-02 11:45:02.060 [TRACE]   
+2021-08-02 11:45:12.060 [TRACE]   
+2021-08-02 11:45:12.061 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:45:12.061 [TRACE]   Ticket number C00004 please proceed to counter number 2
+2021-08-02 11:45:12.061 [TRACE]   
+2021-08-02 11:45:22.041 [TRACE]   
+2021-08-02 11:45:22.042 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:45:22.042 [TRACE]   Ticket number C00005 please proceed to counter number 2
+2021-08-02 11:45:22.043 [TRACE]   
+2021-08-02 11:45:32.042 [TRACE]   
+2021-08-02 11:45:32.053 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:45:32.054 [TRACE]   Ticket number C00006 please proceed to counter number 2
+2021-08-02 11:45:32.054 [TRACE]   
+2021-08-02 11:45:42.086 [TRACE]   
+2021-08-02 11:45:42.087 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:45:42.087 [TRACE]   Ticket number C00007 please proceed to counter number 2
+2021-08-02 11:45:42.088 [TRACE]   
+2021-08-02 11:50:42.036 [TRACE]   
+2021-08-02 11:50:42.037 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:50:42.037 [TRACE]   Ticket number C00008 please proceed to counter number 2
+2021-08-02 11:50:42.037 [TRACE]   
+2021-08-02 11:51:07.063 [TRACE]   
+2021-08-02 11:51:07.063 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:51:07.064 [TRACE]   Ticket number C00008 please proceed to counter number 2
+2021-08-02 11:51:07.064 [TRACE]   
+2021-08-02 11:51:31.924 [TRACE]   
+2021-08-02 11:51:31.925 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:51:31.925 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:51:31.926 [TRACE]   
+2021-08-02 11:51:31.926 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:51:31.927 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:51:32.271 [TRACE]   
+2021-08-02 11:51:32.271 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:51:32.272 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:51:32.272 [TRACE]   
+2021-08-02 11:51:32.272 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:51:32.273 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:51:32.273 [TRACE]   
+2021-08-02 11:51:32.273 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:51:32.274 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:51:32.274 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:51:32.275 [TRACE]   
+2021-08-02 11:51:32.275 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:51:32.275 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:51:32.276 [TRACE]   
+2021-08-02 11:51:32.276 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:51:32.276 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:51:32.277 [TRACE]   
+2021-08-02 11:51:32.277 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:51:32.278 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:51:32.537 [TRACE]   
+2021-08-02 11:51:32.537 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:51:32.538 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:51:32.541 [TRACE]   
+2021-08-02 11:51:32.541 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:51:32.541 [TRACE]   Printer request send successfully
+2021-08-02 11:51:37.031 [TRACE]   
+2021-08-02 11:51:37.032 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:51:37.032 [TRACE]   Ticket number C00009 please proceed to counter number 2
+2021-08-02 11:51:37.032 [TRACE]   
+2021-08-02 11:52:12.241 [TRACE]   
+2021-08-02 11:52:12.241 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:52:12.242 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:52:12.242 [TRACE]   
+2021-08-02 11:52:12.242 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:52:12.243 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:52:12.437 [TRACE]   
+2021-08-02 11:52:12.437 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:52:12.438 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:52:12.438 [TRACE]   
+2021-08-02 11:52:12.438 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:52:12.439 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:52:12.439 [TRACE]   
+2021-08-02 11:52:12.439 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:52:12.439 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:52:12.440 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:52:12.440 [TRACE]   
+2021-08-02 11:52:12.440 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:52:12.441 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:52:12.441 [TRACE]   
+2021-08-02 11:52:12.442 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:52:12.442 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:52:12.443 [TRACE]   
+2021-08-02 11:52:12.443 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:52:12.443 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:52:12.711 [TRACE]   
+2021-08-02 11:52:12.711 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:52:12.711 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:52:12.713 [TRACE]   
+2021-08-02 11:52:12.714 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:52:12.714 [TRACE]   Printer request send successfully
+2021-08-02 11:52:22.037 [TRACE]   
+2021-08-02 11:52:22.038 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:52:22.038 [TRACE]   Ticket number C00010 please proceed to counter number 2
+2021-08-02 11:52:22.038 [TRACE]   
+2021-08-02 11:53:42.177 [TRACE]   
+2021-08-02 11:53:42.178 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:53:42.178 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:53:42.179 [TRACE]   
+2021-08-02 11:53:42.179 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:53:42.179 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:53:42.377 [TRACE]   
+2021-08-02 11:53:42.377 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:53:42.377 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:53:42.378 [TRACE]   
+2021-08-02 11:53:42.378 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:53:42.378 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:53:42.379 [TRACE]   
+2021-08-02 11:53:42.379 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:53:42.379 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:53:42.379 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:53:42.380 [TRACE]   
+2021-08-02 11:53:42.380 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:53:42.380 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:53:42.381 [TRACE]   
+2021-08-02 11:53:42.381 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:53:42.382 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:53:42.382 [TRACE]   
+2021-08-02 11:53:42.383 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:53:42.383 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:53:42.660 [TRACE]   
+2021-08-02 11:53:42.661 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:53:42.661 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:53:42.663 [TRACE]   
+2021-08-02 11:53:42.664 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:53:42.664 [TRACE]   Printer request send successfully
+2021-08-02 11:53:52.023 [TRACE]   
+2021-08-02 11:53:52.025 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:53:52.028 [TRACE]   Ticket number C00011 please proceed to counter number 2
+2021-08-02 11:53:52.030 [TRACE]   
+2021-08-02 11:59:33.767 [TRACE]   
+2021-08-02 11:59:33.767 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 11:59:33.767 [TRACE]   System.Management.ManagementScope
+2021-08-02 11:59:33.769 [TRACE]   
+2021-08-02 11:59:33.772 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 11:59:33.773 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 11:59:33.971 [TRACE]   
+2021-08-02 11:59:33.972 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:59:33.972 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 11:59:33.973 [TRACE]   
+2021-08-02 11:59:33.973 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:59:33.973 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:59:33.974 [TRACE]   
+2021-08-02 11:59:33.974 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 11:59:33.974 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 11:59:33.974 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 11:59:33.975 [TRACE]   
+2021-08-02 11:59:33.975 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:59:33.975 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 11:59:33.976 [TRACE]   
+2021-08-02 11:59:33.976 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:59:33.976 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 11:59:33.977 [TRACE]   
+2021-08-02 11:59:33.977 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 11:59:33.978 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 11:59:34.245 [TRACE]   
+2021-08-02 11:59:34.245 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 11:59:34.246 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 11:59:34.248 [TRACE]   
+2021-08-02 11:59:34.249 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 11:59:34.249 [TRACE]   Printer request send successfully
+2021-08-02 11:59:42.030 [TRACE]   
+2021-08-02 11:59:42.032 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 11:59:42.033 [TRACE]   Ticket number C00012 please proceed to counter number 2
+2021-08-02 11:59:42.033 [TRACE]   
+2021-08-02 12:00:02.436 [TRACE]   
+2021-08-02 12:00:02.437 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:00:02.437 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:00:02.438 [TRACE]   
+2021-08-02 12:00:02.438 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:00:02.438 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:00:02.632 [TRACE]   
+2021-08-02 12:00:02.632 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:02.632 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:00:02.633 [TRACE]   
+2021-08-02 12:00:02.633 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:02.634 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:00:02.634 [TRACE]   
+2021-08-02 12:00:02.634 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:00:02.634 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:00:02.635 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:00:02.636 [TRACE]   
+2021-08-02 12:00:02.636 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:02.636 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:00:02.637 [TRACE]   
+2021-08-02 12:00:02.637 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:02.637 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:00:02.638 [TRACE]   
+2021-08-02 12:00:02.638 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:02.639 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:00:02.852 [TRACE]   
+2021-08-02 12:00:02.853 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 12:00:02.853 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 12:00:02.855 [TRACE]   
+2021-08-02 12:00:02.856 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:00:02.856 [TRACE]   Printer request send successfully
+2021-08-02 12:00:03.014 [TRACE]   
+2021-08-02 12:00:03.015 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:00:03.015 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:00:03.015 [TRACE]   
+2021-08-02 12:00:03.016 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:00:03.016 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:00:03.165 [TRACE]   
+2021-08-02 12:00:03.166 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:03.166 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:00:03.167 [TRACE]   
+2021-08-02 12:00:03.167 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:03.167 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:00:03.167 [TRACE]   
+2021-08-02 12:00:03.168 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:00:03.168 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:00:03.168 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:00:03.169 [TRACE]   
+2021-08-02 12:00:03.169 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:03.169 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:00:03.170 [TRACE]   
+2021-08-02 12:00:03.171 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:03.171 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:00:03.172 [TRACE]   
+2021-08-02 12:00:03.172 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:00:03.173 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:00:03.462 [TRACE]   
+2021-08-02 12:00:03.463 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 12:00:03.463 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 12:00:03.465 [TRACE]   
+2021-08-02 12:00:03.465 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:00:03.465 [TRACE]   Printer request send successfully
+2021-08-02 12:00:07.054 [TRACE]   
+2021-08-02 12:00:07.055 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:00:07.055 [TRACE]   Ticket number C00013 please proceed to counter number 2
+2021-08-02 12:00:07.055 [TRACE]   
+2021-08-02 12:02:02.050 [TRACE]   
+2021-08-02 12:02:02.050 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:02:02.050 [TRACE]   Ticket number C00014 please proceed to counter number 2
+2021-08-02 12:02:02.051 [TRACE]   
+2021-08-02 12:03:38.774 [TRACE]   
+2021-08-02 12:03:38.774 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:03:38.774 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:03:38.775 [TRACE]   
+2021-08-02 12:03:38.775 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:03:38.775 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:03:39.000 [TRACE]   
+2021-08-02 12:03:39.001 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:03:39.001 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:03:39.002 [TRACE]   
+2021-08-02 12:03:39.002 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:03:39.002 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:03:39.003 [TRACE]   
+2021-08-02 12:03:39.003 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:03:39.004 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:03:39.004 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:03:39.005 [TRACE]   
+2021-08-02 12:03:39.005 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:03:39.005 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:03:39.006 [TRACE]   
+2021-08-02 12:03:39.006 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:03:39.007 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:03:39.007 [TRACE]   
+2021-08-02 12:03:39.008 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:03:39.008 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:03:39.340 [TRACE]   
+2021-08-02 12:03:39.340 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 12:03:39.341 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 12:03:39.343 [TRACE]   
+2021-08-02 12:03:39.344 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:03:39.344 [TRACE]   Printer request send successfully
+2021-08-02 12:05:24.809 [TRACE]   
+2021-08-02 12:05:24.810 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:05:24.810 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:05:24.811 [TRACE]   
+2021-08-02 12:05:24.811 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:05:24.811 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:05:25.046 [TRACE]   
+2021-08-02 12:05:25.046 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:05:25.047 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:05:25.048 [TRACE]   
+2021-08-02 12:05:25.048 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:05:25.048 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:05:25.048 [TRACE]   
+2021-08-02 12:05:25.049 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:05:25.049 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:05:25.049 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:05:25.050 [TRACE]   
+2021-08-02 12:05:25.050 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:05:25.050 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:05:25.051 [TRACE]   
+2021-08-02 12:05:25.051 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:05:25.052 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:05:25.052 [TRACE]   
+2021-08-02 12:05:25.052 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:05:25.053 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:05:25.345 [TRACE]   
+2021-08-02 12:05:25.345 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 12:05:25.346 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 12:05:25.348 [TRACE]   
+2021-08-02 12:05:25.348 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:05:25.349 [TRACE]   Printer request send successfully
+2021-08-02 12:05:32.038 [TRACE]   
+2021-08-02 12:05:32.038 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:05:32.039 [TRACE]   Ticket number C00015 please proceed to counter number 2
+2021-08-02 12:05:32.039 [TRACE]   
+2021-08-02 12:11:52.021 [TRACE]   
+2021-08-02 12:11:52.022 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:11:52.022 [TRACE]   Ticket number C00016 please proceed to counter number 2
+2021-08-02 12:11:52.023 [TRACE]   
+2021-08-02 12:12:50.576 [TRACE]   
+2021-08-02 12:12:50.578 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:12:50.578 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:12:50.581 [TRACE]   
+2021-08-02 12:12:50.582 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:12:50.582 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:12:50.796 [TRACE]   
+2021-08-02 12:12:50.797 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:12:50.797 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:12:50.803 [TRACE]   
+2021-08-02 12:12:50.804 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:12:50.804 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-08-02 12:12:50.805 [TRACE]   
+2021-08-02 12:12:50.806 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:12:50.806 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:12:50.816 [TRACE]   
+2021-08-02 12:12:50.816 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:12:50.817 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:12:50.817 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:12:50.818 [TRACE]   
+2021-08-02 12:12:50.818 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:12:50.818 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:12:50.819 [TRACE]   
+2021-08-02 12:12:50.819 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:12:50.819 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:12:50.820 [TRACE]   
+2021-08-02 12:12:50.821 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:12:50.821 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:12:54.823 [TRACE]   
+2021-08-02 12:12:54.823 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:12:54.823 [TRACE]   Printer request send successfully
+2021-08-02 12:12:57.049 [TRACE]   
+2021-08-02 12:12:57.049 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:12:57.050 [TRACE]   Ticket number C00017 please proceed to counter number 2
+2021-08-02 12:12:57.050 [TRACE]   
+2021-08-02 12:14:40.525 [TRACE]   
+2021-08-02 12:14:40.526 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:14:40.527 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:14:40.527 [TRACE]   
+2021-08-02 12:14:40.527 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:14:40.528 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:14:40.728 [TRACE]   
+2021-08-02 12:14:40.729 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:14:40.729 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:14:40.730 [TRACE]   
+2021-08-02 12:14:40.730 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:14:40.730 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:14:40.730 [TRACE]   
+2021-08-02 12:14:40.731 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:14:40.731 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:14:40.731 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:14:40.732 [TRACE]   
+2021-08-02 12:14:40.732 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:14:40.732 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:14:40.733 [TRACE]   
+2021-08-02 12:14:40.733 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:14:40.733 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:14:40.734 [TRACE]   
+2021-08-02 12:14:40.734 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:14:40.734 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:14:41.037 [TRACE]   
+2021-08-02 12:14:41.037 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 12:14:41.037 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 12:14:41.040 [TRACE]   
+2021-08-02 12:14:41.040 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:14:41.040 [TRACE]   Printer request send successfully
+2021-08-02 12:17:07.052 [TRACE]   
+2021-08-02 12:17:07.052 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:17:07.053 [TRACE]   Ticket number C00018 please proceed to counter number 2
+2021-08-02 12:17:07.053 [TRACE]   
+2021-08-02 12:17:56.300 [TRACE]   
+2021-08-02 12:17:56.301 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:17:56.301 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:17:56.302 [TRACE]   
+2021-08-02 12:17:56.302 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:17:56.302 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:17:56.440 [TRACE]   
+2021-08-02 12:17:56.440 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:17:56.440 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:17:56.441 [TRACE]   
+2021-08-02 12:17:56.441 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:17:56.441 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:17:56.521 [TRACE]   
+2021-08-02 12:17:56.522 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.522 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:17:56.523 [TRACE]   
+2021-08-02 12:17:56.523 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.523 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:17:56.524 [TRACE]   
+2021-08-02 12:17:56.524 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:17:56.524 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:17:56.525 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:17:56.525 [TRACE]   
+2021-08-02 12:17:56.526 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.526 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:17:56.526 [TRACE]   
+2021-08-02 12:17:56.527 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.527 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:17:56.527 [TRACE]   
+2021-08-02 12:17:56.528 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.528 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:17:56.584 [TRACE]   
+2021-08-02 12:17:56.585 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.585 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:17:56.586 [TRACE]   
+2021-08-02 12:17:56.586 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.586 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:17:56.587 [TRACE]   
+2021-08-02 12:17:56.587 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:17:56.587 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:17:56.587 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:17:56.588 [TRACE]   
+2021-08-02 12:17:56.588 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.589 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:17:56.589 [TRACE]   
+2021-08-02 12:17:56.589 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.590 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:17:56.590 [TRACE]   
+2021-08-02 12:17:56.590 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.591 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:17:56.609 [TRACE]   
+2021-08-02 12:17:56.609 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:17:56.610 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:17:56.610 [TRACE]   
+2021-08-02 12:17:56.610 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:17:56.610 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:17:56.782 [TRACE]   
+2021-08-02 12:17:56.783 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.783 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:17:56.784 [TRACE]   
+2021-08-02 12:17:56.784 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.785 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:17:56.785 [TRACE]   
+2021-08-02 12:17:56.785 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:17:56.786 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:17:56.786 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:17:56.787 [TRACE]   
+2021-08-02 12:17:56.787 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.787 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:17:56.788 [TRACE]   
+2021-08-02 12:17:56.788 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.788 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:17:56.789 [TRACE]   
+2021-08-02 12:17:56.789 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:17:56.789 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:17:56.815 [TRACE]   
+2021-08-02 12:17:56.815 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 12:17:56.816 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 12:17:56.818 [TRACE]   
+2021-08-02 12:17:56.818 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:17:56.818 [TRACE]   Printer request send successfully
+2021-08-02 12:17:56.859 [TRACE]   
+2021-08-02 12:17:56.859 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 12:17:56.859 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 12:17:56.861 [TRACE]   
+2021-08-02 12:17:56.862 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:17:56.862 [TRACE]   Printer request send successfully
+2021-08-02 12:17:57.039 [TRACE]   
+2021-08-02 12:17:57.039 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 12:17:57.039 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 12:17:57.042 [TRACE]   
+2021-08-02 12:17:57.042 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:17:57.042 [TRACE]   Printer request send successfully
+2021-08-02 12:18:12.062 [TRACE]   
+2021-08-02 12:18:12.063 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:18:12.063 [TRACE]   Ticket number C00019 please proceed to counter number 2
+2021-08-02 12:18:12.063 [TRACE]   
+2021-08-02 12:18:47.058 [TRACE]   
+2021-08-02 12:18:47.059 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:18:47.059 [TRACE]   Ticket number C00020 please proceed to counter number 2
+2021-08-02 12:18:47.060 [TRACE]   
+2021-08-02 12:19:47.022 [TRACE]   
+2021-08-02 12:19:47.022 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:19:47.023 [TRACE]   Ticket number C00021 please proceed to counter number 2
+2021-08-02 12:19:47.023 [TRACE]   
+2021-08-02 12:22:11.539 [TRACE]   
+2021-08-02 12:22:11.540 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:22:11.541 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:22:11.545 [TRACE]   
+2021-08-02 12:22:11.545 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:22:11.546 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:22:11.749 [TRACE]   
+2021-08-02 12:22:11.749 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:22:11.749 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:22:11.750 [TRACE]   
+2021-08-02 12:22:11.750 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:22:11.751 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:22:11.773 [TRACE]   
+2021-08-02 12:22:11.773 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.773 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:22:11.779 [TRACE]   
+2021-08-02 12:22:11.780 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.780 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-08-02 12:22:11.781 [TRACE]   
+2021-08-02 12:22:11.781 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.781 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:22:11.790 [TRACE]   
+2021-08-02 12:22:11.790 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:22:11.791 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:22:11.791 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:22:11.792 [TRACE]   
+2021-08-02 12:22:11.792 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.792 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:22:11.794 [TRACE]   
+2021-08-02 12:22:11.794 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.794 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:22:11.795 [TRACE]   
+2021-08-02 12:22:11.796 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.796 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:22:11.923 [TRACE]   
+2021-08-02 12:22:11.924 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.924 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:22:11.925 [TRACE]   
+2021-08-02 12:22:11.925 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.925 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-08-02 12:22:11.926 [TRACE]   
+2021-08-02 12:22:11.927 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.927 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:22:11.930 [TRACE]   
+2021-08-02 12:22:11.931 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:22:11.931 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:22:11.932 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:22:11.933 [TRACE]   
+2021-08-02 12:22:11.933 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.933 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:22:11.934 [TRACE]   
+2021-08-02 12:22:11.934 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.935 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:22:11.935 [TRACE]   
+2021-08-02 12:22:11.935 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:11.936 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:22:11.946 [TRACE]   
+2021-08-02 12:22:11.946 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:22:11.947 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:22:11.947 [TRACE]   
+2021-08-02 12:22:11.948 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:22:11.948 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:22:12.124 [TRACE]   
+2021-08-02 12:22:12.125 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 12:22:12.125 [TRACE]   System.Management.ManagementScope
+2021-08-02 12:22:12.126 [TRACE]   
+2021-08-02 12:22:12.127 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 12:22:12.129 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 12:22:12.133 [TRACE]   
+2021-08-02 12:22:12.134 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.134 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:22:12.135 [TRACE]   
+2021-08-02 12:22:12.135 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.135 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-08-02 12:22:12.138 [TRACE]   
+2021-08-02 12:22:12.138 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.138 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:22:12.140 [TRACE]   
+2021-08-02 12:22:12.141 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:22:12.141 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:22:12.141 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:22:12.143 [TRACE]   
+2021-08-02 12:22:12.143 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.143 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:22:12.144 [TRACE]   
+2021-08-02 12:22:12.144 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.145 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:22:12.147 [TRACE]   
+2021-08-02 12:22:12.147 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.147 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:22:12.323 [TRACE]   
+2021-08-02 12:22:12.323 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.324 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 12:22:12.324 [TRACE]   
+2021-08-02 12:22:12.325 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.325 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-08-02 12:22:12.329 [TRACE]   
+2021-08-02 12:22:12.332 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.332 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:22:12.335 [TRACE]   
+2021-08-02 12:22:12.337 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 12:22:12.337 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 12:22:12.344 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 12:22:12.348 [TRACE]   
+2021-08-02 12:22:12.349 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.349 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 12:22:12.350 [TRACE]   
+2021-08-02 12:22:12.350 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.350 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 12:22:12.351 [TRACE]   
+2021-08-02 12:22:12.351 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 12:22:12.351 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 12:22:18.577 [TRACE]   
+2021-08-02 12:22:18.578 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:22:18.578 [TRACE]   Printer request send successfully
+2021-08-02 12:22:20.127 [TRACE]   
+2021-08-02 12:22:20.128 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:22:20.128 [TRACE]   Printer request send successfully
+2021-08-02 12:22:20.385 [TRACE]   
+2021-08-02 12:22:20.385 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:22:20.386 [TRACE]   Printer request send successfully
+2021-08-02 12:22:25.304 [TRACE]   
+2021-08-02 12:22:25.305 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:22:25.306 [TRACE]   Ticket number C00022 please proceed to counter number 2
+2021-08-02 12:22:25.307 [TRACE]   
+2021-08-02 12:24:08.960 [TRACE]   
+2021-08-02 12:24:08.961 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 12:24:08.961 [TRACE]   Printer request send successfully
+2021-08-02 12:24:43.516 [TRACE]   
+2021-08-02 12:24:43.518 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:24:43.518 [TRACE]   Ticket number C00022 please proceed to counter number 2
+2021-08-02 12:24:43.519 [TRACE]   
+2021-08-02 12:27:03.505 [TRACE]   
+2021-08-02 12:27:03.506 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 12:27:03.506 [TRACE]   Ticket number C00023 please proceed to counter number 2
+2021-08-02 12:27:03.507 [TRACE]   
+2021-08-02 13:12:03.502 [TRACE]   
+2021-08-02 13:12:03.505 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 13:12:03.507 [TRACE]   System.Management.ManagementScope
+2021-08-02 13:12:03.511 [TRACE]   
+2021-08-02 13:12:03.511 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 13:12:03.512 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 13:12:03.737 [TRACE]   
+2021-08-02 13:12:03.737 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 13:12:03.738 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 13:12:03.747 [TRACE]   
+2021-08-02 13:12:03.753 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 13:12:03.775 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 13:12:03.778 [TRACE]   
+2021-08-02 13:12:03.781 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 13:12:03.781 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 13:12:03.781 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 13:12:03.782 [TRACE]   
+2021-08-02 13:12:03.782 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 13:12:03.783 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 13:12:03.783 [TRACE]   
+2021-08-02 13:12:03.783 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 13:12:03.784 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 13:12:03.784 [TRACE]   
+2021-08-02 13:12:03.784 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 13:12:03.785 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 13:12:04.180 [TRACE]   
+2021-08-02 13:12:04.181 [ERROR]   Location : HomeController, Action :  pd_PrintPage
+2021-08-02 13:12:04.182 [ERROR]   System.IO.FileNotFoundException: C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\assets\images\meezan-bank-vector-logo.png
+   at System.Drawing.Image.FromFile(String filename, Boolean useEmbeddedColorManagement)
+   at WebAppQueueManagmentSystem.Controllers.HomeController.pd_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\pc\source\repos\WebTokeManagmentSystem\WebAppQueueManagmentSystem\Controllers\HomeController.cs:line 395
+2021-08-02 13:12:04.190 [TRACE]   
+2021-08-02 13:12:04.191 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 13:12:04.191 [TRACE]   Printer request send successfully
+2021-08-02 13:26:27.990 [TRACE]   
+2021-08-02 13:26:28.003 [TRACE]   Location : TicketSpeaker.cs, Method : DoWork, Message: An Anncoument has been made
+2021-08-02 13:26:28.004 [TRACE]   Ticket number C00022 please proceed to counter number 2
+2021-08-02 13:26:28.004 [TRACE]   
+2021-08-02 16:41:04.145 [TRACE]   
+2021-08-02 16:41:40.332 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 16:42:44.596 [TRACE]   
+2021-08-02 16:42:53.533 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from scope vairable
+2021-08-02 16:43:00.259 [TRACE]   System.Management.ManagementScope
+2021-08-02 16:43:03.829 [TRACE]   
+2021-08-02 16:43:03.922 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This value is from searcher
+2021-08-02 16:43:05.195 [TRACE]   System.Management.ManagementObjectSearcher
+2021-08-02 16:43:10.433 [TRACE]   
+2021-08-02 16:43:11.120 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 16:43:13.378 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Send To OneNote 16"
+2021-08-02 16:43:13.389 [TRACE]   
+2021-08-02 16:43:13.390 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 16:43:13.390 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="OneNote for Windows 10"
+2021-08-02 16:43:13.391 [TRACE]   
+2021-08-02 16:43:13.391 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 16:43:13.391 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 16:43:13.415 [TRACE]   
+2021-08-02 16:43:13.418 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message :  Printer Status
+2021-08-02 16:43:13.419 [TRACE]   Your Plug-N-Play printer is not connected
+2021-08-02 16:43:13.419 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="POS-80"
+2021-08-02 16:43:13.420 [TRACE]   
+2021-08-02 16:43:13.420 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 16:43:13.422 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft XPS Document Writer"
+2021-08-02 16:43:13.423 [TRACE]   
+2021-08-02 16:43:13.423 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 16:43:13.424 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Microsoft Print to PDF"
+2021-08-02 16:43:13.425 [TRACE]   
+2021-08-02 16:43:13.425 [TRACE]   Location : HomeController, Action :  ChecKAvailablePrinter, Message : This is every printer name from the list of searcher
+2021-08-02 16:43:13.425 [TRACE]   \\DESKTOP-QM4LMEI\root\cimv2:Win32_Printer.DeviceID="Fax"
+2021-08-02 16:43:18.335 [TRACE]   
+2021-08-02 16:43:18.336 [TRACE]   Location : HomeController, Action :  GetNewTicket, Message : Printing Status
+2021-08-02 16:43:18.336 [TRACE]   Printer request send successfully

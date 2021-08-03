@@ -79,7 +79,7 @@ let makeRequest = (CustomerType) => {
             console.log(data);
         },
         error: function () {
-            alert("Error occured!!")
+            console.log("An Error occured")
         }
     });
 }
@@ -100,7 +100,7 @@ let RefreshList = () => {
 
         },
         error: function () {
-            alert("Error occured!!")
+            console.log("An Error occured")
         }
     });
 

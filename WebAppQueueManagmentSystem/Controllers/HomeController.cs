@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using WebAppQueueManagmentSystem.ApiHelpers.Utility;
 using WebAppQueueManagmentSystem.BLL.Counter;
@@ -22,8 +23,7 @@ using WebAppQueueManagmentSystem.Hubs;
 using WebAppQueueManagmentSystem.Models;
 
 namespace WebAppQueueManagmentSystem.Controllers
-{
-    [AllowCrossSite]
+{ 
     public class HomeController : Controller
     {
         string TokenNumber;
@@ -47,31 +47,50 @@ namespace WebAppQueueManagmentSystem.Controllers
 
             return View();
         }
-        //Counter Dashboard
-      
+        //Counter Dashboard 
         public ActionResult CounterDashboard(string UserId)
         {
-            var CounterDetail = counter.CounterDetail(UserId);
+            try
+            {
+                var CounterDetail = counter.CounterDetail(UserId);
 
-            //Fill Dropdown
-            ViewBag.CounterStatus = CounterDetail.CounterStatus;
-            ViewBag.TypeOfService = CounterDetail.CounterService;
+                //Fill Dropdown
+                ViewBag.CounterStatus = CounterDetail.CounterStatus;
+                ViewBag.TypeOfService = CounterDetail.CounterService;
 
-            //Counter Number
-            TempData["CounterNumber"] = CounterDetail.CounterID;
+                //Counter Number
+                TempData["CounterNumber"] = CounterDetail.CounterID;
 
-            //List Queue Ticket
-            ViewBag.ListToken = token.ListToken(1, 3);
+                //List Queue Ticket
+                ViewBag.ListToken = token.ListToken(1, 3);
 
-            return View();
+                return View();
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Location : HomeController, Action :  CounterDashboard");
+                logger.Error(ex.ToString());
+                return View();
+            }
+
         }
+
+
         public ActionResult CurrentTicketNumber()
         {
+            try { 
+                
+                //List Queue Ticket
+                ViewBag.ListToken = token.ListToken(1, 3);
+                return View();
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Location : HomeController, Action :  CurrentTicketNumber");
+                logger.Error(ex.ToString());
+                return View();
+            }
 
-            //List Queue Ticket
-            ViewBag.ListToken = token.ListToken(1, 3);
-
-            return View();
         }
         public ActionResult EveryCounterStatus()
         {
@@ -102,20 +121,17 @@ namespace WebAppQueueManagmentSystem.Controllers
         #endregion
 
         #region ParitalViews
-        public PartialViewResult ListCountTicket()
+        
+       
+        public ActionResult ListCountTicket()
         {
             var list = token.ListCounterToken().ToList();
             return PartialView(list);
         }
         [HttpGet]
-        public PartialViewResult GetTicketList(DateTime TicketDate, int TicketStatus, int CustomerType)
+        public ActionResult GetTicketList(DateTime TicketDate, int TicketStatus, int CustomerType)
         {
-
             var list = token.CurrentList(TicketDate, TicketStatus, CustomerType);
-
-
-
-
             return PartialView(list);
         }
         #endregion
@@ -174,7 +190,6 @@ namespace WebAppQueueManagmentSystem.Controllers
             {
                 BroadcastNewAssignTicket(TokenNumber);
                 BroadcastRemoveTicket(TokenNumber);
-                //TicketHub.SoundPlayed();
                 return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
 
             }
@@ -262,7 +277,7 @@ namespace WebAppQueueManagmentSystem.Controllers
             var message = token.GetAllChartValues();
             return Json(message, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult GetAllCounterValues() 
+        public JsonResult GetAllCounterValues() 
         {
             var message = token.GetCountTicketByCounter();
              

@@ -47,7 +47,8 @@ namespace WebTokeManagmentSystem
             services.AddScoped<ITokenHelper, TokenHelper>();
             services.AddScoped<ITokenBLL, TokenBLL>();
             services.AddScoped<ICounterHelper, CounterHelper>();
-            services.AddScoped<ICounterBLL, CounterBLL>();
+            services.AddScoped<ICounterBLL, CounterBLL>(); 
+
 
             //services.AddSingleton<IHostedService, TicketSpeaker>();
 
@@ -73,9 +74,8 @@ namespace WebTokeManagmentSystem
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            //For Web Token Managment System
+            //For Web Token Managment System 
             services.AddTransient<WebTokenManagmentSystemDBContext>();
-
 
 
 

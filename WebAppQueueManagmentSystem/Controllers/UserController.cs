@@ -7,9 +7,11 @@ using WebAppQueueManagmentSystem.ApiHelpers.Utility;
 using WebAppQueueManagmentSystem.BLL.Counter;
 using WebAppQueueManagmentSystem.BLL.Token;
 using WebAppQueueManagmentSystem.BLL.User;
+using WebAppQueueManagmentSystem.Cors;
 
 namespace WebAppQueueManagmentSystem.Controllers
 {
+   
     public class UserController : Controller
     {
         readonly ITokenRepository token;

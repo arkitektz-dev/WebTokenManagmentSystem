@@ -41,7 +41,7 @@ setInterval(function () {
         var countRow = document.getElementById("listSidebar").getElementsByTagName("li").length;
         document.getElementById("TicketQueue").innerText = countRow;
     }
-}, 1000);
+}, 10000);
 
 let CallAgain = () => {
 
@@ -58,6 +58,12 @@ let CallAgain = () => {
         type: "GET",
         url: ProjectBaseUrl+ "/Home/CallAgain",
         data: { TokenNumber: txtTicketNumber, Counter: txtCounterNumber },
+        cors: true,
+        contentType: 'application/json',
+        secure: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
         success: function (data) {
 
             //console.log("Called");
@@ -94,6 +100,12 @@ let btnSkipThis = () => {
         type: "GET",
         url: ProjectBaseUrl + "/Home/ChangeTokenStatus",
         data: { TokenNumber: txtTicketNumber, Status: 6 },
+        cors: true,
+        contentType: 'application/json',
+        secure: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
         success: function (data) {
             //console.log(data.message);
             var result = data.tokenDetail;
@@ -110,7 +122,7 @@ let btnSkipThis = () => {
 
         },
         error: function () {
-            alert("Error occured!!")
+            console.log("An Error occured")
         }
     });
 }
@@ -125,7 +137,13 @@ let OpenPendingTicket = () => {
     $.ajax({
         type: "GET",
         url: ProjectBaseUrl + "/Home/GetPendingCounter",
-        data: { UserId: userID },
+        data: { UserId: userID }, 
+        contentType: 'application/json', 
+        cors: true,
+        secure: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
         success: function (data) {
             console.log("This is from this" + " " + data.tokenDetail.CustomTokenNumber);
 
@@ -151,8 +169,8 @@ let OpenPendingTicket = () => {
             }
             
         },
-        error: function () {
-            alert("Error occured!!")
+        error: function (err) { 
+            console.log("An Error occured")
         }
     });
 }
@@ -183,11 +201,17 @@ function GetTokenStatusNew() {
         if ($("#TicketWorkSpaceArea").is(":visible") == true) {
             let txtTicketNumber = document.getElementById("txtTicketNo").innerText.replace(/Ticket Number /i, '');
             //console.log(txtTicketNumber + "this is");
-
+            
             var settings = {
                 "url": ProjectBaseUrl + "/Home/GetTicketStatus?TokenNumber=" + txtTicketNumber,
                 "method": "GET",
+                "cors": true,
+                "contentType": "application/json",
+                "secure": true,
                 "timeout": 0,
+                "headers": {
+                    "Access-Control-Allow-Origin": "*"
+                },
             };
 
             $.ajax(settings).done(function (response) {
@@ -254,8 +278,14 @@ function OpenTicket(TokenNumber) {
 
     var settings = {
         "url": ProjectBaseUrl + '/Home/AssignCounterToTicket?TokenNumber=' + TokenNumber + '&UserId=' + userID + '&StatusId=4',
-        "method": "GET",
+        "method": "GET", 
+        "cors": true,
+        "contentType": "application/json",
+        "secure": true,
         "timeout": 0,
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        },
     };
 
     $.ajax(settings).done(function (data) {
@@ -303,6 +333,12 @@ let btnCloseThisTicket = () => {
         type: "GET",
         url: ProjectBaseUrl + "/Home/SubmittedTicket",
         data: { TokenNumber: currentToken, Comment: CounterComment, ServiceOptionId: ServiceStatusId, StatusId: 2 },
+        cors: true,
+        contentType: 'application/json',
+        secure: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
         success: function (data) {
             //console.log(data.message);
             var result = data.message;
@@ -319,7 +355,7 @@ let btnCloseThisTicket = () => {
 
         },
         error: function () {
-            alert("Error occured!!")
+            console.log("An Error occured")
         }
     });
 

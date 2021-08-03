@@ -6,9 +6,10 @@ using System.Web.Mvc;
 using WebAppQueueManagmentSystem.ApiHelpers.Utility;
 using WebAppQueueManagmentSystem.BLL.Counter;
 using WebAppQueueManagmentSystem.BLL.Token;
+using WebAppQueueManagmentSystem.Cors;
 
 namespace WebAppQueueManagmentSystem.Controllers
-{
+{ 
     public class CounterController : Controller
     {
 

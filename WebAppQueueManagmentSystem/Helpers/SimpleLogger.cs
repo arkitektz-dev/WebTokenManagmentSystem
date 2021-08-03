@@ -18,12 +18,12 @@ public class SimpleLogger : ISimpleLogger
         datetimeFormat = "yyyy-MM-dd HH:mm:ss.fff";
         logFilename = ConfigurationManager.AppSettings["LoggerLocation"];
 
-        // Log file header line
-        string logHeader = logFilename + " is created.";
-        if (!System.IO.File.Exists(logFilename))
-        {
-            WriteLine(System.DateTime.Now.ToString(datetimeFormat) + " " + logHeader);
-        }
+        //// Log file header line
+        //string logHeader = logFilename + " is created.";
+        //if (!System.IO.File.Exists(logFilename))
+        //{
+        //    WriteLine(System.DateTime.Now.ToString(datetimeFormat) + " " + logHeader);
+        //}
     }
 
     /// <summary>
@@ -82,55 +82,55 @@ public class SimpleLogger : ISimpleLogger
 
     private void WriteLine(string text, bool append = false)
     {
-        try
-        {
-            if (string.IsNullOrEmpty(text))
-            {
-                return;
-            }
-            lock (fileLock)
-            {
-                using (System.IO.StreamWriter writer = new System.IO.StreamWriter(logFilename, append, System.Text.Encoding.UTF8))
-                {
-                    writer.WriteLine(text);
-                }
-            }
-        }
-        catch
-        {
-            throw;
-        }
+        //try
+        //{
+        //    if (string.IsNullOrEmpty(text))
+        //    {
+        //        return;
+        //    }
+        //    lock (fileLock)
+        //    {
+        //        using (System.IO.StreamWriter writer = new System.IO.StreamWriter(logFilename, append))
+        //        {
+        //            writer.WriteLine(text);
+        //        }
+        //    }
+        //}
+        //catch
+        //{
+        //    throw;
+        //}
     }
 
     private void WriteFormattedLog(LogLevel level, string text)
     {
-        string pretext;
-        switch (level)
-        {
-            case LogLevel.TRACE:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [TRACE]   ";
-                break;
-            case LogLevel.INFO:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [INFO]    ";
-                break;
-            case LogLevel.DEBUG:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [DEBUG]   ";
-                break;
-            case LogLevel.WARNING:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [WARNING] ";
-                break;
-            case LogLevel.ERROR:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [ERROR]   ";
-                break;
-            case LogLevel.FATAL:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [FATAL]   ";
-                break;
-            default:
-                pretext = "";
-                break;
-        }
+        //string pretext;
+        //switch (level)
+        //{
+        //    case LogLevel.TRACE:
+        //        pretext = System.DateTime.Now.ToString(datetimeFormat) + " [TRACE]   ";
+        //        break;
+        //    case LogLevel.INFO:
+        //        pretext = System.DateTime.Now.ToString(datetimeFormat) + " [INFO]    ";
+        //        break;
+        //    case LogLevel.DEBUG:
+        //        pretext = System.DateTime.Now.ToString(datetimeFormat) + " [DEBUG]   ";
+        //        break;
+        //    case LogLevel.WARNING:
+        //        pretext = System.DateTime.Now.ToString(datetimeFormat) + " [WARNING] ";
+        //        break;
+        //    case LogLevel.ERROR:
+        //        pretext = System.DateTime.Now.ToString(datetimeFormat) + " [ERROR]   ";
+        //        break;
+        //    case LogLevel.FATAL:
+        //        pretext = System.DateTime.Now.ToString(datetimeFormat) + " [FATAL]   ";
+        //        break;
+        //    default:
+        //        pretext = "";
+        //        break;
+        //}
 
-        WriteLine(pretext + text, true);
+        //WriteLine(pretext + text, true);
     }
 
     [System.Flags]

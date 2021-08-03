@@ -1,0 +1,149 @@
+﻿@using Microsoft.AspNet.Identity
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="~/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/libs/css/style.css">
+    <link rel="stylesheet" href="~/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="~/assets/vendor/vector-map/jqvmap.css">
+    <link rel="stylesheet" href="~/assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
+    <link href="~/assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="~/assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="~/assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/daterangepicker/daterangepicker.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/datatables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/datatables/css/buttons.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/datatables/css/select.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
+
+    <title>Arkitektz - Queue Dashboard Managment</title>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        @Html.Partial("_NavBar")
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+
+        @if (String.IsNullOrEmpty(ViewBag.SideBarDisable))
+        {
+            @Html.Partial("_Sidebar");
+        }
+
+
+
+
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+
+            <div class="container-fluid ">
+                @RenderBody()
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            @Html.Partial("_Footer")
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- configuration file  -->
+    <script src="~/Scripts/Configuration/WebConfiguration.js"></script>
+    <!-- jquery 3.3.1  -->
+    <script src="~/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/vendor/jquery/jquery-ui.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="~/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- chart chartist js -->
+    <script src="~/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <script src="~/assets/vendor/charts/chartist-bundle/Chartistjs.js"></script>
+    <script src="~/assets/vendor/charts/chartist-bundle/chartist-plugin-threshold.js"></script>
+    <!-- chart C3 js -->
+    <script src="~/assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="~/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <!-- chartjs js -->
+    <script src="~/assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
+    <script src="~/assets/vendor/charts/charts-bundle/chartjs.js"></script>
+    <!-- sparkline js -->
+    <script src="~/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- dashboard finance js -->
+    <script src="~/assets/libs/js/dashboard-finance.js"></script>
+    <!-- morris js -->
+    <script src="~/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="~/assets/vendor/charts/morris-bundle/morris.js"></script>
+    <script src="~/assets/vendor/charts/morris-bundle/Morrisjs.js"></script>
+    <!-- main js -->
+    <script src="~/assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="~/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- gauge js -->
+    <script src="~/assets/vendor/gauge/gauge.min.js"></script>
+
+    <!-- chart c3 js -->
+
+    <script src="~/assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="~/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="~/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="~/assets/libs/js/dashboard-ecommerce.js"></script>
+
+    <!--Datatable js--->
+    <script src="../assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../assets/vendor/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/vendor/datatables/js/buttons.bootstrap4.min.js"></script>
+    <script src="../assets/vendor/datatables/js/data-table.js"></script>
+    <script src="../assets/vendor/datatables/js/jszip.min.js"></script>
+    <script src="../assets/vendor/datatables/js/pdfmake.min.js"></script>
+    <script src="../assets/vendor/datatables/js/vfs_fonts.js"></script>
+    <script src="../assets/vendor/datatables/js/buttons.html5.min.js"></script>
+    <script src="../assets/vendor/datatables/js/buttons.print.min.js"></script>
+    <script src="../assets/vendor/datatables/js/buttons.colVis.min.js"></script>
+    <script src="../assets/vendor/datatables/js/buttons.colVis.min.js"></script>
+    <script src="../assets/vendor/datatables/js/dataTables.rowGroup.min.js"></script>
+    <script src="../assets/vendor/datatables/js/dataTables.select.min.js"></script>
+    <script src="../assets/vendor/datatables/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../assets/vendor/datepicker/moment.js"></script>
+    <script src="../assets/vendor/datepicker/tempusdominus-bootstrap-4.js"></script>
+    <script src="../assets/vendor/datepicker/datepicker.js"></script>
+
+
+
+    @RenderSection("Scripts", false)
+
+</body>
+
+</html>

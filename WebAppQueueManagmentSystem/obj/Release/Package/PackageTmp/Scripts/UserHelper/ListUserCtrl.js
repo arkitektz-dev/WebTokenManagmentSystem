@@ -31,7 +31,7 @@ const listUserTable = (RoleID) => {
             //var table = $('#example2').DataTable();
         },
         error: function () {
-            alert("Error occured!!")
+            console.log("An Error occured")
         }
     });
 

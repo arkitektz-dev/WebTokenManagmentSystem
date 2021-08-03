@@ -1,0 +1,138 @@
+﻿@model WebAppQueueManagmentSystem.Models.RegisterViewModel
+
+<div class="row mt-5">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">Create User</h5>
+            <div class="card-body">
+
+                @using (Html.BeginForm("RegisterPlan", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-row mt-2">
+                        <div class="col-lg-6">
+                            <label for="validationCustom03">First Name</label>
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                            <div class="invalid-feedback">
+                                @Html.ValidationMessageFor(m => m.FirstName)
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <label for="validationCustom05">Last Name</label>
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+                            <div class="invalid-feedback">
+                                @Html.ValidationMessageFor(m => m.LastName)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row mt-2">
+                        <div class="col-lg-6">
+                            <label for="validationCustom03">Password</label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                            <div class="invalid-feedback">
+                                @Html.ValidationMessageFor(m => m.Password)
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <label for="validationCustom05">Confirm Password</label>
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+                            <div class="invalid-feedback">
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-row mt-2" id="RoleOption">
+                        <div class="col-lg-6">
+                            <label for="input-select">Role</label>
+                            <select class="form-control" id="cmbAllRole" name="Role" onchange="ChangeRoleOption()">
+                                <option>-----Select-----</option>
+                                @foreach (var item in ViewBag.RoleList)
+                                {
+                                    <option value="@item.Id">@item.UserName</option>
+                                }
+                            </select>
+                            <div class="invalid-feedback">
+                                @Html.ValidationMessageFor(m => m.Role)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row mt-2">
+                        <div class="col-lg-6">
+                            <label for="validationCustom03">Email</label>
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                            <div class="invalid-feedback">
+                                @Html.ValidationMessageFor(m => m.Email)
+                            </div>
+                        </div>
+                         
+                    </div>
+
+                    <div class="form-row mt-2">
+                        <div class="col-lg-6">
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </div>
+                    </div>
+
+
+
+
+
+                }
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+
+    let ChangeRoleOption = () => {
+
+
+        let UserRoleValue = $("#cmbAllRole option:selected").text();
+      
+        if (UserRoleValue != "Cashier")
+            return true;
+
+        let divRole = `
+                       <div class="col-lg-6">
+                            <label for="input-select">Service Type</label>
+                            <select class="form-control" name="ServiceTypeId" id="input-select">
+                             @foreach (var item in ViewBag.CashierTypeList) {
+                                    <option value="@item.ID">@item.Name</option>
+                             }
+                            </select>
+                        </div>
+        `;
+
+        console.log("runnning")
+        //document.getElementById("RoleOption").append(divRole);
+
+        let ServiceType = document.getElementById("cmbServiceType");
+
+        if (ServiceType == null) {
+            $("#RoleOption").append(divRole);
+        } else {
+            document.getElementById("cmbServiceType").remove();
+            $("#RoleOption").append(divRole);
+        }
+
+
+    }
+
+</script>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

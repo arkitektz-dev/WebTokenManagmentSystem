@@ -30,9 +30,15 @@
 
     function CallTable(TicketDate, TicketStatus, CustomerType) {
              $.ajax({
-                type: "GET",
-                url: ProjectBaseUrl + `/Home/GetTicketList?TicketDate=${TicketDate}&TicketStatus=${TicketStatus}&CustomerType=${CustomerType}`,  
-                success: function (data) {
+                 type: "GET",
+                 url: ProjectBaseUrl + `/Home/GetTicketList?TicketDate=${TicketDate}&TicketStatus=${TicketStatus}&CustomerType=${CustomerType}`,  
+                 cors: true,
+                 contentType: 'application/json',
+                 secure: true,
+                 headers: {
+                     'Access-Control-Allow-Origin': '*',
+                 },
+                 success: function (data) {
                     console.log(data);
                     document.getElementById("panel1").innerHTML = data;
 

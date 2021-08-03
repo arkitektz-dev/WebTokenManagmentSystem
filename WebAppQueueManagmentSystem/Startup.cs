@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using System;
@@ -15,6 +16,7 @@ namespace WebAppQueueManagmentSystem
         public void Configuration(IAppBuilder app)
         {
             app.MapSignalR();
+            app.UseCors(CorsOptions.AllowAll);
 
             ConfigureAuth(app);
         }
