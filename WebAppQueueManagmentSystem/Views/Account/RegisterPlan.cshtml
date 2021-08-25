@@ -6,9 +6,22 @@
             <h5 class="card-header">Create User</h5>
             <div class="card-body">
 
+                @if (Model != null)
+                {
+                    foreach (var item in Model.CustomMessage)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @item
+                        </div>
+                    }
+                }
+
+
+
                 @using (Html.BeginForm("RegisterPlan", "Account", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
+                    @*@Html.ValidationSummary("false", new { @class = "text-danger" })*@
 
                     <div class="form-row mt-2">
                         <div class="col-lg-6">
@@ -72,7 +85,7 @@
                                 @Html.ValidationMessageFor(m => m.Email)
                             </div>
                         </div>
-                         
+
                     </div>
 
                     <div class="form-row mt-2">

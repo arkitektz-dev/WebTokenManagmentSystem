@@ -18,8 +18,6 @@ $("#btnSearch").click(function () {
 
 const listUserTable = (RoleID) => {
 
-   
-
     $.ajax({
         type: "GET",
         url: ProjectBaseUrl + "/User/ListUserTable",
@@ -37,5 +35,8 @@ const listUserTable = (RoleID) => {
 
 }
 
+
+setTimeout(() => {
+    listUserTable('');
+},2000)
  
-listUserTable('');

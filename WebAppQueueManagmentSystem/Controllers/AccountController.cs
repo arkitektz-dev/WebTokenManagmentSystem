@@ -279,6 +279,9 @@ namespace WebAppQueueManagmentSystem.Controllers
                         return RedirectToAction("RegisterPlan", "User");
                     }
                 }
+
+                model.CustomMessage = result.Errors;
+
                 AddErrors(result);
             }
 

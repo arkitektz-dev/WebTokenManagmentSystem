@@ -618,43 +618,31 @@ namespace WebTokenManagmentSystem.BLL
 
         public Token GetPendingTokenByCounterId(GetPendingTokenBody model)
         {
-
             var PendingToken = context.CounterTokenRelations.Where(x => x.CounterId == model.CounterId && x.StatusId == (byte?)GlobalEnums.Status.Serving && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
+            var TokenStatusHistory = context.TokenStatusHistories.Where(x => x.Status == (byte?)GlobalEnums.Status.Skip).FirstOrDefault();
 
-            if (PendingToken != null && PendingToken.Token != null)
-            {
-                if (PendingToken.Token.Status != (byte?)GlobalEnums.Status.Complete) {
+            if (PendingToken != null) {
+
+                var GetDetailOfPendingToken = context.Tokens.Where(x => x.Id == PendingToken.TokenId).FirstOrDefault();
+
+                //Check if token skipped
+
+                if (TokenStatusHistory != null) {
+
                     return null;
                 }
 
-                var isTokenSkipped = context.TokenStatusHistories.Where(x => x.TokenId == PendingToken.TokenId && x.Status == (byte?)GlobalEnums.Status.Skip).FirstOrDefault();
 
-
-                if (isTokenSkipped == null)
+                var return_message = new Token()
                 {
-                    var token = context.Tokens.Where(x => x.Id == PendingToken.TokenId).FirstOrDefault();
+                    CustomTokenNumber = GetDetailOfPendingToken.CustomTokenNumber
+                };
 
-                    var return_message = new Token()
-                    {
-                        CustomTokenNumber = token.CustomTokenNumber
-                    };
-
-                    return return_message;
-                }
-                else {
-                    return null;
-                }
-
-        
+                return return_message;
 
             }
-            else {
-                return null;
-            }
 
-
-
-
+            return null;
         }
 
         public int GetAverageTime()

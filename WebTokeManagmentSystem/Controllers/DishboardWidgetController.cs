@@ -16,6 +16,7 @@ using WebTokenManagmentSystem.LINQExtension;
 using WebTokenManagmentSystem.Service;
 using Microsoft.Extensions.Hosting;
 using WebTokenManagmentSystem.Dtos.DishboardWidget;
+using System.Diagnostics;
 
 namespace WebTokenManagmentSystem.Controllers
 {
@@ -51,35 +52,44 @@ namespace WebTokenManagmentSystem.Controllers
             var ActiveCounter = context
                  .UserCounterHistories
                  .Where(x => x.CreatedDate.Value.Date == DateTime.Now.Date)
-                 .ToList()
-                 .Count();
+                 .ToList();
 
             var TicketIssued = context
                 .Tokens
                 .Where(x => x.CreatedDate.Value.Date.Date == DateTime.Now.Date)
-                .ToList()
-                .Count();
+                .ToList();
 
             var IssuedResolved = context
                 .TokenStatusHistories
                 .Where(x => x.Status == (byte)GlobalEnums.Status.Complete
                        && x.CreatedDate.Value.Date == DateTime.Now.Date)
-                .ToList()
-                .Count();
+                .ToList();
 
-            var Waiting = context
+            var WaitingList = context
                 .TokenStatusHistories
                 .Where(x => x.CreatedDate.Value.Date == DateTime.Now.Date
-                 && x.Status == (byte)GlobalEnums.Status.Serving)
-                .ToList()
-                .Count();
+                 && x.Status == (byte)GlobalEnums.Status.Serving && x.Status != (byte)GlobalEnums.Status.Complete)
+                .ToList();
+
+            var WaitingCount = WaitingList.Count();
+
+
+            foreach (var item in WaitingList) {
+                bool isTicketFound = IssuedResolved.Where(x => x.TokenId == item.TokenId).Count() > 0;
+                if (isTicketFound == true) {
+                    WaitingCount = WaitingCount - 1;
+                }
+
+
+            }
+
 
             var message = new QueueCardDto()
             {
-                ActiveCounter = ActiveCounter.ToString(),
-                IssuedResolved = IssuedResolved.ToString(),
-                TicketIssued = TicketIssued.ToString(),
-                Waiting = Waiting.ToString()
+                ActiveCounter = ActiveCounter.Count().ToString(),
+                IssuedResolved = IssuedResolved.Count().ToString(),
+                TicketIssued = TicketIssued.Count().ToString(),
+                Waiting = WaitingCount.ToString()
             };
 
             return Ok(message);

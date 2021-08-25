@@ -78,7 +78,7 @@ let CallAgain = () => {
 let EnableNextTicketButton = () => {
     var list = document.getElementById("listSidebar").getElementsByTagName("li")[0];
 
-    if (list != "") {
+    if (list != undefined) {
         document.getElementById("btnPickNextTicket").style.display = "block";
     } else {
         document.getElementById("btnPickNextTicket").style.display = "none";
@@ -322,13 +322,10 @@ let btnCloseThisTicket = () => {
     var ServiceStatusId = document.getElementById("ServiceId").value;
     var CounterComment = document.getElementById("txtComment").value;
 
-    //get User Id 
+     
     const params = new URLSearchParams(window.location.search)
     var userID = params.get('UserId')
-    //console.log(userID);
-
-    ////console.log(currentToken,TokenStatusId, ServiceStatusId, CounterComment, userID);
-
+     
     $.ajax({
         type: "GET",
         url: ProjectBaseUrl + "/Home/SubmittedTicket",
@@ -393,8 +390,6 @@ let btnGetNextTicket = () => {
 
 let AddNewTicket = (TokenDetail) => {
 
-    //console.log(TokenDetail);
-
     var card = `
       <li id="TicketNumber${TokenDetail.token}">
          <div class="card">
@@ -409,10 +404,7 @@ let AddNewTicket = (TokenDetail) => {
 
     $('#listSidebar').append(card)
 
-    //console.log(card);
-
-    //console.log($('#listSidebar').append(card));
-
-
+    
 
 }
+

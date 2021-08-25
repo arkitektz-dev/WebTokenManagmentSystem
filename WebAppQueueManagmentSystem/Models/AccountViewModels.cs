@@ -99,6 +99,8 @@ namespace WebAppQueueManagmentSystem.Models
         [Display(Name = "Service Type")]
         public int ServiceTypeId { get; set; }
 
+        public IEnumerable<string> CustomMessage { get; set; }
+
  
 
 

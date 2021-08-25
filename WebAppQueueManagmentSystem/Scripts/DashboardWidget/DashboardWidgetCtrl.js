@@ -18,5 +18,8 @@ const PopulateAdminTicketCard = () => {
     });
 }
 
-PopulateAdminTicketCard();
+setTimeout(() => {
+    PopulateAdminTicketCard();
+},5000)
+
 

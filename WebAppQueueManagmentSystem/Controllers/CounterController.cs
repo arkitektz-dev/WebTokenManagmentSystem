@@ -11,9 +11,7 @@ using WebAppQueueManagmentSystem.Cors;
 namespace WebAppQueueManagmentSystem.Controllers
 { 
     public class CounterController : Controller
-    {
-
-       
+    { 
         readonly ITokenRepository token;
         readonly ICounterRepository counter;
         readonly IApiUtility helper;

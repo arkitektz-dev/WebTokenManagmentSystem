@@ -23,7 +23,7 @@ public class SimpleLogger : ISimpleLogger
         //if (!System.IO.File.Exists(logFilename))
         //{
         //    WriteLine(System.DateTime.Now.ToString(datetimeFormat) + " " + logHeader);
-        //}
+        //}                         
     }
 
     /// <summary>

@@ -36,6 +36,7 @@ namespace WebTokenManagmentSystem.Models
         public virtual DbSet<Token> Tokens { get; set; }
         public virtual DbSet<TokenStatusHistory> TokenStatusHistories { get; set; }
         public virtual DbSet<UserCounterHistory> UserCounterHistories { get; set; }
+        public virtual DbSet<UserDetail> UserDetails { get; set; }
         public virtual DbSet<UserToken> UserTokens { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -348,6 +349,23 @@ namespace WebTokenManagmentSystem.Models
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+            });
+
+            modelBuilder.Entity<UserDetail>(entity =>
+            {
+                entity.ToTable("UserDetail");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.FirstName).HasMaxLength(50);
+
+                entity.Property(e => e.LastName).HasMaxLength(50);
 
                 entity.Property(e => e.UserId).HasColumnName("UserID");
             });
