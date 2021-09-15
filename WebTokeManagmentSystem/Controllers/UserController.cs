@@ -267,8 +267,11 @@ namespace WebTokenManagmentSystem.Controllers
         /// 
         [HttpPost]
         [Route("Insert-Counter-Login")]
-        public IActionResult Insert_Counter_Login([FromBody] ChangeUserModel model)
+        public IActionResult Insert_Counter_Login(string UserId, int? CounterId)
         {
+
+            var row = context.CounterHistories.Where(x => x.CounterId == CounterId && x.Login == DateTime.Now.Date).FirstOrDefault();
+
             return Ok();
 
         }
