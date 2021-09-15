@@ -9,7 +9,7 @@ namespace WebAppQueueManagmentSystem.ApiHelpers.ApiEnum
     {
         public enum Status
         {
-            Pending = 1, Complete = 2, Invalid_Status = 3, Serving = 4, All = 5
+            Pending = 1, Complete = 2, Invalid_Status = 3, Serving = 4, All = 5, Skip = 6, Hold = 7
         }
 
         public enum CustomerType

@@ -70,7 +70,7 @@ namespace WebTokenManagmentSystem.BLL
                 context.SaveChanges();
 
                 tokenHelper.InsertTokenStatus(objRow.CustomTokenNumber, GlobalEnums.Status.Pending);
-
+ 
 
                 var return_message = new NewTokendto()
                 {
@@ -170,7 +170,7 @@ namespace WebTokenManagmentSystem.BLL
                  {
                      token = row.TokenNumber.Value.ToString("D5"),
                      date =  row.CreatedDate.Value.ToString(@"dd/MM/yyyy"),
-                     time =  row.CreatedDate.Value.ToString(@"hh:m tt"),
+                     time =  row.CreatedDate.Value.ToString(@"hh:mm tt"),
                      isCustomer = row.IsCustomer,
                      createdDate = row.CreatedDate,
                      completeDate = row.CompleteDate
@@ -252,6 +252,7 @@ namespace WebTokenManagmentSystem.BLL
             if (!tokenHelper.VerifyTokenStatus(model.Status))
                 //Error : Invalid status
                 return null;
+             
 
             if (tokenHelper.VerifyTokenExsistsWithSameStatus(model.TokenNumber, model.Status))
                 //Error : Same status for this token already exsists"
@@ -469,16 +470,28 @@ namespace WebTokenManagmentSystem.BLL
             context.TokenStatusHistories.Add(rowHistory);
             context.SaveChanges();
 
+            var CtrStatus = context.CounterTokenRelations.Where(x => x.TokenId == TokenID).FirstOrDefault();
 
-            CounterTokenRelation row = new CounterTokenRelation()
+            if (CtrStatus != null)
             {
-                CounterId = model.CounterId,
-                TokenId = TokenID,
-                StatusId = model.StatusId
-            };
+                CtrStatus.StatusId = model.StatusId;
+                context.SaveChanges();
+            }
+            else {
 
-            context.CounterTokenRelations.Add(row);
-            context.SaveChanges();
+                CounterTokenRelation row = new CounterTokenRelation()
+                {
+                    CounterId = model.CounterId,
+                    TokenId = TokenID,
+                    StatusId = model.StatusId
+                };
+
+                context.CounterTokenRelations.Add(row);
+                context.SaveChanges();
+            }
+
+
+          
 
             AddTicketToQueueBody QueueRow = new AddTicketToQueueBody()
             {
@@ -618,31 +631,25 @@ namespace WebTokenManagmentSystem.BLL
 
         public Token GetPendingTokenByCounterId(GetPendingTokenBody model)
         {
-            var PendingToken = context.CounterTokenRelations.Where(x => x.CounterId == model.CounterId && x.StatusId == (byte?)GlobalEnums.Status.Serving && x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
-            var TokenStatusHistory = context.TokenStatusHistories.Where(x => x.Status == (byte?)GlobalEnums.Status.Skip).FirstOrDefault();
 
-            if (PendingToken != null) {
+            var GetAllServingToken = context.Tokens.Where(x => x.Status == (byte?)GlobalEnums.Status.Serving).FirstOrDefault();
 
-                var GetDetailOfPendingToken = context.Tokens.Where(x => x.Id == PendingToken.TokenId).FirstOrDefault();
-
-                //Check if token skipped
-
-                if (TokenStatusHistory != null) {
-
-                    return null;
-                }
-
+            if (GetAllServingToken != null)
+            {
 
                 var return_message = new Token()
                 {
-                    CustomTokenNumber = GetDetailOfPendingToken.CustomTokenNumber
+                    CustomTokenNumber = GetAllServingToken.CustomTokenNumber
                 };
 
                 return return_message;
 
             }
+            else {
+                return null;
+            }
+             
 
-            return null;
         }
 
         public int GetAverageTime()
@@ -795,5 +802,74 @@ namespace WebTokenManagmentSystem.BLL
 
             return null;
         }
+       
+        public List<ListTokenDto> HoldTokenByCounterById(HoldTicketModel model)
+        {
+            
+
+        
+
+            var ListToken = context.CounterTokenRelations.Where(x => x.CounterId == Convert.ToInt32(model.CounterId) && x.StatusId == (byte?)GlobalEnums.Status.Hold).Join(
+                            context.Tokens.Where(x => x.Status == (byte?)GlobalEnums.Status.Hold),
+                            CounterToken => CounterToken.TokenId,
+                            Tokens => Tokens.Id,
+                            (CounterToken, Tokens) => new ListTokenDto { 
+                                Token = Tokens.CustomTokenNumber,
+                                CompleteDate = Tokens.CompleteDate,
+                                CreatedDate = Tokens.CreatedDate,
+                                Date = Tokens.CreatedDate.Value.ToString(@"dd/MM/yyyy"),
+                                Time = Tokens.CreatedDate.Value.ToString(@"hh:mm tt"),
+                                isCustomer = Tokens.IsCustomer
+
+                            }).ToList();
+
+
+
+          
+ 
+
+
+            return (List<ListTokenDto>)ListToken;
+        }
+
+        public HoldTokenDto HoldSelectedToken(HoldSelectedTicket model)
+        {
+            var count_Number = context.Tokens
+                 .Where(x => x.CustomTokenNumber == model.TokenNumber &&
+                 x.CreatedDate.Value.Date == DateTime.Now.Date).Count() > 0;
+
+            if (!count_Number)
+                //Error : Token number not found
+                return null;
+
+            //Change token status from token table 
+            var token = context.Tokens.Where(x => x.CustomTokenNumber == model.TokenNumber &&
+                 x.CreatedDate.Value.Date == DateTime.Now.Date).FirstOrDefault();
+            token.Status = (Byte?)GlobalEnums.Status.Hold;
+            context.SaveChanges();
+
+            //Add New history in token status
+            TokenStatusHistory rowTokenStatusHistory = new TokenStatusHistory();
+            rowTokenStatusHistory.Status = (byte?)GlobalEnums.Status.Hold;
+            rowTokenStatusHistory.TokenId = token.Id;
+            rowTokenStatusHistory.CreatedDate = DateTime.Now.Date;
+            context.TokenStatusHistories.Add(rowTokenStatusHistory);
+            context.SaveChanges();
+
+            //Update Token status from CTR
+            var counterTokenRelation = context.CounterTokenRelations.Where(x => x.TokenId == token.Id).FirstOrDefault();
+            counterTokenRelation.StatusId = (byte?)GlobalEnums.Status.Hold;
+            context.SaveChanges();
+            
+
+            var return_message = new HoldTokenDto()
+            {
+
+                TokenNumber = model.TokenNumber
+            };
+
+            return return_message;
+        }
+
     }
 }

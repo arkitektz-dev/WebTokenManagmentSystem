@@ -24,5 +24,8 @@ namespace WebTokenManagmentSystem.BLL
         int GetAverageTime();
         AddTicketToQueueDto AddTicketToQueue(AddTicketToQueueBody model);
         MaintainCounterHistoryDto MaintainCounterHistory(MaintainCounterHistoryBody model);
+        List<ListTokenDto> HoldTokenByCounterById(HoldTicketModel model);
+        HoldTokenDto HoldSelectedToken(HoldSelectedTicket model);
+
     }
 }

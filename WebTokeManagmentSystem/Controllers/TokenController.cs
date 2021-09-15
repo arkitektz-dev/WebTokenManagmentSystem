@@ -515,6 +515,55 @@ namespace WebTokeManagmentSystem.Controllers
         }
 
 
+        /// <summary>
+        /// Get list of hold ticket by counterId
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        [Route("List-Hold-Ticket-By-CounterId")]
+        public IActionResult List_Hold_Ticket_By_CounterId([FromBody] HoldTicketModel model)
+        {
+
+            var message = tokenBLL.HoldTokenByCounterById(model);
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
+        /// <summary>
+        /// Hold a ticket by token number
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        [Route("Hold-Ticket-By-TokenNumber")]
+        public IActionResult Hold_Ticket_By_Token_Number([FromBody] HoldSelectedTicket model)
+        {
+
+            var message = tokenBLL.HoldSelectedToken(model);
+
+            if (message != null)
+            {
+                return Ok(message);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
+
+
+
 
 
 

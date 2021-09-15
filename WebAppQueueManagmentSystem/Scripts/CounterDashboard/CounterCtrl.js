@@ -4,6 +4,12 @@ let doContinue = false;
 let isNextButtonRequest = false;
 let isSoundPlaying = false;
 
+
+//Function that will load on page load
+ShowQueueInTicket();
+OpenPendingTicket();
+ShowHoldTicketNotification();
+
 //document.getElementById("listSidebar").getElementsByTagName("li").length
 $.connection.hub.start().done(function () {
     //console.log("Connection Established");
@@ -13,6 +19,7 @@ $.connection.hub.start().done(function () {
 con.client.getNewTicket = function (TokenDetail) {
     console.log(TokenDetail)
     AddNewTicket(TokenDetail);
+    ShowQueueInTicket();
 }
 
 con.client.getRemovedTicketNumber = function (TicketNumber) {
@@ -36,12 +43,10 @@ setInterval(function () {
   
     OpenPendingTicket();
     EnableNextTicketButton();
-    if (document.getElementById("listSidebar").getElementsByTagName("li") != undefined) {
+    ShowQueueInTicket();
+}, 2000);
 
-        var countRow = document.getElementById("listSidebar").getElementsByTagName("li").length;
-        document.getElementById("TicketQueue").innerText = countRow;
-    }
-}, 10000);
+ 
 
 let CallAgain = () => {
 
@@ -67,6 +72,10 @@ let CallAgain = () => {
         success: function (data) {
 
             //console.log("Called");
+            document.getElementById("btnClose").disabled = true;
+            setTimeout(function () {
+                document.getElementById("btnClose").disabled = false;
+            }, 5000)
 
         },
         error: function () {
@@ -127,8 +136,17 @@ let btnSkipThis = () => {
     });
 }
 
+ 
 
-let OpenPendingTicket = () => {
+function ShowQueueInTicket()  {
+    if (document.getElementById("listSidebar").getElementsByTagName("li") != undefined) {
+
+        var countRow = document.getElementById("listSidebar").getElementsByTagName("li").length;
+        document.getElementById("TicketQueue").innerText = countRow;
+    }
+}
+
+function OpenPendingTicket(){
 
     const params = new URLSearchParams(window.location.search)
     var userID = params.get('UserId')
@@ -145,12 +163,12 @@ let OpenPendingTicket = () => {
             'Access-Control-Allow-Origin': '*',
         },
         success: function (data) {
-            console.log("This is from this" + " " + data.tokenDetail.CustomTokenNumber);
+            console.log(data);
 
             if (data.tokenDetail.CustomTokenNumber != undefined) {
 
                 var TokenNumber = data.tokenDetail.CustomTokenNumber;
-                debugger;
+                //debugger;
                 if (TokenNumber != null || TokenNumber != "") {
 
                     IdleWarning("Off");
@@ -196,7 +214,7 @@ let IdleWarning = (Switch) => {
 }
 
 function GetTokenStatusNew() {
-    debugger;
+    //debugger;
     var a = new Promise(function (resolve, reject) {
         if ($("#TicketWorkSpaceArea").is(":visible") == true) {
             let txtTicketNumber = document.getElementById("txtTicketNo").innerText.replace(/Ticket Number /i, '');
@@ -232,7 +250,7 @@ function GetTokenStatusNew() {
 
 let SelectTicket = async (TokenNumber) => {
 
-    debugger;
+    //debugger;
 
     //console.log(TokenNumber);
     //console.log(currentToken);
@@ -271,7 +289,7 @@ let SelectTicket = async (TokenNumber) => {
 }
 
 function OpenTicket(TokenNumber) {
-    debugger;
+    //debugger;
     const params = new URLSearchParams(window.location.search)
     var userID = params.get('UserId')
     //console.log(userID);
@@ -388,6 +406,8 @@ let btnGetNextTicket = () => {
 
 }
 
+ 
+
 let AddNewTicket = (TokenDetail) => {
 
     var card = `
@@ -405,6 +425,75 @@ let AddNewTicket = (TokenDetail) => {
     $('#listSidebar').append(card)
 
     
+
+}
+
+
+function ShowHoldTicketNotification() {
+    document.getElementById("HoldTicketNotifcation").style.display = 'block';
+}
+
+function ShowHoldTicket() { 
+    
+   
+
+    var counterNumber = document.getElementById("CounterNumber").value;
+
+    $.ajax({
+        type: "GET",
+        url: ProjectBaseUrl + "/Home/GetHoldListTicketByCounterId",
+        data: { counter: counterNumber },
+        cors: true,
+        contentType: 'application/json',
+        secure: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+        success: function (data) {
+
+            document.getElementById("ListHoldTokens").innerHTML = data;
+
+            $('#modalHoldShow').modal('show')
+
+
+
+        },
+        error: function () {
+            console.log("An Error occured")
+        }
+    });
+
+}
+
+
+function btnHoldTicket() {
+    console.log(currentToken)
+
+    $.ajax({
+        type: "GET",
+        url: ProjectBaseUrl + "/Home/HoldThisTicket",
+        data: { TokenNumber: currentToken},
+        cors: true,
+        contentType: 'application/json',
+        secure: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+        success: function (data) {
+    
+            console.log("Ticket is on hold");
+            
+            stoptime = true;
+            IdleWarning("On");
+            currentToken = "";
+
+           
+
+        },
+        error: function () {
+            console.log("An Error occured")
+        }
+    });
 
 }
 

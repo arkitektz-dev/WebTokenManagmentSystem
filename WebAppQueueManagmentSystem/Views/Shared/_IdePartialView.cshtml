@@ -1,0 +1,36 @@
+﻿
+<div class="modal fade" id="modelLogout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Auth Status</h5>
+            </div>
+            <div class="modal-body">
+               <p>Your session has expired</p>
+            </div>
+            <div class="modal-footer"> 
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-primary">Log In</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/vanilla.idle.min.js"></script>
+<script type="text/javascript">
+        idle({
+            onIdle: function () {
+                $('#modelLogout').modal('toggle')
+                setTimeout(function () {
+                    javascript: document.getElementById('logoutForm').submit()
+                },5000)
+            },
+            onActive: function () {
+                console.log("You are active")
+            },
+            idle: 10000,
+            keepTracking: true
+        }).start();
+</script>

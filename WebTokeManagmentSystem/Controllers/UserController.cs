@@ -260,7 +260,21 @@ namespace WebTokenManagmentSystem.Controllers
 
         }
 
-      
+        /// <summary>
+        /// Generate new token based on customer type
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        [Route("Insert-Counter-Login")]
+        public IActionResult Insert_Counter_Login([FromBody] ChangeUserModel model)
+        {
+            return Ok();
+
+        }
+
+
+
 
 
     }

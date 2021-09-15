@@ -42,11 +42,16 @@ namespace WebAppQueueManagmentSystem.Controllers
         }
 
         #region ActionResults
+
+        [Authorize]
+
         public ActionResult Index()
         {
 
             return View();
         }
+
+        [Authorize]
         //Counter Dashboard 
         public ActionResult CounterDashboard(string UserId)
         {
@@ -108,6 +113,8 @@ namespace WebAppQueueManagmentSystem.Controllers
 
             return View();
         }
+
+        [Authorize]
         public ActionResult AllTicketStatus()
         {
             ViewBag.CounterStatus = token.StatusList();
@@ -283,6 +290,27 @@ namespace WebAppQueueManagmentSystem.Controllers
              
             return Json(message, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult HoldThisTicket(string TokenNumber)
+        {
+            var message = token.HoldTicket(TokenNumber);
+
+            return Json(message, JsonRequestBehavior.AllowGet);        
+        }
+
+        public JsonResult ListHoldTicket(string TokenNumber)
+        {
+            var message = token.HoldTicket(TokenNumber);
+
+            return Json(message, JsonRequestBehavior.AllowGet);
+        }
+
+        public PartialViewResult GetHoldListTicketByCounterId(string counter)
+        {
+            var message = token.ListHoldTicket(counter);
+            return PartialView(message);
+        }
+
         #endregion
 
 

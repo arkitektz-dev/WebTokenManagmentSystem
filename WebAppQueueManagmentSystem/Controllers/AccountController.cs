@@ -106,9 +106,17 @@ namespace WebAppQueueManagmentSystem.Controllers
 
             var user = UserManager.FindByEmail(model.Email);
 
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(model);
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
+        
+         
             switch (result)
             {
                 case SignInStatus.Success:

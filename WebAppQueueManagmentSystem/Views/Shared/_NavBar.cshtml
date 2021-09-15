@@ -13,65 +13,24 @@
         </button>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto navbar-right-top">
-                @*<li class="nav-item dropdown notification">
-                    <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
 
-                    <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                        <li>
-                            <div class="notification-title"> Notification</div>
-                            <div class="notification-list">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action active">
-                                        <div class="notification-info">
-                                            <div class="notification-list-user-img"><img src="~/assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                            <div class="notification-list-user-block">
-                                                <span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
-                                                <div class="notification-date">2 min ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item list-group-item-action">
-                                        <div class="notification-info">
-                                            <div class="notification-list-user-img"><img src="~/assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                            <div class="notification-list-user-block">
-                                                <span class="notification-list-user-name">John Abraham </span>is now following you
-                                                <div class="notification-date">2 days ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item list-group-item-action">
-                                        <div class="notification-info">
-                                            <div class="notification-list-user-img"><img src="~/assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                            <div class="notification-list-user-block">
-                                                <span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
-                                                <div class="notification-date">2 min ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item list-group-item-action">
-                                        <div class="notification-info">
-                                            <div class="notification-list-user-img"><img src="~/assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                            <div class="notification-list-user-block">
-                                                <span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
-                                                <div class="notification-date">2 min ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-footer"> <a href="#">View all notifications</a></div>
-                        </li>
-                    </ul>
-                </li>*@
+
+                <li class="nav-item dropdown notification" style="display:none;" onclick="ShowHoldTicket()" id="HoldTicketNotifcation">
+                    <a class="nav-link nav-icons" href="#"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="fas fa-fw fa-bell"></i> <span class="indicator"></span>
+                    </a>
+
+                </li>
+
 
                 <li class="nav-item dropdown connection">
                     <a onClick="go_full_screen();" class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class=" fas fa-tv"></i>
                     </a>
                 </li>
- 
+
 
 
 
@@ -107,6 +66,25 @@
 }
 
 
+<div class="modal fade" id="modalHoldShow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hold Tickets</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <div class="modal-body" id="ListHoldTokens">
+              
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a> 
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function go_full_screen() {
         var elem = document.documentElement;
@@ -121,3 +99,4 @@
         }
     }
 </script>
+

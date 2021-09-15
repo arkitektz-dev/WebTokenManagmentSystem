@@ -1,0 +1,20 @@
+﻿@model IList<WebAppQueueManagmentSystem.ApiHelpers.Response.ListTokenBody>
+
+@{
+    Layout = null;
+}
+
+
+<ul class="list-group" style="overflow-x:scroll; height:240px;">
+
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <h1><strong>@item.Token</strong> </h1> 
+            <button class="btn btn-primary" onclick="SelectTicket('@item.Token')">Pick this</button>
+        </li>
+    }
+
+
+
+</ul>  

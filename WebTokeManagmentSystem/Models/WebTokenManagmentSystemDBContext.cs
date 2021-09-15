@@ -26,6 +26,7 @@ namespace WebTokenManagmentSystem.Models
         public virtual DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; }
         public virtual DbSet<Counter> Counters { get; set; }
+        public virtual DbSet<CounterHistory> CounterHistories { get; set; }
         public virtual DbSet<CounterServiceRelation> CounterServiceRelations { get; set; }
         public virtual DbSet<CounterTokenRelation> CounterTokenRelations { get; set; }
         public virtual DbSet<CounterType> CounterTypes { get; set; }
@@ -165,6 +166,19 @@ namespace WebTokenManagmentSystem.Models
                 entity.Property(e => e.Csrid).HasColumnName("CSRID");
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<CounterHistory>(entity =>
+            {
+                entity.ToTable("CounterHistory");
+
+                entity.Property(e => e.CounterId).HasColumnName("CounterID");
+
+                entity.Property(e => e.Login).HasColumnType("datetime");
+
+                entity.Property(e => e.Logout).HasColumnType("datetime");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
             });
 
             modelBuilder.Entity<CounterServiceRelation>(entity =>

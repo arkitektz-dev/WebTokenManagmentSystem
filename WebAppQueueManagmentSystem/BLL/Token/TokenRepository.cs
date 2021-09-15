@@ -381,5 +381,52 @@ namespace WebAppQueueManagmentSystem.BLL.Token
 
             return return_message;
         }
+
+        public HoldTokenBody HoldTicket(string TokenNumber)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            var RequestBody = new HoldSelectedTicketRequestBody()
+            {
+               TokenNumber = TokenNumber
+            };
+
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/Hold-Ticket-By-TokenNumber");
+            HoldTokenBody row = JsonConvert.DeserializeObject<HoldTokenBody>(response.Content);
+
+            var return_message = new HoldTokenBody()
+            {
+                 TokenNumber = row.TokenNumber
+            };
+            return return_message;
+        }
+
+        public IList<ListTokenBody> ListHoldTicket(string CounterId)
+        {
+            var apiEndPoint = ConfigurationManager.AppSettings["api:EndPoint"];
+
+            var RequestBody = new HoldTicketListByCounterIdRequestBody()
+            {
+                CounterId = CounterId
+            };
+
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/Token/List-Hold-Ticket-By-CounterId");
+            JArray TokenList = JArray.Parse(response.Content);
+
+            IList<ListTokenBody> row = TokenList.Select(p => new ListTokenBody
+            {
+               Token = (string)p["token"],
+               CompleteDate = (DateTime?)p["completeDate"],
+               CreatedDate = (DateTime?)p["createdDate"],
+               Date = (string)p["date"],
+               isCustomer = (bool?)p["isCustomer"],
+               Time = (string)p["time"]
+
+            }).ToList();
+
+            var return_message = row;
+
+            return return_message;
+        }
     }
 }

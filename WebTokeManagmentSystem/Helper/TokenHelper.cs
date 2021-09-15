@@ -102,7 +102,7 @@ namespace WebTokenManagmentSystem.Helper
 
             //int value_token_number = Convert.ToInt32(Regex.Replace(Token_Number, "[A-Za-z]", ""));
 
-            Token token_record = _context.Tokens.Where(x => x.CustomTokenNumber == Token_Number).FirstOrDefault();
+            Token token_record = _context.Tokens.Where(x => x.CustomTokenNumber == Token_Number && x.CreatedDate.Value.Day == DateTime.Now.Day).FirstOrDefault();
 
             return token_record;
 

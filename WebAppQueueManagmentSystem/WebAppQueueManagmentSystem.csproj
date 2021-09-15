@@ -268,6 +268,8 @@
     <Compile Include="ApiHelpers\Request\ChangeUserRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterStatusRequest.cs" />
     <Compile Include="ApiHelpers\Request\GetPendingTokenRequestBody.cs" />
+    <Compile Include="ApiHelpers\Request\HoldSelectedTicketRequestBody.cs" />
+    <Compile Include="ApiHelpers\Request\HoldTicketListByCounterIdRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\MaintainCounterHistoryBody.cs" />
     <Compile Include="ApiHelpers\Request\SubmittedTicketRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterDetailRequestBody.cs" />
@@ -282,7 +284,10 @@
     <Compile Include="ApiHelpers\Response\CounterStatusBody.cs" />
     <Compile Include="ApiHelpers\Response\CounterValueBody.cs" />
     <Compile Include="ApiHelpers\Response\CurrentCounterTokenDto.cs" />
+    <Compile Include="ApiHelpers\Response\HoldTokenBody.cs" />
+    <Compile Include="ApiHelpers\Response\HoldTokenListBody.cs" />
     <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
+    <Compile Include="ApiHelpers\Response\ListTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\MaintainCounterHistoryResponse.cs" />
     <Compile Include="ApiHelpers\Response\QueueCardBody.cs" />
     <Compile Include="ApiHelpers\Response\StatusChangeBody.cs" />
@@ -805,6 +810,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Ticket\TicketCtrl.js" />
     <Content Include="Scripts\UserHelper\ListUserCtrl.js" />
+    <Content Include="Scripts\vanilla.idle.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -861,6 +867,8 @@
     <Content Include="Views\Account\RegisterPlan.cshtml" />
     <Content Include="Views\User\ManageUser.cshtml" />
     <Content Include="Views\Account\CreateUser.cshtml" />
+    <Content Include="Views\Home\GetHoldListTicketByCounterId.cshtml" />
+    <Content Include="Views\Shared\_IdePartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
