@@ -33,7 +33,12 @@ namespace WebTokenManagmentSystem.Controllers
         private readonly TicketSpeaker _ticketSpeaker;
         public static bool isServiceRunning = true;
 
-        public UserController(TicketSpeaker hostedService, WebTokenManagmentSystemDBContext _context, IConfiguration _config, ITokenHelper _tokenHelper, ITokenBLL _tokenBLL)
+        public UserController(
+            TicketSpeaker hostedService,
+            WebTokenManagmentSystemDBContext _context, 
+            IConfiguration _config, 
+            ITokenHelper _tokenHelper, 
+            ITokenBLL _tokenBLL)
         {
             config = _config;
             context = _context;
@@ -261,18 +266,80 @@ namespace WebTokenManagmentSystem.Controllers
         }
 
         /// <summary>
-        /// Generate new token based on customer type
+        /// Insert record of counter login 
         /// </summary>
         /// <returns></returns>
         /// 
         [HttpPost]
-        [Route("Insert-Counter-Login")]
-        public IActionResult Insert_Counter_Login(string UserId, int? CounterId)
+        [Route("Insert-Counter-Auth")]
+        public IActionResult Insert_Counter_Auth([FromBody] InsertCounterLoginBody model)
         {
 
-            var row = context.CounterHistories.Where(x => x.CounterId == CounterId && x.Login == DateTime.Now.Date).FirstOrDefault();
+         
 
-            return Ok();
+            if (model.AuthStatus == true)
+            {
+                var row = context
+               .CounterHistories
+               .Where(x => x.CounterId == model.CounterId && x.Login.Value.Date == DateTime.Now.Date)
+               .OrderByDescending(x => x.Login)
+               .FirstOrDefault();
+
+                if (row != null)
+                {
+                    //Check if counter logined
+                    if (row.Login != null)
+                    {
+                        if (row.Logout == null)
+                        {
+                            if (row.UserId == model.UserId && row.CounterId == model.CounterId)
+                            {
+                                return Ok(model);
+                            }
+                            else
+                            {
+                                return NotFound("Already Exsist");
+                            }
+                        }
+                    }
+
+                }
+
+                var item = new CounterHistory()
+                {
+                    UserId = model.UserId,
+                    CounterId = model.CounterId,
+                    Login = DateTime.Now
+                };
+
+                context.CounterHistories.Add(item);
+                context.SaveChanges();
+
+                return Ok(model);
+
+            }
+
+
+            if (model.AuthStatus == false)
+            {
+                var row = context
+               .CounterHistories
+               .Where(x => x.UserId == model.UserId && x.Login.Value.Date == DateTime.Now.Date && x.Logout == null)
+               .OrderByDescending(x => x.Login)
+               .FirstOrDefault();
+
+                if (row != null)
+                {
+                    row.Logout = DateTime.Now;
+                    context.SaveChanges();
+                }
+
+            }
+
+
+
+            return NotFound();
+             
 
         }
 

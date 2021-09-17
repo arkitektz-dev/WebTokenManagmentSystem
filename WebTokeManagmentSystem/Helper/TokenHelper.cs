@@ -143,7 +143,7 @@ namespace WebTokenManagmentSystem.Helper
             {
                 TokenNumber = GetTokenNumber(isCustomer),
 
-                CustomTokenNumber = isCustomer == Convert.ToInt32(GlobalEnums.CustomerType.Customer) ? "C" + GetTokenNumber(isCustomer).Value.ToString("D5") : "N" + GetTokenNumber(isCustomer).Value.ToString("D5"),
+                CustomTokenNumber = isCustomer == Convert.ToInt32(GlobalEnums.CustomerType.Customer) ? "C" + GetTokenNumber(isCustomer).Value.ToString("D4") : "N" + GetTokenNumber(isCustomer).Value.ToString("D4"),
                 IsCustomer = isCustomer == 1 ? true : false,
                 Status = (byte?)GlobalEnums.Status.Pending
 

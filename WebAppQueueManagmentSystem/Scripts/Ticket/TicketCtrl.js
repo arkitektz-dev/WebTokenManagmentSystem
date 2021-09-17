@@ -21,6 +21,7 @@ con.client.getRemovedTicketNumber = function (TicketNumber) {
 setInterval(function () {
     console.log("running");
     RefreshList();
+    ShowQueueInTicket();
 },2000)
 
 let RemoveTicketFromList = (TicketNumber) => {
@@ -33,7 +34,13 @@ let RemoveTicketFromList = (TicketNumber) => {
 
 
 
+function ShowQueueInTicket() {
+    if (document.getElementById("listSidebar").getElementsByTagName("li") != undefined) {
 
+        var countRow = document.getElementById("listSidebar").getElementsByTagName("li").length;
+        document.getElementById("TicketQueue").innerText = countRow;
+    }
+}
 
 
 $.connection.hub.start().done(function () {

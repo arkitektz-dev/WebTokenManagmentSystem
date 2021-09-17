@@ -112,10 +112,27 @@ namespace WebAppQueueManagmentSystem.Controllers
                 return View(model);
             }
 
+
+            //Check availability of counter
+            var checkCounter = counter.RecordCounterLogin(user.Id, model.CounterID,true);
+
+            if (checkCounter == null) {
+
+                var UserRole = UserManager.GetRoles(user.Id);
+
+                if (UserRole.Contains("Cashier"))
+                { 
+                    ModelState.AddModelError("", "Counter is already in use.");
+                    return View(model);
+                }
+
+            }
+
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
-        
+            
          
             switch (result)
             {
@@ -534,6 +551,17 @@ namespace WebAppQueueManagmentSystem.Controllers
                 }
                  
             }
+
+            //Check availability of counter
+            var checkCounter = counter.RecordCounterLogin(User.Identity.GetUserId(), 0,false);
+
+            if (checkCounter == null)
+            {
+                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+                return RedirectToAction("Login", "Account");
+            }
+
+
             //else
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Login", "Account");

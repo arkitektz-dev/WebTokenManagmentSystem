@@ -270,6 +270,7 @@
     <Compile Include="ApiHelpers\Request\GetPendingTokenRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\HoldSelectedTicketRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\HoldTicketListByCounterIdRequestBody.cs" />
+    <Compile Include="ApiHelpers\Request\InsertCounterLoginRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\MaintainCounterHistoryBody.cs" />
     <Compile Include="ApiHelpers\Request\SubmittedTicketRequestBody.cs" />
     <Compile Include="ApiHelpers\Request\CounterDetailRequestBody.cs" />
@@ -286,6 +287,7 @@
     <Compile Include="ApiHelpers\Response\CurrentCounterTokenDto.cs" />
     <Compile Include="ApiHelpers\Response\HoldTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\HoldTokenListBody.cs" />
+    <Compile Include="ApiHelpers\Response\InsertCounterLoginBody.cs" />
     <Compile Include="ApiHelpers\Response\ListCounterTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\ListTokenBody.cs" />
     <Compile Include="ApiHelpers\Response\MaintainCounterHistoryResponse.cs" />

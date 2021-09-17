@@ -9,5 +9,6 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
         CounterDetailBody CounterDetail(string UserID);
         Models.Token GetLastPendingTicket(string UserId);
         IList<ApiHelpers.Response.CounterResponse> ListCounter();
+        InsertCounterLoginBody RecordCounterLogin(string UserId, int CounterId, bool AuthStatus);
     }
 }

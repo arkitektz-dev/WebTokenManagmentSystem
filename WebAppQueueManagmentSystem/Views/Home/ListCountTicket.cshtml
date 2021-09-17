@@ -5,28 +5,29 @@
 @foreach (var item in Model)
 {
 
-    <tr>
-        <td>
-            <div class="card ml-3">
+<tr>
+    <td>
+        <div class="card ml-3">
 
-                <div class="card-body">
-
-                    
-
-                    <h3 class="card-title text-center">Counter @item.CounterName</h3>
-
-                </div>
+            <div class="card-body">
+                <h2 class="card-title text-center"> <strong>@item.TicketNumber</strong> </h2>
             </div>
-        </td>
-        <td>
-            <div class="card ml-3">
+        </div>
+    </td>
+    <td>
+        <div class="card ml-3">
 
-                <div class="card-body">
-                    <h3 class="card-title text-center">@item.TicketNumber</h3>
-                </div>
+            <div class="card-body">
+
+
+
+                <h3 class="card-title text-center">Counter @item.CounterName</h3>
+
             </div>
-        </td>
-    </tr>
+        </div>
+    </td>
+
+</tr>
 
 }
 

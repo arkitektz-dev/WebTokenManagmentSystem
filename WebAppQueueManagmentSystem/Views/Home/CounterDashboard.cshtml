@@ -93,26 +93,39 @@
                         </div>
 
 
-                        <div class="row mx-auto">
-                            <div class="col-md-2">
-                                <button class="btn btn-secondary" onclick="btnGetNextTicket()">Next</button>
+                        <div class="row" style="margin:0 auto; width: 46%;">
+
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button class="btn btn-primary" onclick="btnGetNextTicket()">Next</button>
+                                </div>
                             </div>
 
-                            <div class="col-md-2">
-                                <button class="btn btn-secondary" onclick="btnSkipThis()">No Show</button>
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button class="btn btn-dark" onclick="btnSkipThis()">No Show</button>
+                                </div>
                             </div>
 
-                            <div class="col-md-2">
-                                <button class="btn btn-secondary" onclick="btnHoldTicket()">Hold</button>
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button class="btn btn-warning" onclick="btnHoldTicket()">Hold</button>
+                                </div>
                             </div>
 
-                            <div class="col-md-2">
-                                <button class="btn btn-secondary" onclick="btnCloseThisTicket()">Close</button>
+
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button class="btn btn-success" onclick="btnCloseThisTicket()">Close</button>
+                                </div>
                             </div>
 
-                            <div class="col-md-2">
-                                <button class="btn btn-secondary" id="btnClose" onclick="CallAgain()">Call</button>
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button class="btn btn-primary" id="btnClose" onclick="CallAgain()">Call</button>
+                                </div>
                             </div>
+ 
                         </div>
 
                     </div>

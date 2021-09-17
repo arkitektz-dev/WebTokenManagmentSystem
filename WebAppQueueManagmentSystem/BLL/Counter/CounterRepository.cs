@@ -148,11 +148,29 @@ namespace WebAppQueueManagmentSystem.BLL.Counter
             return return_message;
 
 
+        }
+         
 
+        public InsertCounterLoginBody RecordCounterLogin(string UserId, int CounterId, bool AuthStatus)
+        {
+            var RequestBody = new InsertCounterLoginRequestBody()
+            {
+                UserId = UserId,
+                CounterId = CounterId,
+                AuthStatus = AuthStatus
+            };
 
+            IRestResponse response = helper.RunPostRequest(RequestBody, "api/User/Insert-Counter-Auth");
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                return null;
+            }
+
+            InsertCounterLoginBody model = JsonConvert.DeserializeObject<InsertCounterLoginBody>(response.Content);
+
+            return model;
         }
 
-
-
+         
     }
 }
