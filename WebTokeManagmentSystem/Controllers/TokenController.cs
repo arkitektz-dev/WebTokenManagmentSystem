@@ -462,6 +462,7 @@ namespace WebTokeManagmentSystem.Controllers
         {
             var counterList = context.Counters.Select(x => x.Id).ToList();
             List<int> AvailableCounterList = new List<int>();
+            var getLoggedCounterList = context.CounterHistories.Where(x => x.Login.Value.Date == DateTime.Now.Date && x.Logout == null).ToList(); 
 
             foreach (var item in counterList) {
 
@@ -474,7 +475,30 @@ namespace WebTokeManagmentSystem.Controllers
                 //if (isAvailable == true)
                 //    continue;
 
-                AvailableCounterList.Add(item);
+                bool checkIfCounterInlist = getLoggedCounterList.Where(x => x.CounterId == item).Count() > 0;
+                
+
+                if (checkIfCounterInlist == false)
+                {
+                    AvailableCounterList.Add(item);
+                }
+
+                if (checkIfCounterInlist == true)
+                {
+                    var getLastCounterTicket = context.CounterTokenRelations.Where(x => x.CounterId == item && x.CreatedDate == DateTime.Now.Date).FirstOrDefault();
+                    
+                    if(getLastCounterTicket != null)
+                    {
+                        var start = DateTime.Now;
+                        if (start.AddMinutes(30) < getLastCounterTicket.CreatedDate)
+                        {
+                            AvailableCounterList.Add(item);
+                        }
+
+                    }
+
+                }
+
 
             }
 
@@ -559,20 +583,6 @@ namespace WebTokeManagmentSystem.Controllers
                 return NotFound();
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

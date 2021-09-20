@@ -64,7 +64,7 @@ namespace WebTokenManagmentSystem.BLL
                     Status = (byte?)GlobalEnums.Status.Pending
                 };
 
-                objRow.CustomTokenNumber = CustomerType + objRow.TokenNumber.Value.ToString("D4");
+                objRow.CustomTokenNumber = CustomerType + objRow.TokenNumber.Value.ToString("D5");
 
                 context.Tokens.Add(objRow);
                 context.SaveChanges();
@@ -74,7 +74,7 @@ namespace WebTokenManagmentSystem.BLL
 
                 var return_message = new NewTokendto()
                 {
-                    Token = CustomerType + objRow.TokenNumber.Value.ToString("D4"),
+                    Token = CustomerType + objRow.TokenNumber.Value.ToString("D5"),
                     Date = objRow.CreatedDate.Value.ToString(@"dd/MM/yyyy"),
                     Time = objRow.CreatedDate.Value.ToString(@"hh:m tt")
 
@@ -92,7 +92,7 @@ namespace WebTokenManagmentSystem.BLL
 
                 var return_message = new NewTokendto()
                 {
-                    Token = CustomerType + row.TokenNumber.Value.ToString("D4"),
+                    Token = CustomerType + row.TokenNumber.Value.ToString("D5"),
                     Date = row.CreatedDate.Value.ToString(@"dd/MM/yyyy"),
                     Time = row.CreatedDate.Value.ToString(@"hh:m tt"),
 
